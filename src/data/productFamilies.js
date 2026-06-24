@@ -1,0 +1,58 @@
+export const productFamilies = [
+  {
+    id: "compact-cooling",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Compact Cooling",
+    summary: "Under 30L, lighter and easier to carry.",
+    description: "Ideal for everyday trips, solo adventures and short getaways. Quiet compressor cooling in a compact form.",
+    href: "#/products/compact-cooling",
+    target: "/products/compact-cooling",
+    heroImage: "/assets/products/b20.png",
+    products: ["d", "k", "s", "b"],
+    features: ["Easy to carry", "Compact compressor cooling", "Vehicle-ready power", "Daily travel use"],
+    useCases: ["Solo trips", "Picnics", "Daily vehicle use", "Small retail display"],
+  },
+  {
+    id: "large-capacity",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Large Capacity",
+    summary: "30L and above for larger storage needs.",
+    description: "Designed for longer routes, family travel and larger cold-storage requirements.",
+    href: "#/products/large-capacity",
+    target: "/products/large-capacity",
+    heroImage: "/assets/products/ex.png",
+    products: ["ax", "ex", "gl"],
+    features: ["Larger storage volume", "Longer trip support", "Compressor cooling", "Strong equipment presence"],
+    useCases: ["Family travel", "Long-distance driving", "Outdoor supply", "Larger cold storage"],
+  },
+  {
+    id: "dual-zone-storage",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Dual-zone Storage",
+    summary: "Separated cooling zones for chilled and frozen items.",
+    description: "Dual-zone layouts help organize fresh supplies, frozen goods and drinks for longer trips.",
+    href: "#/products/dual-zone-storage",
+    target: "/products/dual-zone-storage",
+    heroImage: "/assets/products/gl.png",
+    products: ["gl", "ax", "tf", "m"],
+    features: ["Separate chilled and frozen storage", "Better organization", "Longer route support", "Multi-model range"],
+    useCases: ["Fresh + frozen storage", "Camping", "Road trips", "Organized supplies"],
+  },
+  {
+    id: "wheeled-mobility",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Wheeled Mobility",
+    summary: "Cooling systems with wheels and pull-handle layouts.",
+    description: "Built for vehicle travel, outdoor supply and easier movement over longer distances.",
+    href: "#/products/wheeled-mobility",
+    target: "/products/wheeled-mobility",
+    heroImage: "/assets/products/exm.png",
+    products: ["exm", "m"],
+    features: ["Wheels and pull-handle layout", "Easier movement", "Vehicle travel ready", "Outdoor supply use"],
+    useCases: ["Vehicle travel", "Campsites", "Coastal routes", "Moving heavier loads"],
+  },
+];
+
+export function productFamilyById(id) {
+  return productFamilies.find((family) => family.id === id);
+}

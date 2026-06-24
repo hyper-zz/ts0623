@@ -1,0 +1,841 @@
+# Asset Reference Audit
+
+Generated on 2026-06-24. Root `assets/` directory was already absent.
+
+## Summary
+
+- Total occurrences found: 814
+- Correct runtime references: 127
+- Incorrect runtime references: 0
+- Build-time or tooling references allowed: 687
+
+## Classification Rules
+
+- Runtime files are `src/**` and `index.html`. Runtime asset URLs must start with `/assets/`.
+- `server.mjs`, `scripts/**`, documentation, review artifacts, and repository metadata are classified as allowed non-runtime references.
+- Hardcoded local filesystem paths are included in the scan and would be marked incorrect if found in runtime files.
+
+## Incorrect runtime reference
+
+None.
+
+## Correct runtime reference
+
+- index.html:12 | token: `/assets/` | <link rel="preload" as="image" href="/assets/hero/s35-hero.png" />
+- src/components/Header.js:70 | token: `/assets/` | <span class="brand-mark"><img src="/assets/brand/k-icon.svg" alt=""></span>
+- src/data/galleryManifest.js:8 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-open.png",
+- src/data/galleryManifest.js:13 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax40-front.png",
+- src/data/galleryManifest.js:18 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-black.png",
+- src/data/galleryManifest.js:23 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-side.png",
+- src/data/galleryManifest.js:36 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-black.png",
+- src/data/galleryManifest.js:41 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-front.png",
+- src/data/galleryManifest.js:46 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-open.png",
+- src/data/galleryManifest.js:51 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-side.png",
+- src/data/heroSlides.js:12 | token: `/assets/` | background: "/assets/hero/s35-hero.png",
+- src/data/heroSlides.js:32 | token: `/assets/` | background: "/assets/hero/b20-hero.png",
+- src/data/heroSlides.js:52 | token: `/assets/` | background: "/assets/hero/ex-hero.png",
+- src/data/homepage.js:5 | token: `/assets/` | image: "/assets/products/S35.png",
+- src/data/homepage.js:6 | token: `/assets/` | fallback: "/assets/products/s18-orange.png",
+- src/data/homepage.js:11 | token: `/assets/` | image: "/assets/products/b20.png",
+- src/data/homepage.js:16 | token: `/assets/` | image: "/assets/products/gl.png",
+- src/data/homepage.js:21 | token: `/assets/` | image: "/assets/products/exm.png",
+- src/data/productGallery.js:8 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-open.png"
+- src/data/productGallery.js:11 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax40-front.png"
+- src/data/productGallery.js:14 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-black.png"
+- src/data/productGallery.js:17 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-side.png"
+- src/data/productGallery.js:27 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-black.png"
+- src/data/productGallery.js:30 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-front.png"
+- src/data/productGallery.js:33 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-open.png"
+- src/data/productGallery.js:36 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-side.png"
+- src/data/productImageManifest.js:7 | token: `/assets/` | "Black": "/assets/products/gl/models/gl35-black.png",
+- src/data/productImageManifest.js:8 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl35-sage.png"
+- src/data/productImageManifest.js:11 | token: `/assets/` | "Black": "/assets/products/gl/models/gl45-black.png",
+- src/data/productImageManifest.js:12 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl45-sage.png"
+- src/data/productImageManifest.js:15 | token: `/assets/` | "Black": "/assets/products/gl/models/gl55-black.png",
+- src/data/productImageManifest.js:16 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl55-sage.png"
+- src/data/productImageManifest.js:19 | token: `/assets/` | "Black": "/assets/products/gl/models/gl75-black.png"
+- src/data/productImageManifest.js:24 | token: `/assets/` | "black": "/assets/products/ax/models/ax30-black.png",
+- src/data/productImageManifest.js:25 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax30-champagne.png",
+- src/data/productImageManifest.js:26 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax30-light-gray.png"
+- src/data/productImageManifest.js:29 | token: `/assets/` | "black": "/assets/products/ax/models/ax40-black.png",
+- src/data/productImageManifest.js:30 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax40-champagne.png",
+- src/data/productImageManifest.js:31 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax40-light-gray.png"
+- src/data/productImageManifest.js:34 | token: `/assets/` | "black": "/assets/products/ax/models/ax50-black.png",
+- src/data/productImageManifest.js:35 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax50-champagne.png",
+- src/data/productImageManifest.js:36 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax50-light-gray.png"
+- src/data/productImageManifest.js:47 | token: `/assets/` | "black": "/assets/products/m/models/m35-black.png",
+- src/data/productImageManifest.js:48 | token: `/assets/` | "sage-green": "/assets/products/m/models/m35-sage.png"
+- src/data/productImageManifest.js:51 | token: `/assets/` | "black": "/assets/products/m/models/m45-black.png",
+- src/data/productImageManifest.js:52 | token: `/assets/` | "sage-green": "/assets/products/m/models/m45-sage.png"
+- src/data/productImageManifest.js:55 | token: `/assets/` | "black": "/assets/products/m/models/m55-black.png",
+- src/data/productImageManifest.js:56 | token: `/assets/` | "sage-green": "/assets/products/m/models/m55-sage.png"
+- src/data/products.js:150 | token: `/assets/` | image: "/assets/products/gl/models/gl35-black.png",
+- src/data/products.js:161 | token: `/assets/` | Black: "/assets/products/gl/models/gl35-black.png",
+- src/data/products.js:162 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl35-sage.png",
+- src/data/products.js:165 | token: `/assets/` | Black: "/assets/products/gl/models/gl45-black.png",
+- src/data/products.js:166 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl45-sage.png",
+- src/data/products.js:169 | token: `/assets/` | Black: "/assets/products/gl/models/gl55-black.png",
+- src/data/products.js:170 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl55-sage.png",
+- src/data/products.js:173 | token: `/assets/` | Black: "/assets/products/gl/models/gl75-black.png",
+- src/data/products.js:174 | token: `/assets/` | "Sage Green": "/assets/products/gl/models/gl75-black.png",
+- src/data/products.js:191 | token: `/assets/` | path: "/assets/360/gl55/frame-",
+- src/data/products.js:280 | token: `/assets/` | image: "/assets/products/gl/front.png",
+- src/data/products.js:285 | token: `/assets/` | image: "/assets/products/gl/open-lid.png",
+- src/data/products.js:290 | token: `/assets/` | image: "/assets/products/gl/control-panel.png",
+- src/data/products.js:295 | token: `/assets/` | image: "/assets/products/gl/handle-detail.png",
+- src/data/products.js:300 | token: `/assets/` | image: "/assets/products/gl/gl-black-open.png",
+- src/data/products.js:305 | token: `/assets/` | image: "/assets/products/gl/gl-sage-open.png",
+- src/data/products.js:310 | token: `/assets/` | image: "/assets/products/gl.png",
+- src/data/products.js:315 | token: `/assets/` | image: "/assets/products/gl/models/gl75-black.png",
+- src/data/products.js:320 | token: `/assets/` | image: "/assets/products/gl/models/gl55-sage.png",
+- src/data/products.js:400 | token: `/assets/` | image: "/assets/products/ax.png",
+- src/data/products.js:428 | token: `/assets/` | image: "/assets/products/exm.png",
+- src/data/products.js:451 | token: `/assets/` | manual: "/assets/downloads/exm-series-manual.pdf",
+- src/data/products.js:460 | token: `/assets/` | image: "/assets/products/b20.png",
+- src/data/products.js:488 | token: `/assets/` | image: "/assets/products/k.jpg",
+- src/data/products.js:516 | token: `/assets/` | image: "/assets/products/ke.jpg",
+- src/data/products.js:544 | token: `/assets/` | image: "/assets/products/tf.jpg",
+- src/data/products.js:572 | token: `/assets/` | image: "/assets/products/m.png",
+- src/data/products.js:576 | token: `/assets/` | path: "/assets/360/m55/frame-",
+- src/data/products.js:608 | token: `/assets/` | image: "/assets/products/ex.png",
+- src/data/products.js:632 | token: `/assets/` | manual: "/assets/downloads/ex-series-manual.pdf",
+- src/data/products.js:641 | token: `/assets/` | image: "/assets/products/S35.png",
+- src/data/products.js:670 | token: `/assets/` | image: "/assets/products/s18-orange.png",
+- src/data/products.js:699 | token: `/assets/` | image: "/assets/products/d.jpg",
+- src/data/products.js:770 | token: `/assets/` | black: "/assets/products/ax/models/ax30-black.png",
+- src/data/products.js:771 | token: `/assets/` | champagne: "/assets/products/ax/models/ax30-champagne.png",
+- src/data/products.js:772 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax30-light-gray.png",
+- src/data/products.js:775 | token: `/assets/` | black: "/assets/products/ax/models/ax40-black.png",
+- src/data/products.js:776 | token: `/assets/` | champagne: "/assets/products/ax/models/ax40-champagne.png",
+- src/data/products.js:777 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax40-light-gray.png",
+- src/data/products.js:780 | token: `/assets/` | black: "/assets/products/ax/models/ax50-black.png",
+- src/data/products.js:781 | token: `/assets/` | champagne: "/assets/products/ax/models/ax50-champagne.png",
+- src/data/products.js:782 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax50-light-gray.png",
+- src/data/products.js:805 | token: `/assets/` | image: "/assets/products/ax/gallery/ax30-open.png",
+- src/data/products.js:810 | token: `/assets/` | image: "/assets/products/ax/gallery/ax40-front.png",
+- src/data/products.js:815 | token: `/assets/` | image: "/assets/products/ax/gallery/ax50-side.png",
+- src/data/products.js:820 | token: `/assets/` | image: "/assets/products/ax/gallery/ax50-black.png",
+- src/data/products.js:876 | token: `/assets/` | gallery: galleryFromImage("/assets/products/exm.png", "Export-ready body platform for retail configuration."),
+- src/data/products.js:900 | token: `/assets/` | manual: "/assets/downloads/exm-series-manual.pdf",
+- src/data/products.js:910 | token: `/assets/` | B20: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b20.png"])),
+- src/data/products.js:911 | token: `/assets/` | B25: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b/b25.png"])),
+- src/data/products.js:930 | token: `/assets/` | gallery: galleryFromImage("/assets/products/b20.png", "Compact body layout for vehicle storage and portable use."),
+- src/data/products.js:965 | token: `/assets/` | gallery: galleryFromImage("/assets/products/k.jpg", "Compact exterior for short-distance portable use."),
+- src/data/products.js:1001 | token: `/assets/` | gallery: galleryFromImage("/assets/products/ke.jpg", "Broad-size product family for distributor planning."),
+- src/data/products.js:1037 | token: `/assets/` | gallery: galleryFromImage("/assets/products/tf.jpg", "Classic upright shell for familiar refrigerator programs."),
+- src/data/products.js:1069 | token: `/assets/` | black: "/assets/products/m/models/m35-black.png",
+- src/data/products.js:1070 | token: `/assets/` | "sage-green": "/assets/products/m/models/m35-sage.png",
+- src/data/products.js:1073 | token: `/assets/` | black: "/assets/products/m/models/m45-black.png",
+- src/data/products.js:1074 | token: `/assets/` | "sage-green": "/assets/products/m/models/m45-sage.png",
+- src/data/products.js:1077 | token: `/assets/` | black: "/assets/products/m/models/m55-black.png",
+- src/data/products.js:1078 | token: `/assets/` | "sage-green": "/assets/products/m/models/m55-sage.png",
+- src/data/products.js:1101 | token: `/assets/` | image: "/assets/products/m/gallery/m45-front.png",
+- src/data/products.js:1106 | token: `/assets/` | image: "/assets/products/m/gallery/m45-open.png",
+- src/data/products.js:1111 | token: `/assets/` | image: "/assets/products/m/gallery/m45-side.png",
+- src/data/products.js:1116 | token: `/assets/` | image: "/assets/products/m/gallery/m45-black.png",
+- src/data/products.js:1151 | token: `/assets/` | productImages: modelColorImages(["EX30", "EX40", "EX50"], exSeriesColors, "/assets/products/ex.png"),
+- src/data/products.js:1170 | token: `/assets/` | gallery: galleryFromImage("/assets/products/ex.png", "Mass-production friendly structure for volume programs."),
+- src/data/products.js:1186 | token: `/assets/` | manual: "/assets/downloads/ex-series-manual.pdf",
+- src/data/products.js:1199 | token: `/assets/` | "all-black": "/assets/products/S35.png",
+- src/data/products.js:1217 | token: `/assets/` | gallery: galleryFromImage("/assets/products/S35.png", "Compact body form for second-fridge and workshop use."),
+- src/data/products.js:1252 | token: `/assets/` | "orange-black": "/assets/products/s18-orange.png",
+- src/data/products.js:1253 | token: `/assets/` | "all-black": "/assets/products/s18-orange.png",
+- src/data/products.js:1256 | token: `/assets/` | "all-black": "/assets/products/S35.png",
+- src/data/products.js:1274 | token: `/assets/` | gallery: galleryFromImage("/assets/products/s18-orange.png", "Compact body form for second-fridge and workshop use."),
+- src/data/products.js:1304 | token: `/assets/` | productImages: modelColorImages(["D9"], dSeriesColors, "/assets/products/d.jpg"),
+- src/data/products.js:1320 | token: `/assets/` | gallery: galleryFromImage("/assets/products/d.jpg", "Compact body form for small-space cooling."),
+- src/styles.css:1174 | token: `/assets/` | mask-image: url("/assets/icons/arrowleft.svg");
+- src/styles.css:1175 | token: `/assets/` | -webkit-mask-image: url("/assets/icons/arrowleft.svg");
+- src/styles.css:1183 | token: `/assets/` | mask-image: url("/assets/icons/arrowright.svg");
+- src/styles.css:1184 | token: `/assets/` | -webkit-mask-image: url("/assets/icons/arrowright.svg");
+
+## Build-time or tooling reference that is allowed
+
+- README.md:26 | token: `assets/` | assets/
+- README.md:29 | token: `/assets/` | Runtime assets referenced as \`/assets/...\` are served from \`public/assets\`.
+- chatgpt-review-prompt.md:12 | token: `public/assets/` | - Assets are under \`public/assets/\`.
+- docs/asset-migration-report.md:7 | token: `assets/` | - Root \`assets/\` directory exists: no
+- docs/asset-migration-report.md:8 | token: `assets/` | - Files in root \`assets/\`: 0
+- docs/asset-migration-report.md:9 | token: `public/assets/` | - Files in \`public/assets/\`: 147
+- docs/asset-migration-report.md:10 | token: `assets/` | - Files existing only in root \`assets/\`: 0
+- docs/asset-migration-report.md:11 | token: `public/assets/` | - Files existing only in \`public/assets/\`: 147
+- docs/asset-migration-report.md:14 | token: `assets/` | ## Files Existing Only in \`assets/\`
+- docs/asset-migration-report.md:18 | token: `public/assets/` | ## Files Existing Only in \`public/assets/\`
+- gl-series.md:97 | token: `/assets/` | | \`/assets/products/gl/front.png\` | Front angle | Rugged proportions with a strong outdoor equipment presence. |
+- gl-series.md:98 | token: `/assets/` | | \`/assets/products/gl/open-lid.png\` | Open storage | Dual-lid access for larger cold-storage needs. |
+- gl-series.md:99 | token: `/assets/` | | \`/assets/products/gl/control-panel.png\` | Control panel | Clear operation for vehicle travel and outdoor use. |
+- gl-series.md:100 | token: `/assets/` | | \`/assets/products/gl/handle-detail.png\` | Side handle detail | Handle structure designed for outdoor handling and vehicle travel. |
+- gl-series.md:148 | token: `/assets/` | | Brochure | \`/assets/downloads/gl-series-brochure.pdf\` |
+- gl-series.md:149 | token: `/assets/` | | Spec Sheet | \`/assets/downloads/gl-series-spec-sheet.pdf\` |
+- gl-series.md:150 | token: `/assets/` | | Manual | \`/assets/downloads/gl-series-manual.pdf\` |
+- gl-series.md:164 | token: `/Users/yiwenzhou/Documents/Kelvcoop/Travel` | | Travel Science brochure | \`/Users/yiwenzhou/Documents/Kelvcoop/Travel Science画册.pdf\` |
+- gl-series.md:165 | token: `/Users/yiwenzhou/Documents/Kelvcoop/单张flyers/GL单张-20250717.pdf` | | GL flyer | \`/Users/yiwenzhou/Documents/Kelvcoop/单张flyers/GL单张-20250717.pdf\` |
+- review.md:31 | token: `assets/` | assets/brand/k-icon.svg
+- review.md:38 | token: `public/assets/` | public/assets/brand/k-icon.svg
+- review.md:39 | token: `public/assets/` | public/assets/icons/arrowleft.svg
+- review.md:40 | token: `public/assets/` | public/assets/icons/arrowright.svg
+- review.md:83 | token: `assets/` | assets/360/gl55/frame-001.jpg
+- review.md:84 | token: `assets/` | assets/360/gl55/frame-002.jpg
+- review.md:85 | token: `assets/` | assets/360/gl55/frame-003.jpg
+- review.md:86 | token: `assets/` | assets/360/gl55/frame-004.jpg
+- review.md:87 | token: `assets/` | assets/360/gl55/frame-005.jpg
+- review.md:88 | token: `assets/` | assets/360/gl55/frame-006.jpg
+- review.md:89 | token: `assets/` | assets/360/gl55/frame-007.jpg
+- review.md:90 | token: `assets/` | assets/360/gl55/frame-008.jpg
+- review.md:91 | token: `assets/` | assets/360/gl55/frame-009.jpg
+- review.md:92 | token: `assets/` | assets/360/gl55/frame-010.jpg
+- review.md:93 | token: `assets/` | assets/360/gl55/frame-011.jpg
+- review.md:94 | token: `assets/` | assets/360/gl55/frame-012.jpg
+- review.md:95 | token: `assets/` | assets/360/gl55/frame-013.jpg
+- review.md:96 | token: `assets/` | assets/360/gl55/frame-014.jpg
+- review.md:97 | token: `assets/` | assets/360/gl55/frame-015.jpg
+- review.md:98 | token: `assets/` | assets/360/gl55/frame-016.jpg
+- review.md:99 | token: `assets/` | assets/360/gl55/frame-017.jpg
+- review.md:100 | token: `assets/` | assets/360/gl55/frame-018.jpg
+- review.md:101 | token: `assets/` | assets/360/gl55/frame-019.jpg
+- review.md:102 | token: `assets/` | assets/360/gl55/frame-020.jpg
+- review.md:103 | token: `assets/` | assets/360/gl55/frame-021.jpg
+- review.md:104 | token: `assets/` | assets/360/gl55/frame-022.jpg
+- review.md:105 | token: `assets/` | assets/360/gl55/frame-023.jpg
+- review.md:106 | token: `assets/` | assets/360/gl55/frame-024.jpg
+- review.md:107 | token: `assets/` | assets/360/gl55/frame-025.jpg
+- review.md:108 | token: `assets/` | assets/360/gl55/frame-026.jpg
+- review.md:109 | token: `assets/` | assets/360/gl55/frame-027.jpg
+- review.md:110 | token: `assets/` | assets/360/gl55/frame-028.jpg
+- review.md:111 | token: `assets/` | assets/360/gl55/frame-029.jpg
+- review.md:112 | token: `assets/` | assets/360/gl55/frame-030.jpg
+- review.md:113 | token: `assets/` | assets/360/gl55/frame-031.jpg
+- review.md:114 | token: `assets/` | assets/360/gl55/frame-032.jpg
+- review.md:115 | token: `assets/` | assets/360/gl55/frame-033.jpg
+- review.md:116 | token: `assets/` | assets/360/gl55/frame-034.jpg
+- review.md:117 | token: `assets/` | assets/360/gl55/frame-035.jpg
+- review.md:118 | token: `assets/` | assets/360/gl55/frame-036.jpg
+- review.md:119 | token: `assets/` | assets/360/gl55/frame-037.jpg
+- review.md:120 | token: `assets/` | assets/360/gl55/frame-038.jpg
+- review.md:121 | token: `assets/` | assets/360/gl55/frame-039.jpg
+- review.md:122 | token: `assets/` | assets/360/gl55/frame-040.jpg
+- review.md:123 | token: `assets/` | assets/360/gl55/frame-041.jpg
+- review.md:124 | token: `assets/` | assets/360/gl55/frame-042.jpg
+- review.md:125 | token: `assets/` | assets/360/gl55/frame-043.jpg
+- review.md:126 | token: `assets/` | assets/360/gl55/frame-044.jpg
+- review.md:127 | token: `assets/` | assets/360/gl55/frame-045.jpg
+- review.md:128 | token: `assets/` | assets/360/gl55/frame-046.jpg
+- review.md:129 | token: `assets/` | assets/360/gl55/frame-047.jpg
+- review.md:130 | token: `assets/` | assets/360/gl55/frame-048.jpg
+- review.md:131 | token: `assets/` | assets/360/gl55/frame-049.jpg
+- review.md:132 | token: `assets/` | assets/360/gl55/frame-050.jpg
+- review.md:133 | token: `assets/` | assets/360/m55/frame-001.jpg
+- review.md:134 | token: `assets/` | assets/360/m55/frame-002.jpg
+- review.md:135 | token: `assets/` | assets/360/m55/frame-003.jpg
+- review.md:136 | token: `assets/` | assets/360/m55/frame-004.jpg
+- review.md:137 | token: `assets/` | assets/360/m55/frame-005.jpg
+- review.md:138 | token: `assets/` | assets/360/m55/frame-006.jpg
+- review.md:139 | token: `assets/` | assets/360/m55/frame-007.jpg
+- review.md:140 | token: `assets/` | assets/360/m55/frame-008.jpg
+- review.md:141 | token: `assets/` | assets/360/m55/frame-009.jpg
+- review.md:142 | token: `assets/` | assets/360/m55/frame-010.jpg
+- review.md:143 | token: `assets/` | assets/360/m55/frame-011.jpg
+- review.md:144 | token: `assets/` | assets/360/m55/frame-012.jpg
+- review.md:145 | token: `assets/` | assets/360/m55/frame-013.jpg
+- review.md:146 | token: `assets/` | assets/360/m55/frame-014.jpg
+- review.md:147 | token: `assets/` | assets/360/m55/frame-015.jpg
+- review.md:148 | token: `assets/` | assets/360/m55/frame-016.jpg
+- review.md:149 | token: `assets/` | assets/360/m55/frame-017.jpg
+- review.md:150 | token: `assets/` | assets/360/m55/frame-018.jpg
+- review.md:151 | token: `assets/` | assets/360/m55/frame-019.jpg
+- review.md:152 | token: `assets/` | assets/360/m55/frame-020.jpg
+- review.md:153 | token: `assets/` | assets/360/m55/frame-021.jpg
+- review.md:154 | token: `assets/` | assets/360/m55/frame-022.jpg
+- review.md:155 | token: `assets/` | assets/360/m55/frame-023.jpg
+- review.md:156 | token: `assets/` | assets/360/m55/frame-024.jpg
+- review.md:157 | token: `assets/` | assets/360/m55/frame-025.jpg
+- review.md:158 | token: `assets/` | assets/360/m55/frame-026.jpg
+- review.md:159 | token: `assets/` | assets/360/m55/frame-027.jpg
+- review.md:160 | token: `assets/` | assets/360/m55/frame-028.jpg
+- review.md:161 | token: `assets/` | assets/360/m55/frame-029.jpg
+- review.md:162 | token: `assets/` | assets/360/m55/frame-030.jpg
+- review.md:163 | token: `assets/` | assets/360/m55/frame-031.jpg
+- review.md:164 | token: `assets/` | assets/360/m55/frame-032.jpg
+- review.md:165 | token: `assets/` | assets/360/m55/frame-033.jpg
+- review.md:166 | token: `assets/` | assets/360/m55/frame-034.jpg
+- review.md:167 | token: `assets/` | assets/360/m55/frame-035.jpg
+- review.md:168 | token: `assets/` | assets/360/m55/frame-036.jpg
+- review.md:169 | token: `assets/` | assets/360/m55/frame-037.jpg
+- review.md:170 | token: `assets/` | assets/360/m55/frame-038.jpg
+- review.md:171 | token: `assets/` | assets/hero/b20-hero.png
+- review.md:172 | token: `assets/` | assets/hero/ex-hero.png
+- review.md:173 | token: `assets/` | assets/hero/s35-hero.png
+- review.md:174 | token: `assets/` | assets/input-png/gl35-black.png
+- review.md:175 | token: `assets/` | assets/input-png/gl35-sage.png
+- review.md:176 | token: `assets/` | assets/input-png/gl45-black.png
+- review.md:177 | token: `assets/` | assets/input-png/gl45-sage.png
+- review.md:178 | token: `assets/` | assets/input-png/gl55-black.png
+- review.md:179 | token: `assets/` | assets/input-png/gl55-sage.png
+- review.md:180 | token: `assets/` | assets/output-trimmed/gl35-black.png
+- review.md:181 | token: `assets/` | assets/output-trimmed/gl35-sage.png
+- review.md:182 | token: `assets/` | assets/output-trimmed/gl45-black.png
+- review.md:183 | token: `assets/` | assets/output-trimmed/gl45-sage.png
+- review.md:184 | token: `assets/` | assets/output-trimmed/gl55-black.png
+- review.md:185 | token: `assets/` | assets/output-trimmed/gl55-sage.png
+- review.md:186 | token: `assets/` | assets/products/ax.png
+- review.md:187 | token: `assets/` | assets/products/b.jpg
+- review.md:188 | token: `assets/` | assets/products/b20.png
+- review.md:189 | token: `assets/` | assets/products/d.jpg
+- review.md:190 | token: `assets/` | assets/products/ex.png
+- review.md:191 | token: `assets/` | assets/products/exm.jpg
+- review.md:192 | token: `assets/` | assets/products/exm.png
+- review.md:193 | token: `assets/` | assets/products/gl/4 models.png
+- review.md:194 | token: `assets/` | assets/products/gl/control-panel.png
+- review.md:195 | token: `assets/` | assets/products/gl/front.png
+- review.md:196 | token: `assets/` | assets/products/gl/handle-detail.png
+- review.md:197 | token: `assets/` | assets/products/gl/open-lid front.png
+- review.md:198 | token: `assets/` | assets/products/gl/open-lid.png
+- review.md:199 | token: `assets/` | assets/products/gl.png
+- review.md:200 | token: `assets/` | assets/products/k.jpg
+- review.md:201 | token: `assets/` | assets/products/ke.jpg
+- review.md:202 | token: `assets/` | assets/products/m.png
+- review.md:203 | token: `assets/` | assets/products/p12.png
+- review.md:204 | token: `assets/` | assets/products/s18-orange.png
+- review.md:205 | token: `assets/` | assets/products/S35.png
+- review.md:206 | token: `assets/` | assets/products/tf.jpg
+- review.md:219 | token: `public/assets/` | public/assets/360/gl55/frame-001.jpg
+- review.md:220 | token: `public/assets/` | public/assets/360/gl55/frame-002.jpg
+- review.md:221 | token: `public/assets/` | public/assets/360/gl55/frame-003.jpg
+- review.md:222 | token: `public/assets/` | public/assets/360/gl55/frame-004.jpg
+- review.md:223 | token: `public/assets/` | public/assets/360/gl55/frame-005.jpg
+- review.md:224 | token: `public/assets/` | public/assets/360/gl55/frame-006.jpg
+- review.md:225 | token: `public/assets/` | public/assets/360/gl55/frame-007.jpg
+- review.md:226 | token: `public/assets/` | public/assets/360/gl55/frame-008.jpg
+- review.md:227 | token: `public/assets/` | public/assets/360/gl55/frame-009.jpg
+- review.md:228 | token: `public/assets/` | public/assets/360/gl55/frame-010.jpg
+- review.md:229 | token: `public/assets/` | public/assets/360/gl55/frame-011.jpg
+- review.md:230 | token: `public/assets/` | public/assets/360/gl55/frame-012.jpg
+- review.md:231 | token: `public/assets/` | public/assets/360/gl55/frame-013.jpg
+- review.md:232 | token: `public/assets/` | public/assets/360/gl55/frame-014.jpg
+- review.md:233 | token: `public/assets/` | public/assets/360/gl55/frame-015.jpg
+- review.md:234 | token: `public/assets/` | public/assets/360/gl55/frame-016.jpg
+- review.md:235 | token: `public/assets/` | public/assets/360/gl55/frame-017.jpg
+- review.md:236 | token: `public/assets/` | public/assets/360/gl55/frame-018.jpg
+- review.md:237 | token: `public/assets/` | public/assets/360/gl55/frame-019.jpg
+- review.md:238 | token: `public/assets/` | public/assets/360/gl55/frame-020.jpg
+- review.md:239 | token: `public/assets/` | public/assets/360/gl55/frame-021.jpg
+- review.md:240 | token: `public/assets/` | public/assets/360/gl55/frame-022.jpg
+- review.md:241 | token: `public/assets/` | public/assets/360/gl55/frame-023.jpg
+- review.md:242 | token: `public/assets/` | public/assets/360/gl55/frame-024.jpg
+- review.md:243 | token: `public/assets/` | public/assets/360/gl55/frame-025.jpg
+- review.md:244 | token: `public/assets/` | public/assets/360/gl55/frame-026.jpg
+- review.md:245 | token: `public/assets/` | public/assets/360/gl55/frame-027.jpg
+- review.md:246 | token: `public/assets/` | public/assets/360/gl55/frame-028.jpg
+- review.md:247 | token: `public/assets/` | public/assets/360/gl55/frame-029.jpg
+- review.md:248 | token: `public/assets/` | public/assets/360/gl55/frame-030.jpg
+- review.md:249 | token: `public/assets/` | public/assets/360/gl55/frame-031.jpg
+- review.md:250 | token: `public/assets/` | public/assets/360/gl55/frame-032.jpg
+- review.md:251 | token: `public/assets/` | public/assets/360/gl55/frame-033.jpg
+- review.md:252 | token: `public/assets/` | public/assets/360/gl55/frame-034.jpg
+- review.md:253 | token: `public/assets/` | public/assets/360/gl55/frame-035.jpg
+- review.md:254 | token: `public/assets/` | public/assets/360/gl55/frame-036.jpg
+- review.md:255 | token: `public/assets/` | public/assets/360/gl55/frame-037.jpg
+- review.md:256 | token: `public/assets/` | public/assets/360/gl55/frame-038.jpg
+- review.md:257 | token: `public/assets/` | public/assets/360/gl55/frame-039.jpg
+- review.md:258 | token: `public/assets/` | public/assets/360/gl55/frame-040.jpg
+- review.md:259 | token: `public/assets/` | public/assets/360/gl55/frame-041.jpg
+- review.md:260 | token: `public/assets/` | public/assets/360/gl55/frame-042.jpg
+- review.md:261 | token: `public/assets/` | public/assets/360/gl55/frame-043.jpg
+- review.md:262 | token: `public/assets/` | public/assets/360/gl55/frame-044.jpg
+- review.md:263 | token: `public/assets/` | public/assets/360/gl55/frame-045.jpg
+- review.md:264 | token: `public/assets/` | public/assets/360/gl55/frame-046.jpg
+- review.md:265 | token: `public/assets/` | public/assets/360/gl55/frame-047.jpg
+- review.md:266 | token: `public/assets/` | public/assets/360/gl55/frame-048.jpg
+- review.md:267 | token: `public/assets/` | public/assets/360/gl55/frame-049.jpg
+- review.md:268 | token: `public/assets/` | public/assets/360/gl55/frame-050.jpg
+- review.md:269 | token: `public/assets/` | public/assets/360/m55/frame-001.jpg
+- review.md:270 | token: `public/assets/` | public/assets/360/m55/frame-002.jpg
+- review.md:271 | token: `public/assets/` | public/assets/360/m55/frame-003.jpg
+- review.md:272 | token: `public/assets/` | public/assets/360/m55/frame-004.jpg
+- review.md:273 | token: `public/assets/` | public/assets/360/m55/frame-005.jpg
+- review.md:274 | token: `public/assets/` | public/assets/360/m55/frame-006.jpg
+- review.md:275 | token: `public/assets/` | public/assets/360/m55/frame-007.jpg
+- review.md:276 | token: `public/assets/` | public/assets/360/m55/frame-008.jpg
+- review.md:277 | token: `public/assets/` | public/assets/360/m55/frame-009.jpg
+- review.md:278 | token: `public/assets/` | public/assets/360/m55/frame-010.jpg
+- review.md:279 | token: `public/assets/` | public/assets/360/m55/frame-011.jpg
+- review.md:280 | token: `public/assets/` | public/assets/360/m55/frame-012.jpg
+- review.md:281 | token: `public/assets/` | public/assets/360/m55/frame-013.jpg
+- review.md:282 | token: `public/assets/` | public/assets/360/m55/frame-014.jpg
+- review.md:283 | token: `public/assets/` | public/assets/360/m55/frame-015.jpg
+- review.md:284 | token: `public/assets/` | public/assets/360/m55/frame-016.jpg
+- review.md:285 | token: `public/assets/` | public/assets/360/m55/frame-017.jpg
+- review.md:286 | token: `public/assets/` | public/assets/360/m55/frame-018.jpg
+- review.md:287 | token: `public/assets/` | public/assets/360/m55/frame-019.jpg
+- review.md:288 | token: `public/assets/` | public/assets/360/m55/frame-020.jpg
+- review.md:289 | token: `public/assets/` | public/assets/360/m55/frame-021.jpg
+- review.md:290 | token: `public/assets/` | public/assets/360/m55/frame-022.jpg
+- review.md:291 | token: `public/assets/` | public/assets/360/m55/frame-023.jpg
+- review.md:292 | token: `public/assets/` | public/assets/360/m55/frame-024.jpg
+- review.md:293 | token: `public/assets/` | public/assets/360/m55/frame-025.jpg
+- review.md:294 | token: `public/assets/` | public/assets/360/m55/frame-026.jpg
+- review.md:295 | token: `public/assets/` | public/assets/360/m55/frame-027.jpg
+- review.md:296 | token: `public/assets/` | public/assets/360/m55/frame-028.jpg
+- review.md:297 | token: `public/assets/` | public/assets/360/m55/frame-029.jpg
+- review.md:298 | token: `public/assets/` | public/assets/360/m55/frame-030.jpg
+- review.md:299 | token: `public/assets/` | public/assets/360/m55/frame-031.jpg
+- review.md:300 | token: `public/assets/` | public/assets/360/m55/frame-032.jpg
+- review.md:301 | token: `public/assets/` | public/assets/360/m55/frame-033.jpg
+- review.md:302 | token: `public/assets/` | public/assets/360/m55/frame-034.jpg
+- review.md:303 | token: `public/assets/` | public/assets/360/m55/frame-035.jpg
+- review.md:304 | token: `public/assets/` | public/assets/360/m55/frame-036.jpg
+- review.md:305 | token: `public/assets/` | public/assets/360/m55/frame-037.jpg
+- review.md:306 | token: `public/assets/` | public/assets/360/m55/frame-038.jpg
+- review.md:307 | token: `public/assets/` | public/assets/downloads/ex-series-manual.pdf
+- review.md:308 | token: `public/assets/` | public/assets/downloads/exm-series-manual.pdf
+- review.md:309 | token: `public/assets/` | public/assets/downloads/travel-science-brochure.pdf
+- review.md:310 | token: `public/assets/` | public/assets/hero/b20-hero.png
+- review.md:311 | token: `public/assets/` | public/assets/hero/ex-hero.png
+- review.md:312 | token: `public/assets/` | public/assets/hero/s35-hero.png
+- review.md:313 | token: `public/assets/` | public/assets/products/ax/gallery/1.png
+- review.md:314 | token: `public/assets/` | public/assets/products/ax/gallery/2.png
+- review.md:315 | token: `public/assets/` | public/assets/products/ax/gallery/4.png
+- review.md:316 | token: `public/assets/` | public/assets/products/ax/gallery/7.png
+- review.md:317 | token: `public/assets/` | public/assets/products/ax/gallery/10.png
+- review.md:318 | token: `public/assets/` | public/assets/products/ax/gallery/ax.png
+- review.md:319 | token: `public/assets/` | public/assets/products/ax/gallery/ax30-front.png
+- review.md:320 | token: `public/assets/` | public/assets/products/ax/gallery/ax30-open.png
+- review.md:321 | token: `public/assets/` | public/assets/products/ax/gallery/ax30-side.png
+- review.md:322 | token: `public/assets/` | public/assets/products/ax/gallery/ax30-side2.png
+- review.md:323 | token: `public/assets/` | public/assets/products/ax/gallery/ax40-front.png
+- review.md:324 | token: `public/assets/` | public/assets/products/ax/gallery/ax50-black.png
+- review.md:325 | token: `public/assets/` | public/assets/products/ax/gallery/ax50-side.png
+- review.md:326 | token: `public/assets/` | public/assets/products/ax/models/ax30-black.png
+- review.md:327 | token: `public/assets/` | public/assets/products/ax/models/ax30-champagne.png
+- review.md:328 | token: `public/assets/` | public/assets/products/ax/models/ax30-light-gray.png
+- review.md:329 | token: `public/assets/` | public/assets/products/ax/models/ax40-black.png
+- review.md:330 | token: `public/assets/` | public/assets/products/ax/models/ax40-champagne.png
+- review.md:331 | token: `public/assets/` | public/assets/products/ax/models/ax40-light-gray.png
+- review.md:332 | token: `public/assets/` | public/assets/products/ax/models/ax50-black.png
+- review.md:333 | token: `public/assets/` | public/assets/products/ax/models/ax50-champagne.png
+- review.md:334 | token: `public/assets/` | public/assets/products/ax/models/ax50-light-gray.png
+- review.md:335 | token: `public/assets/` | public/assets/products/ax 10.02.27.jpg
+- review.md:336 | token: `public/assets/` | public/assets/products/ax.png
+- review.md:337 | token: `public/assets/` | public/assets/products/b/b25.png
+- review.md:338 | token: `public/assets/` | public/assets/products/b/gallery/1.png
+- review.md:339 | token: `public/assets/` | public/assets/products/b/gallery/2.png
+- review.md:340 | token: `public/assets/` | public/assets/products/b/gallery/4.png
+- review.md:341 | token: `public/assets/` | public/assets/products/b/gallery/b20.png
+- review.md:342 | token: `public/assets/` | public/assets/products/b/gallery/主图1.jpg
+- review.md:343 | token: `public/assets/` | public/assets/products/b/gallery/主图2.jpg
+- review.md:344 | token: `public/assets/` | public/assets/products/b.jpg
+- review.md:345 | token: `public/assets/` | public/assets/products/b20.png
+- review.md:346 | token: `public/assets/` | public/assets/products/d.jpg
+- review.md:347 | token: `public/assets/` | public/assets/products/ex/ex.png
+- review.md:348 | token: `public/assets/` | public/assets/products/ex/gallery/2.png
+- review.md:349 | token: `public/assets/` | public/assets/products/ex/gallery/623 拷贝.png
+- review.md:350 | token: `public/assets/` | public/assets/products/ex/gallery/E30.png
+- review.md:351 | token: `public/assets/` | public/assets/products/ex/gallery/E50.png
+- review.md:352 | token: `public/assets/` | public/assets/products/ex/gallery/EX50.png
+- review.md:353 | token: `public/assets/` | public/assets/products/ex/gallery/细节图 拷贝.png
+- review.md:354 | token: `public/assets/` | public/assets/products/ex/gallery/细节图 拷贝2.png
+- review.md:355 | token: `public/assets/` | public/assets/products/ex/gallery/细节图 拷贝3.png
+- review.md:356 | token: `public/assets/` | public/assets/products/ex 10.05.28.jpg
+- review.md:357 | token: `public/assets/` | public/assets/products/ex.png
+- review.md:358 | token: `public/assets/` | public/assets/products/exm/6.png
+- review.md:359 | token: `public/assets/` | public/assets/products/exm/exm.png
+- review.md:360 | token: `public/assets/` | public/assets/products/exm/gallery/1.png
+- review.md:361 | token: `public/assets/` | public/assets/products/exm/gallery/6.png
+- review.md:362 | token: `public/assets/` | public/assets/products/exm/gallery/11.png
+- review.md:363 | token: `public/assets/` | public/assets/products/exm/gallery/623 拷贝.png
+- review.md:364 | token: `public/assets/` | public/assets/products/exm/gallery/xj.2.png
+- review.md:365 | token: `public/assets/` | public/assets/products/exm/gallery/开瓶器更新2.png
+- review.md:366 | token: `public/assets/` | public/assets/products/exm/gallery/开瓶器更新8.png
+- review.md:367 | token: `public/assets/` | public/assets/products/exm 10.05.11.jpg
+- review.md:368 | token: `public/assets/` | public/assets/products/exm 10.35.08.jpg
+- review.md:369 | token: `public/assets/` | public/assets/products/exm.png
+- review.md:370 | token: `public/assets/` | public/assets/products/gl/control-panel.png
+- review.md:371 | token: `public/assets/` | public/assets/products/gl/front.png
+- review.md:372 | token: `public/assets/` | public/assets/products/gl/gallery/gl-control-panel-close.jpg
+- review.md:373 | token: `public/assets/` | public/assets/products/gl/gallery/gl-detail-control-panel.png
+- review.md:374 | token: `public/assets/` | public/assets/products/gl/gallery/gl-lifestyle-camp.jpg
+- review.md:375 | token: `public/assets/` | public/assets/products/gl/gallery/gl-lifestyle-storage.jpg
+- review.md:376 | token: `public/assets/` | public/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg
+- review.md:377 | token: `public/assets/` | public/assets/products/gl/gallery/gl-lineup-black.jpg
+- review.md:378 | token: `public/assets/` | public/assets/products/gl/gallery/gl-open-angle.jpg
+- review.md:379 | token: `public/assets/` | public/assets/products/gl/gallery/gl-open-top.jpg
+- review.md:380 | token: `public/assets/` | public/assets/products/gl/gallery/gl75-main-render.png
+- review.md:381 | token: `public/assets/` | public/assets/products/gl/gl-black-open.png
+- review.md:382 | token: `public/assets/` | public/assets/products/gl/gl-sage-open.png
+- review.md:383 | token: `public/assets/` | public/assets/products/gl/handle-detail.png
+- review.md:384 | token: `public/assets/` | public/assets/products/gl/models/gl35-black 2.png
+- review.md:385 | token: `public/assets/` | public/assets/products/gl/models/gl35-black.jpg
+- review.md:386 | token: `public/assets/` | public/assets/products/gl/models/gl35-black.png
+- review.md:387 | token: `public/assets/` | public/assets/products/gl/models/gl35-sage.png
+- review.md:388 | token: `public/assets/` | public/assets/products/gl/models/gl45-black.jpg
+- review.md:389 | token: `public/assets/` | public/assets/products/gl/models/gl45-black.png
+- review.md:390 | token: `public/assets/` | public/assets/products/gl/models/gl45-sage.png
+- review.md:391 | token: `public/assets/` | public/assets/products/gl/models/gl55-black 2.png
+- review.md:392 | token: `public/assets/` | public/assets/products/gl/models/gl55-black.jpg
+- review.md:393 | token: `public/assets/` | public/assets/products/gl/models/gl55-black.png
+- review.md:394 | token: `public/assets/` | public/assets/products/gl/models/gl55-sage.png
+- review.md:395 | token: `public/assets/` | public/assets/products/gl/models/gl75-black 2.png
+- review.md:396 | token: `public/assets/` | public/assets/products/gl/models/gl75-black.png
+- review.md:397 | token: `public/assets/` | public/assets/products/gl/models/gl75-sage.png
+- review.md:398 | token: `public/assets/` | public/assets/products/gl/models/untitled.1351.png
+- review.md:399 | token: `public/assets/` | public/assets/products/gl/models/暂时测试隐藏/gl45-black.png
+- review.md:400 | token: `public/assets/` | public/assets/products/gl/models/暂时测试隐藏/gl45-sage.png
+- review.md:401 | token: `public/assets/` | public/assets/products/gl/open-lid.png
+- review.md:402 | token: `public/assets/` | public/assets/products/gl/render/gl35-black.png
+- review.md:403 | token: `public/assets/` | public/assets/products/gl/render/gl35-sage.png
+- review.md:404 | token: `public/assets/` | public/assets/products/gl/render/gl45-black.png
+- review.md:405 | token: `public/assets/` | public/assets/products/gl/render/gl45-sage.png
+- review.md:406 | token: `public/assets/` | public/assets/products/gl/render/gl55-black.png
+- review.md:407 | token: `public/assets/` | public/assets/products/gl/render/gl55-sage.png
+- review.md:408 | token: `public/assets/` | public/assets/products/gl 10.06.11.jpg
+- review.md:409 | token: `public/assets/` | public/assets/products/gl.png
+- review.md:410 | token: `public/assets/` | public/assets/products/k.jpg
+- review.md:411 | token: `public/assets/` | public/assets/products/ke 10.02.53.jpg
+- review.md:412 | token: `public/assets/` | public/assets/products/ke.jpg
+- review.md:413 | token: `public/assets/` | public/assets/products/m/gallery/m45-black.png
+- review.md:414 | token: `public/assets/` | public/assets/products/m/gallery/m45-front.png
+- review.md:415 | token: `public/assets/` | public/assets/products/m/gallery/m45-open.png
+- review.md:416 | token: `public/assets/` | public/assets/products/m/gallery/m45-side.png
+- review.md:417 | token: `public/assets/` | public/assets/products/m/gallery/M45.14 拷贝.png
+- review.md:418 | token: `public/assets/` | public/assets/products/m/gallery/M45土色.2 拷贝.png
+- review.md:419 | token: `public/assets/` | public/assets/products/m/gallery/M45土色.3.png
+- review.md:420 | token: `public/assets/` | public/assets/products/m/gallery/M系列双温效果图.png
+- review.md:421 | token: `public/assets/` | public/assets/products/m/gallery/M页面图.png
+- review.md:422 | token: `public/assets/` | public/assets/products/m/gallery/untitled.1488.png
+- review.md:423 | token: `public/assets/` | public/assets/products/m/gallery/双门.png
+- review.md:424 | token: `public/assets/` | public/assets/products/m/gallery/屏幕.png
+- review.md:425 | token: `public/assets/` | public/assets/products/m/gallery/把手.png
+- review.md:426 | token: `public/assets/` | public/assets/products/m/gallery/拉杆（特写拉杆.png
+- review.md:427 | token: `public/assets/` | public/assets/products/m/gallery/电池.png
+- review.md:428 | token: `public/assets/` | public/assets/products/m/gallery/车家两用太阳能.png
+- review.md:429 | token: `public/assets/` | public/assets/products/m/gallery/轮子（特写轮子.png
+- review.md:430 | token: `public/assets/` | public/assets/products/m/models/m35-black.png
+- review.md:431 | token: `public/assets/` | public/assets/products/m/models/m35-sage.png
+- review.md:432 | token: `public/assets/` | public/assets/products/m/models/m45-black.png
+- review.md:433 | token: `public/assets/` | public/assets/products/m/models/m45-sage.png
+- review.md:434 | token: `public/assets/` | public/assets/products/m/models/m55-black.png
+- review.md:435 | token: `public/assets/` | public/assets/products/m/models/m55-sage.png
+- review.md:436 | token: `public/assets/` | public/assets/products/m/拉杆（特写拉杆.png
+- review.md:437 | token: `public/assets/` | public/assets/products/m 10.05.47.jpg
+- review.md:438 | token: `public/assets/` | public/assets/products/m.png
+- review.md:439 | token: `public/assets/` | public/assets/products/p12.png
+- review.md:440 | token: `public/assets/` | public/assets/products/productcollectionspage-images/ax-card.webp
+- review.md:441 | token: `public/assets/` | public/assets/products/productcollectionspage-images/b-card.webp
+- review.md:442 | token: `public/assets/` | public/assets/products/productcollectionspage-images/d-card.webp
+- review.md:443 | token: `public/assets/` | public/assets/products/productcollectionspage-images/ex-card.webp
+- review.md:444 | token: `public/assets/` | public/assets/products/productcollectionspage-images/exm-card.webp
+- review.md:445 | token: `public/assets/` | public/assets/products/productcollectionspage-images/gl-card.webp
+- review.md:446 | token: `public/assets/` | public/assets/products/productcollectionspage-images/k-card.webp
+- review.md:447 | token: `public/assets/` | public/assets/products/productcollectionspage-images/m-card.webp
+- review.md:448 | token: `public/assets/` | public/assets/products/productcollectionspage-images/s-card.webp
+- review.md:449 | token: `public/assets/` | public/assets/products/productcollectionspage-images/tf-card.webp
+- review.md:450 | token: `public/assets/` | public/assets/products/s 10.03.28.jpg
+- review.md:451 | token: `public/assets/` | public/assets/products/s-upgraded-cutout.png
+- review.md:452 | token: `public/assets/` | public/assets/products/S18/gallery/1.png
+- review.md:453 | token: `public/assets/` | public/assets/products/S18/gallery/2.png
+- review.md:454 | token: `public/assets/` | public/assets/products/S18/gallery/3.png
+- review.md:455 | token: `public/assets/` | public/assets/products/S18/gallery/4.png
+- review.md:456 | token: `public/assets/` | public/assets/products/S18/gallery/5.png
+- review.md:457 | token: `public/assets/` | public/assets/products/S18/gallery/6.png
+- review.md:458 | token: `public/assets/` | public/assets/products/S18/gallery/7.png
+- review.md:459 | token: `public/assets/` | public/assets/products/S18/gallery/0908banjin 拷贝.png
+- review.md:460 | token: `public/assets/` | public/assets/products/S18/gallery/0915 拷贝.png
+- review.md:461 | token: `public/assets/` | public/assets/products/S18/gallery/S18.20.png
+- review.md:462 | token: `public/assets/` | public/assets/products/s18-orange.png
+- review.md:463 | token: `public/assets/` | public/assets/products/S35.png
+- review.md:464 | token: `public/assets/` | public/assets/products/stx/gallery/2.png
+- review.md:465 | token: `public/assets/` | public/assets/products/stx/gallery/3.png
+- review.md:466 | token: `public/assets/` | public/assets/products/stx/gallery/4.png
+- review.md:467 | token: `public/assets/` | public/assets/products/stx/gallery/5.png
+- review.md:468 | token: `public/assets/` | public/assets/products/stx/gallery/p12.png
+- review.md:469 | token: `public/assets/` | public/assets/products/tf.jpg
+- review.md:504 | token: `assets/` | assets/
+- review.md:527 | token: `assets/` | ### assets/brand/k-icon.svg
+- review.md:566 | token: `public/assets/` | - Assets are under \`public/assets/\`.
+- review.md:761 | token: `/assets/` | | \`/assets/products/gl/front.png\` | Front angle | Rugged proportions with a strong outdoor equipment presence. |
+- review.md:762 | token: `/assets/` | | \`/assets/products/gl/open-lid.png\` | Open storage | Dual-lid access for larger cold-storage needs. |
+- review.md:763 | token: `/assets/` | | \`/assets/products/gl/control-panel.png\` | Control panel | Clear operation for vehicle travel and outdoor use. |
+- review.md:764 | token: `/assets/` | | \`/assets/products/gl/handle-detail.png\` | Side handle detail | Handle structure designed for outdoor handling and vehicle travel. |
+- review.md:812 | token: `/assets/` | | Brochure | \`/assets/downloads/gl-series-brochure.pdf\` |
+- review.md:813 | token: `/assets/` | | Spec Sheet | \`/assets/downloads/gl-series-spec-sheet.pdf\` |
+- review.md:814 | token: `/assets/` | | Manual | \`/assets/downloads/gl-series-manual.pdf\` |
+- review.md:828 | token: `/Users/yiwenzhou/Documents/Kelvcoop/Travel` | | Travel Science brochure | \`/Users/yiwenzhou/Documents/Kelvcoop/Travel Science画册.pdf\` |
+- review.md:829 | token: `/Users/yiwenzhou/Documents/Kelvcoop/单张flyers/GL单张-20250717.pdf` | | GL flyer | \`/Users/yiwenzhou/Documents/Kelvcoop/单张flyers/GL单张-20250717.pdf\` |
+- review.md:849 | token: `/assets/` | <link rel="preload" as="image" href="/assets/hero/s35-hero.png" />
+- review.md:901 | token: `public/assets/` | ### public/assets/brand/k-icon.svg
+- review.md:924 | token: `public/assets/` | ### public/assets/icons/arrowleft.svg
+- review.md:936 | token: `public/assets/` | ### public/assets/icons/arrowright.svg
+- review.md:978 | token: `assets/` | assets/
+- review.md:981 | token: `/assets/` | Runtime assets referenced as \`/assets/...\` are served from \`public/assets\`.
+- review.md:1062 | token: `/assets/` | image: \`/assets/products/${folderName}/gallery/${name}\`,
+- review.md:1098 | token: `/assets/` | return \`/assets/products/${folderName}/models/${matchedFileName}\`;
+- review.md:1180 | token: `/assets/` | return \`/assets/products/${folderName}/gallery/${fileName}\`;
+- review.md:1250 | token: `assets/` | assets/input-png
+- review.md:1253 | token: `assets/` | assets/output-trimmed
+- review.md:1271 | token: `assets/` | INPUT_DIR = Path("assets/input-png")
+- review.md:1272 | token: `assets/` | OUTPUT_DIR = Path("assets/output-trimmed")
+- review.md:1490 | token: `/assets/` | const isAssetRequest = safePath.startsWith("/assets/");
+- review.md:1666 | token: `/assets/` | <span class="brand-mark"><img src="/assets/brand/k-icon.svg" alt=""></span>
+- review.md:2224 | token: `/assets/` | href: product.documents?.brochure || "/assets/downloads/travel-science-brochure.pdf",
+- review.md:2320 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-control-panel-close.jpg",
+- review.md:2325 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-detail-control-panel.png",
+- review.md:2330 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-camp.jpg",
+- review.md:2335 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-storage.jpg",
+- review.md:2340 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg",
+- review.md:2345 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lineup-black.jpg",
+- review.md:2350 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-open-angle.jpg",
+- review.md:2355 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-open-top.jpg",
+- review.md:2360 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl75-main-render.png",
+- review.md:2367 | token: `/assets/` | "image": "/assets/products/ax/gallery/1.png",
+- review.md:2372 | token: `/assets/` | "image": "/assets/products/ax/gallery/2.png",
+- review.md:2377 | token: `/assets/` | "image": "/assets/products/ax/gallery/4.png",
+- review.md:2382 | token: `/assets/` | "image": "/assets/products/ax/gallery/7.png",
+- review.md:2387 | token: `/assets/` | "image": "/assets/products/ax/gallery/10.png",
+- review.md:2392 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax.png",
+- review.md:2397 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-front.png",
+- review.md:2402 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-open.png",
+- review.md:2407 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-side.png",
+- review.md:2412 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax30-side2.png",
+- review.md:2417 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax40-front.png",
+- review.md:2422 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-black.png",
+- review.md:2427 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax50-side.png",
+- review.md:2434 | token: `/assets/` | "image": "/assets/products/b/gallery/1.png",
+- review.md:2439 | token: `/assets/` | "image": "/assets/products/b/gallery/2.png",
+- review.md:2444 | token: `/assets/` | "image": "/assets/products/b/gallery/4.png",
+- review.md:2449 | token: `/assets/` | "image": "/assets/products/b/gallery/b20.png",
+- review.md:2454 | token: `/assets/` | "image": "/assets/products/b/gallery/主图1.jpg",
+- review.md:2459 | token: `/assets/` | "image": "/assets/products/b/gallery/主图2.jpg",
+- review.md:2467 | token: `/assets/` | "image": "/assets/products/ex/gallery/2.png",
+- review.md:2472 | token: `/assets/` | "image": "/assets/products/ex/gallery/623 拷贝.png",
+- review.md:2477 | token: `/assets/` | "image": "/assets/products/ex/gallery/E30.png",
+- review.md:2482 | token: `/assets/` | "image": "/assets/products/ex/gallery/E50.png",
+- review.md:2487 | token: `/assets/` | "image": "/assets/products/ex/gallery/EX50.png",
+- review.md:2492 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝.png",
+- review.md:2497 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝2.png",
+- review.md:2502 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝3.png",
+- review.md:2509 | token: `/assets/` | "image": "/assets/products/exm/gallery/1.png",
+- review.md:2514 | token: `/assets/` | "image": "/assets/products/exm/gallery/6.png",
+- review.md:2519 | token: `/assets/` | "image": "/assets/products/exm/gallery/11.png",
+- review.md:2524 | token: `/assets/` | "image": "/assets/products/exm/gallery/623 拷贝.png",
+- review.md:2529 | token: `/assets/` | "image": "/assets/products/exm/gallery/xj.2.png",
+- review.md:2534 | token: `/assets/` | "image": "/assets/products/exm/gallery/开瓶器更新2.png",
+- review.md:2539 | token: `/assets/` | "image": "/assets/products/exm/gallery/开瓶器更新8.png",
+- review.md:2548 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-black.png",
+- review.md:2553 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-front.png",
+- review.md:2558 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-open.png",
+- review.md:2563 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-side.png",
+- review.md:2568 | token: `/assets/` | "image": "/assets/products/m/gallery/M45.14 拷贝.png",
+- review.md:2573 | token: `/assets/` | "image": "/assets/products/m/gallery/M45土色.2 拷贝.png",
+- review.md:2578 | token: `/assets/` | "image": "/assets/products/m/gallery/M45土色.3.png",
+- review.md:2583 | token: `/assets/` | "image": "/assets/products/m/gallery/M系列双温效果图.png",
+- review.md:2588 | token: `/assets/` | "image": "/assets/products/m/gallery/M页面图.png",
+- review.md:2593 | token: `/assets/` | "image": "/assets/products/m/gallery/untitled.1488.png",
+- review.md:2598 | token: `/assets/` | "image": "/assets/products/m/gallery/双门.png",
+- review.md:2603 | token: `/assets/` | "image": "/assets/products/m/gallery/屏幕.png",
+- review.md:2608 | token: `/assets/` | "image": "/assets/products/m/gallery/把手.png",
+- review.md:2613 | token: `/assets/` | "image": "/assets/products/m/gallery/拉杆（特写拉杆.png",
+- review.md:2618 | token: `/assets/` | "image": "/assets/products/m/gallery/电池.png",
+- review.md:2623 | token: `/assets/` | "image": "/assets/products/m/gallery/车家两用太阳能.png",
+- review.md:2628 | token: `/assets/` | "image": "/assets/products/m/gallery/轮子（特写轮子.png",
+- review.md:2635 | token: `/assets/` | "image": "/assets/products/S18/gallery/1.png",
+- review.md:2640 | token: `/assets/` | "image": "/assets/products/S18/gallery/2.png",
+- review.md:2645 | token: `/assets/` | "image": "/assets/products/S18/gallery/3.png",
+- review.md:2650 | token: `/assets/` | "image": "/assets/products/S18/gallery/4.png",
+- review.md:2655 | token: `/assets/` | "image": "/assets/products/S18/gallery/5.png",
+- review.md:2660 | token: `/assets/` | "image": "/assets/products/S18/gallery/6.png",
+- review.md:2665 | token: `/assets/` | "image": "/assets/products/S18/gallery/7.png",
+- review.md:2670 | token: `/assets/` | "image": "/assets/products/S18/gallery/0908banjin 拷贝.png",
+- review.md:2675 | token: `/assets/` | "image": "/assets/products/S18/gallery/0915 拷贝.png",
+- review.md:2680 | token: `/assets/` | "image": "/assets/products/S18/gallery/S18.20.png",
+- review.md:2706 | token: `/assets/` | background: "/assets/hero/s35-hero.png",
+- review.md:2726 | token: `/assets/` | background: "/assets/hero/b20-hero.png",
+- review.md:2746 | token: `/assets/` | background: "/assets/hero/ex-hero.png",
+- review.md:2773 | token: `/assets/` | image: "/assets/products/S35.png",
+- review.md:2774 | token: `/assets/` | fallback: "/assets/products/s18-orange.png",
+- review.md:2779 | token: `/assets/` | image: "/assets/products/b20.png",
+- review.md:2784 | token: `/assets/` | image: "/assets/products/gl.png",
+- review.md:2789 | token: `/assets/` | image: "/assets/products/exm.png",
+- review.md:2837 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-control-panel-close.jpg"
+- review.md:2840 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-detail-control-panel.png"
+- review.md:2843 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-camp.jpg"
+- review.md:2846 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-storage.jpg"
+- review.md:2849 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg"
+- review.md:2852 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-lineup-black.jpg"
+- review.md:2855 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-open-angle.jpg"
+- review.md:2858 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl-open-top.jpg"
+- review.md:2861 | token: `/assets/` | "image": "/assets/products/gl/gallery/gl75-main-render.png"
+- review.md:2866 | token: `/assets/` | "image": "/assets/products/ax/gallery/1.png"
+- review.md:2869 | token: `/assets/` | "image": "/assets/products/ax/gallery/2.png"
+- review.md:2872 | token: `/assets/` | "image": "/assets/products/ax/gallery/4.png"
+- review.md:2875 | token: `/assets/` | "image": "/assets/products/ax/gallery/7.png"
+- review.md:2878 | token: `/assets/` | "image": "/assets/products/ax/gallery/10.png"
+- review.md:2881 | token: `/assets/` | "image": "/assets/products/ax/gallery/ax.png"
+- review.md:2886 | token: `/assets/` | "image": "/assets/products/exm/gallery/6.png"
+- review.md:2889 | token: `/assets/` | "image": "/assets/products/exm/gallery/11.png"
+- review.md:2892 | token: `/assets/` | "image": "/assets/products/exm/gallery/623 拷贝.png"
+- review.md:2895 | token: `/assets/` | "image": "/assets/products/exm/gallery/xj.2.png"
+- review.md:2898 | token: `/assets/` | "image": "/assets/products/exm/gallery/开瓶器更新2.png"
+- review.md:2901 | token: `/assets/` | "image": "/assets/products/exm/gallery/开瓶器更新8.png"
+- review.md:2906 | token: `/assets/` | "image": "/assets/products/b/gallery/1.png"
+- review.md:2909 | token: `/assets/` | "image": "/assets/products/b/gallery/2.png"
+- review.md:2912 | token: `/assets/` | "image": "/assets/products/b/gallery/4.png"
+- review.md:2915 | token: `/assets/` | "image": "/assets/products/b/gallery/b20.png"
+- review.md:2918 | token: `/assets/` | "image": "/assets/products/b/gallery/主图1.jpg"
+- review.md:2921 | token: `/assets/` | "image": "/assets/products/b/gallery/主图2.jpg"
+- review.md:2928 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-black.png"
+- review.md:2931 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-open.png"
+- review.md:2934 | token: `/assets/` | "image": "/assets/products/m/gallery/m45-side.png"
+- review.md:2937 | token: `/assets/` | "image": "/assets/products/m/gallery/M45.14 拷贝.png"
+- review.md:2940 | token: `/assets/` | "image": "/assets/products/m/gallery/M45土色.2 拷贝.png"
+- review.md:2943 | token: `/assets/` | "image": "/assets/products/m/gallery/M45土色.3.png"
+- review.md:2946 | token: `/assets/` | "image": "/assets/products/m/gallery/M系列双温效果图.png"
+- review.md:2949 | token: `/assets/` | "image": "/assets/products/m/gallery/M页面图.png"
+- review.md:2952 | token: `/assets/` | "image": "/assets/products/m/gallery/untitled.1488.png"
+- review.md:2955 | token: `/assets/` | "image": "/assets/products/m/gallery/双门.png"
+- review.md:2958 | token: `/assets/` | "image": "/assets/products/m/gallery/屏幕.png"
+- review.md:2961 | token: `/assets/` | "image": "/assets/products/m/gallery/把手.png"
+- review.md:2964 | token: `/assets/` | "image": "/assets/products/m/gallery/拉杆（特写拉杆.png"
+- review.md:2967 | token: `/assets/` | "image": "/assets/products/m/gallery/电池.png"
+- review.md:2970 | token: `/assets/` | "image": "/assets/products/m/gallery/车家两用太阳能.png"
+- review.md:2973 | token: `/assets/` | "image": "/assets/products/m/gallery/轮子（特写轮子.png"
+- review.md:2978 | token: `/assets/` | "image": "/assets/products/ex/gallery/2.png"
+- review.md:2981 | token: `/assets/` | "image": "/assets/products/ex/gallery/623 拷贝.png"
+- review.md:2984 | token: `/assets/` | "image": "/assets/products/ex/gallery/E30.png"
+- review.md:2987 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝.png"
+- review.md:2990 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝2.png"
+- review.md:2993 | token: `/assets/` | "image": "/assets/products/ex/gallery/细节图 拷贝3.png"
+- review.md:2999 | token: `/assets/` | "image": "/assets/products/S18/gallery/1.png"
+- review.md:3002 | token: `/assets/` | "image": "/assets/products/S18/gallery/3.png"
+- review.md:3005 | token: `/assets/` | "image": "/assets/products/S18/gallery/4.png"
+- review.md:3008 | token: `/assets/` | "image": "/assets/products/S18/gallery/5.png"
+- review.md:3011 | token: `/assets/` | "image": "/assets/products/S18/gallery/6.png"
+- review.md:3014 | token: `/assets/` | "image": "/assets/products/S18/gallery/7.png"
+- review.md:3017 | token: `/assets/` | "image": "/assets/products/S18/gallery/0915 拷贝.png"
+- review.md:3020 | token: `/assets/` | "image": "/assets/products/S18/gallery/S18.20.png"
+- review.md:3039 | token: `/assets/` | "Black": "/assets/products/gl/models/gl35-black.png",
+- review.md:3040 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl35-sage.png"
+- review.md:3043 | token: `/assets/` | "Black": "/assets/products/gl/models/gl45-black.png",
+- review.md:3044 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl45-sage.png"
+- review.md:3047 | token: `/assets/` | "Black": "/assets/products/gl/models/gl55-black.png",
+- review.md:3048 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl55-sage.png"
+- review.md:3051 | token: `/assets/` | "Black": "/assets/products/gl/models/gl75-black.png",
+- review.md:3052 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl75-sage.png"
+- review.md:3057 | token: `/assets/` | "black": "/assets/products/ax/models/ax30-black.png",
+- review.md:3058 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax30-champagne.png",
+- review.md:3059 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax30-light-gray.png"
+- review.md:3062 | token: `/assets/` | "black": "/assets/products/ax/models/ax40-black.png",
+- review.md:3063 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax40-champagne.png",
+- review.md:3064 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax40-light-gray.png"
+- review.md:3067 | token: `/assets/` | "black": "/assets/products/ax/models/ax50-black.png",
+- review.md:3068 | token: `/assets/` | "champagne": "/assets/products/ax/models/ax50-champagne.png",
+- review.md:3069 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax50-light-gray.png"
+- review.md:3080 | token: `/assets/` | "black": "/assets/products/m/models/m35-black.png",
+- review.md:3081 | token: `/assets/` | "sage-green": "/assets/products/m/models/m35-sage.png"
+- review.md:3084 | token: `/assets/` | "black": "/assets/products/m/models/m45-black.png",
+- review.md:3085 | token: `/assets/` | "sage-green": "/assets/products/m/models/m45-sage.png"
+- review.md:3088 | token: `/assets/` | "black": "/assets/products/m/models/m55-black.png",
+- review.md:3089 | token: `/assets/` | "sage-green": "/assets/products/m/models/m55-sage.png"
+- review.md:3252 | token: `/assets/` | image: "/assets/products/gl/models/gl35-black.png",
+- review.md:3253 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/gl-card.webp",
+- review.md:3265 | token: `/assets/` | Black: "/assets/products/gl/models/gl35-black.png",
+- review.md:3266 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl35-sage.png",
+- review.md:3269 | token: `/assets/` | Black: "/assets/products/gl/models/gl45-black.png",
+- review.md:3270 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl45-sage.png",
+- review.md:3273 | token: `/assets/` | Black: "/assets/products/gl/models/gl55-black.png",
+- review.md:3274 | token: `/assets/` | "mung-bean-gray": "/assets/products/gl/models/gl55-sage.png",
+- review.md:3277 | token: `/assets/` | Black: "/assets/products/gl/models/gl75-black.png",
+- review.md:3294 | token: `/assets/` | path: "/assets/360/gl55/frame-",
+- review.md:3383 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-lifestyle-camp.jpg",
+- review.md:3388 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg",
+- review.md:3393 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-lifestyle-storage.jpg",
+- review.md:3398 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-lineup-black.jpg",
+- review.md:3403 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-angle-black.jpg",
+- review.md:3408 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-open-angle.jpg",
+- review.md:3413 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-open-top.jpg",
+- review.md:3418 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-control-panel-close.jpg",
+- review.md:3423 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-detail-control-panel.png",
+- review.md:3428 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-side-profile-01.jpg",
+- review.md:3433 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-side-profile-02.jpg",
+- review.md:3438 | token: `/assets/` | image: "/assets/products/gl/gallery/gl-side-profile-03.jpg",
+- review.md:3443 | token: `/assets/` | image: "/assets/products/gl/gallery/gl75-main-render.png",
+- review.md:3512 | token: `/assets/` | brochure: "/assets/downloads/travel-science-brochure.pdf",
+- review.md:3526 | token: `/assets/` | image: "/assets/products/ax.png",
+- review.md:3527 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/ax-card.webp",
+- review.md:3555 | token: `/assets/` | image: "/assets/products/exm.png",
+- review.md:3556 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/exm-card.webp",
+- review.md:3579 | token: `/assets/` | manual: "/assets/downloads/exm-series-manual.pdf",
+- review.md:3588 | token: `/assets/` | image: "/assets/products/b20.png",
+- review.md:3589 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/b-card.webp",
+- review.md:3617 | token: `/assets/` | image: "/assets/products/k.jpg",
+- review.md:3618 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/k-card.webp",
+- review.md:3646 | token: `/assets/` | image: "/assets/products/ke.jpg",
+- review.md:3674 | token: `/assets/` | image: "/assets/products/tf.jpg",
+- review.md:3675 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/tf-card.webp",
+- review.md:3703 | token: `/assets/` | image: "/assets/products/m.png",
+- review.md:3704 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/m-card.webp",
+- review.md:3708 | token: `/assets/` | path: "/assets/360/m55/frame-",
+- review.md:3740 | token: `/assets/` | image: "/assets/products/ex.png",
+- review.md:3741 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/ex-card.webp",
+- review.md:3765 | token: `/assets/` | manual: "/assets/downloads/ex-series-manual.pdf",
+- review.md:3774 | token: `/assets/` | image: "/assets/products/S35.png",
+- review.md:3775 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/s-card.webp",
+- review.md:3804 | token: `/assets/` | image: "/assets/products/s18-orange.png",
+- review.md:3805 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/s-card.webp",
+- review.md:3834 | token: `/assets/` | image: "/assets/products/d.jpg",
+- review.md:3835 | token: `/assets/` | cardImage: "/assets/products/productcollectionspage-images/d-card.webp",
+- review.md:3906 | token: `/assets/` | black: "/assets/products/ax/models/ax30-black.png",
+- review.md:3907 | token: `/assets/` | champagne: "/assets/products/ax/models/ax30-champagne.png",
+- review.md:3908 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax30-light-gray.png",
+- review.md:3911 | token: `/assets/` | black: "/assets/products/ax/models/ax40-black.png",
+- review.md:3912 | token: `/assets/` | champagne: "/assets/products/ax/models/ax40-champagne.png",
+- review.md:3913 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax40-light-gray.png",
+- review.md:3916 | token: `/assets/` | black: "/assets/products/ax/models/ax50-black.png",
+- review.md:3917 | token: `/assets/` | champagne: "/assets/products/ax/models/ax50-champagne.png",
+- review.md:3918 | token: `/assets/` | "light-gray": "/assets/products/ax/models/ax50-light-gray.png",
+- review.md:3941 | token: `/assets/` | image: "/assets/products/ax/gallery/ax30-open.png",
+- review.md:3946 | token: `/assets/` | image: "/assets/products/ax/gallery/ax40-front.png",
+- review.md:3951 | token: `/assets/` | image: "/assets/products/ax/gallery/ax50-side.png",
+- review.md:3956 | token: `/assets/` | image: "/assets/products/ax/gallery/ax50-black.png",
+- review.md:4012 | token: `/assets/` | gallery: galleryFromImage("/assets/products/exm.png", "Export-ready body platform for retail configuration."),
+- review.md:4036 | token: `/assets/` | manual: "/assets/downloads/exm-series-manual.pdf",
+- review.md:4046 | token: `/assets/` | B20: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b20.png"])),
+- review.md:4047 | token: `/assets/` | B25: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b/b25.png"])),
+- review.md:4066 | token: `/assets/` | gallery: galleryFromImage("/assets/products/b20.png", "Compact body layout for vehicle storage and portable use."),
+- review.md:4101 | token: `/assets/` | gallery: galleryFromImage("/assets/products/k.jpg", "Compact exterior for short-distance portable use."),
+- review.md:4137 | token: `/assets/` | gallery: galleryFromImage("/assets/products/ke.jpg", "Broad-size product family for distributor planning."),
+- review.md:4173 | token: `/assets/` | gallery: galleryFromImage("/assets/products/tf.jpg", "Classic upright shell for familiar refrigerator programs."),
+- review.md:4205 | token: `/assets/` | black: "/assets/products/m/models/m35-black.png",
+- review.md:4206 | token: `/assets/` | "sage-green": "/assets/products/m/models/m35-sage.png",
+- review.md:4209 | token: `/assets/` | black: "/assets/products/m/models/m45-black.png",
+- review.md:4210 | token: `/assets/` | "sage-green": "/assets/products/m/models/m45-sage.png",
+- review.md:4213 | token: `/assets/` | black: "/assets/products/m/models/m55-black.png",
+- review.md:4214 | token: `/assets/` | "sage-green": "/assets/products/m/models/m55-sage.png",
+- review.md:4237 | token: `/assets/` | image: "/assets/products/m/gallery/m45-front.png",
+- review.md:4242 | token: `/assets/` | image: "/assets/products/m/gallery/m45-open.png",
+- review.md:4247 | token: `/assets/` | image: "/assets/products/m/gallery/m45-side.png",
+- review.md:4252 | token: `/assets/` | image: "/assets/products/m/gallery/m45-black.png",
+- review.md:4287 | token: `/assets/` | productImages: modelColorImages(["EX30", "EX40", "EX50"], exSeriesColors, "/assets/products/ex.png"),
+- review.md:4306 | token: `/assets/` | gallery: galleryFromImage("/assets/products/ex.png", "Mass-production friendly structure for volume programs."),
+- review.md:4322 | token: `/assets/` | manual: "/assets/downloads/ex-series-manual.pdf",
+- review.md:4335 | token: `/assets/` | "all-black": "/assets/products/S35.png",
+- review.md:4353 | token: `/assets/` | gallery: galleryFromImage("/assets/products/S35.png", "Compact body form for second-fridge and workshop use."),
+- review.md:4388 | token: `/assets/` | "orange-black": "/assets/products/s18-orange.png",
+- review.md:4389 | token: `/assets/` | "all-black": "/assets/products/s18-orange.png",
+- review.md:4392 | token: `/assets/` | "all-black": "/assets/products/S35.png",
+- review.md:4410 | token: `/assets/` | gallery: galleryFromImage("/assets/products/s18-orange.png", "Compact body form for second-fridge and workshop use."),
+- review.md:4440 | token: `/assets/` | productImages: modelColorImages(["D9"], dSeriesColors, "/assets/products/d.jpg"),
+- review.md:4456 | token: `/assets/` | gallery: galleryFromImage("/assets/products/d.jpg", "Compact body form for small-space cooling."),
+- review.md:4940 | token: `/assets/` | href: "/assets/downloads/travel-science-brochure.pdf",
+- review.md:6600 | token: `/assets/` | mask-image: url("/assets/icons/arrowleft.svg");
+- review.md:6601 | token: `/assets/` | -webkit-mask-image: url("/assets/icons/arrowleft.svg");
+- review.md:6609 | token: `/assets/` | mask-image: url("/assets/icons/arrowright.svg");
+- review.md:6610 | token: `/assets/` | -webkit-mask-image: url("/assets/icons/arrowright.svg");
+- scripts/generate-gallery-manifest.mjs:73 | token: `/assets/` | image: \`/assets/products/${folderName}/gallery/${name}\`,
+- scripts/generate-gallery-manifest.mjs:109 | token: `/assets/` | return \`/assets/products/${folderName}/models/${matchedFileName}\`;
+- scripts/generate-product-gallery.mjs:17 | token: `/assets/` | return \`/assets/products/${folderName}/gallery/${fileName}\`;
+- scripts/trim-png-by-group-union-bbox.py:6 | token: `public/assets/` | public/assets/input-png
+- scripts/trim-png-by-group-union-bbox.py:9 | token: `public/assets/` | public/assets/output-trimmed
+- scripts/trim-png-by-group-union-bbox.py:27 | token: `public/assets/` | INPUT_DIR = Path("public/assets/input-png")
+- scripts/trim-png-by-group-union-bbox.py:28 | token: `public/assets/` | OUTPUT_DIR = Path("public/assets/output-trimmed")
+- server.mjs:22 | token: `/assets/` | const isAssetRequest = safePath.startsWith("/assets/");
+

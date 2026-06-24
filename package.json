@@ -1,0 +1,13 @@
+{
+  "name": "kelvcoop-interactive-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:gallery": "node scripts/generate-product-gallery.mjs",
+    "dev": "node scripts/generate-gallery-manifest.mjs && node server.mjs",
+    "preview": "node scripts/generate-gallery-manifest.mjs && node server.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

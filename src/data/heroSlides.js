@@ -1,0 +1,66 @@
+// TODO: Convert hero PNG backgrounds to optimized WebP/AVIF before production.
+// TODO: Preload the first hero background in index.html for better LCP.
+export const HERO_SLIDE_INTERVAL = null;
+
+export const heroSlides = [
+  {
+    id: "s35",
+    eyebrow: "S-Series.",
+    badge: "NEW UPGRADE",
+    title: "Cooling powered by\nthe tool batteries you already use.",
+    text: "",
+    background: "/assets/hero/s35-hero.png",
+    position: "center center",
+    cta: "Explore S Series",
+    secondary: "View all products",
+    target: "/products/s",
+    detailUrl: "/products/s35",
+    secondaryTarget: "/products",
+    features: [
+      "Tool battery compatible",
+      "Fast cooling performance",
+      "Quiet operation",
+      "Built tough",
+    ],
+  },
+  {
+    id: "b-series",
+    eyebrow: "B Series.",
+    badge: "BEST SELLER",
+    title: "Cold drinks.\nEvery weekend.",
+    text: "B20 and B25 bring quiet compressor cooling into a compact form made for road trips, picnic days and everyday mobility.",
+    background: "/assets/hero/b20-hero.png",
+    position: "center center",
+    cta: "Explore B Series",
+    secondary: "View all products",
+    target: "/products/b",
+    detailUrl: "/products/b",
+    secondaryTarget: "/products",
+    features: [
+      "20L / 25L capacity",
+      "Compact portable design",
+      "12V / 24V vehicle ready",
+      "Quiet compressor cooling",
+    ],
+  },
+  {
+    id: "exm-series",
+    eyebrow: "EXM Series.",
+    badge: "WHEELED SERIES",
+    title: "Wheeled cooling for\nvehicle travel and outdoor supply.",
+    text: "",
+    background: "/assets/hero/ex-hero.png",
+    position: "center center",
+    cta: "Explore EXM Series",
+    secondary: "View all products",
+    target: "/products/exm",
+    detailUrl: "/products/exm",
+    secondaryTarget: "/products",
+    features: [
+      "Wheeled mobility",
+      "Pull-handle design",
+      "Outdoor-ready shell",
+      "Vehicle travel ready",
+    ],
+  },
+];
