@@ -1,7 +1,7 @@
 import { Footer } from "./components/Footer.js";
 import { Header } from "./components/Header.js";
 import { heroSlides } from "./data/heroSlides.js";
-import { renderRoute, route, routeSeo } from "./router.js";
+import { renderRoute, route, routeAnchor, routeSeo } from "./router.js";
 import { applySeo, highlightPeriods, revealSections } from "./utils/dom.js";
 import { createHeroScrollGate } from "./utils/heroScrollGate.js";
 import { bindNavigation } from "./utils/navigation.js";
@@ -146,7 +146,12 @@ function render() {
   heroScrollGate.setup();
   heroScrollGate.requestUpdate();
 
-  if (routeChanged) {
+  const anchor = routeAnchor();
+  if (anchor) {
+    window.requestAnimationFrame(() => {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" });
+    });
+  } else if (routeChanged) {
     forceScrollPageToTop();
   }
 }

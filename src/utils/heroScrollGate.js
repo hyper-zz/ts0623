@@ -8,6 +8,10 @@ export function createHeroScrollGate() {
   let heroGate = emptyHeroGate();
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const isScreenshotMode = () => (
+    document.documentElement.classList.contains("is-screenshot-mode") ||
+    document.body.classList.contains("is-screenshot-mode")
+  );
 
   function emptyHeroGate() {
     return {
@@ -36,6 +40,11 @@ export function createHeroScrollGate() {
   }
 
   function measureHeroScroll() {
+    if (isScreenshotMode()) {
+      reset();
+      return null;
+    }
+
     const hero = document.querySelector(".hero-sticky-viewport");
     const bg = document.querySelector(".hero-bg");
     if (!hero || !bg) {
@@ -81,6 +90,7 @@ export function createHeroScrollGate() {
   }
 
   function handleWheel(event) {
+    if (isScreenshotMode()) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const gate = heroGate.hero ? heroGate : measureHeroScroll();
@@ -108,6 +118,7 @@ export function createHeroScrollGate() {
   function setup() {
     clearObservers();
     reset();
+    if (isScreenshotMode()) return;
 
     const hero = document.querySelector(".hero-sticky-viewport");
     const bg = document.querySelector(".hero-bg");

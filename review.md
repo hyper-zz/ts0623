@@ -2,6 +2,8 @@
 
 Generated for GPT code review from the current workspace.
 
+Generated at: 2026-06-25T10:11:50.271Z
+
 ## Review Request
 
 Please review this vanilla JavaScript/CSS website for correctness, maintainability, accessibility, responsive behavior, Safari/iPhone scrolling issues, SEO metadata, broken links/assets, product-data consistency, and obvious runtime bugs. Lead with concrete findings ordered by severity, and reference file paths and functions/classes/selectors where relevant.
@@ -9,9 +11,12 @@ Please review this vanilla JavaScript/CSS website for correctness, maintainabili
 Pay special attention to:
 - Homepage protected hero system and `src/utils/heroScrollGate.js`.
 - Product detail template, model/color image manifests, gallery manifests, and horizontal scrolling behavior.
+- Accessories page gallery scroller and service entry card image behavior.
+- Community page hero/card responsive behavior and social platform card layout.
 - iPhone Safari/mobile overflow and scroll context behavior in `src/styles.css`.
 - Header/dropdown/mobile navigation behavior.
 - Missing assets, 404-prone image paths, and generated manifest consistency.
+- Public product visibility: K Series is valid and public; KE Series should not appear publicly.
 
 ## Project Notes
 
@@ -22,51 +27,73 @@ Pay special attention to:
 - Product data: `src/data/products.js`.
 - Generated manifests: `src/data/galleryManifest.js`, `src/data/productImageManifest.js`.
 - Large binary assets are listed but not embedded.
+- Old generated audit reports are intentionally excluded to avoid stale asset/product references.
+
+## Git Status
+
+```text
+ M review.md
+ D src/components/FeaturedProducts.js
+ M src/components/Footer.js
+ M src/data/socialLinks.js
+ M src/pages/ContactPage.js
+ M src/pages/HomePage.js
+ M src/router.js
+ M src/styles.css
+?? public/assets/community/
+?? public/assets/services/
+?? src/components/ServiceEntryCards.js
+?? src/data/accessories.js
+?? src/data/serviceCards.js
+?? src/data/socialCrew.js
+?? src/pages/AccessoriesPage.js
+?? src/pages/CommunityPage.js
+```
 
 ## Included Source Files
 
 ```text
-.gitignore
-.vscode/settings.json
-assets/brand/k-icon.svg
 chatgpt-review-prompt.md
 docs/hero-protection.md
 gl-series.md
 index.html
 package-lock.json
 package.json
-public/assets/brand/k-icon.svg
-public/assets/icons/arrowleft.svg
-public/assets/icons/arrowright.svg
 README.md
 scripts/generate-gallery-manifest.mjs
 scripts/generate-product-gallery.mjs
 scripts/trim-png-by-group-union-bbox.py
 server.mjs
 src/components/ContactSection.js
-src/components/FeaturedProducts.js
 src/components/Footer.js
 src/components/Header.js
 src/components/HeroCarousel.js
 src/components/ProductCard.js
 src/components/ProductDetailTemplate.js
 src/components/ProductFamily.js
+src/components/ServiceEntryCards.js
+src/data/accessories.js
 src/data/galleryManifest.js
 src/data/heroSlides.js
 src/data/homepage.js
+src/data/productFamilies.js
 src/data/productGallery.js
 src/data/productImageManifest.js
 src/data/products.js
 src/data/seo.js
+src/data/serviceCards.js
+src/data/socialCrew.js
 src/data/socialLinks.js
 src/main.js
-src/pages/CapabilitiesPage.js
+src/pages/AccessoriesPage.js
+src/pages/CommunityPage.js
 src/pages/ContactPage.js
 src/pages/CustomProjectsPage.js
 src/pages/HomePage.js
-src/pages/OemOdmPage.js
 src/pages/ProductDetailPage.js
+src/pages/ProductFamilyPage.js
 src/pages/ProductsPage.js
+src/pages/SupportPage.js
 src/router.js
 src/styles.css
 src/utils/dom.js
@@ -76,146 +103,11 @@ src/utils/navigation.js
 
 ## Binary / Asset Inventory
 
-Total non-embedded asset/binary files: 401
-Public asset files: 251
+Total non-embedded asset/binary files: 178
+Public asset files: 178
 
 ```text
-assets/360/gl55/frame-001.jpg
-assets/360/gl55/frame-002.jpg
-assets/360/gl55/frame-003.jpg
-assets/360/gl55/frame-004.jpg
-assets/360/gl55/frame-005.jpg
-assets/360/gl55/frame-006.jpg
-assets/360/gl55/frame-007.jpg
-assets/360/gl55/frame-008.jpg
-assets/360/gl55/frame-009.jpg
-assets/360/gl55/frame-010.jpg
-assets/360/gl55/frame-011.jpg
-assets/360/gl55/frame-012.jpg
-assets/360/gl55/frame-013.jpg
-assets/360/gl55/frame-014.jpg
-assets/360/gl55/frame-015.jpg
-assets/360/gl55/frame-016.jpg
-assets/360/gl55/frame-017.jpg
-assets/360/gl55/frame-018.jpg
-assets/360/gl55/frame-019.jpg
-assets/360/gl55/frame-020.jpg
-assets/360/gl55/frame-021.jpg
-assets/360/gl55/frame-022.jpg
-assets/360/gl55/frame-023.jpg
-assets/360/gl55/frame-024.jpg
-assets/360/gl55/frame-025.jpg
-assets/360/gl55/frame-026.jpg
-assets/360/gl55/frame-027.jpg
-assets/360/gl55/frame-028.jpg
-assets/360/gl55/frame-029.jpg
-assets/360/gl55/frame-030.jpg
-assets/360/gl55/frame-031.jpg
-assets/360/gl55/frame-032.jpg
-assets/360/gl55/frame-033.jpg
-assets/360/gl55/frame-034.jpg
-assets/360/gl55/frame-035.jpg
-assets/360/gl55/frame-036.jpg
-assets/360/gl55/frame-037.jpg
-assets/360/gl55/frame-038.jpg
-assets/360/gl55/frame-039.jpg
-assets/360/gl55/frame-040.jpg
-assets/360/gl55/frame-041.jpg
-assets/360/gl55/frame-042.jpg
-assets/360/gl55/frame-043.jpg
-assets/360/gl55/frame-044.jpg
-assets/360/gl55/frame-045.jpg
-assets/360/gl55/frame-046.jpg
-assets/360/gl55/frame-047.jpg
-assets/360/gl55/frame-048.jpg
-assets/360/gl55/frame-049.jpg
-assets/360/gl55/frame-050.jpg
-assets/360/m55/frame-001.jpg
-assets/360/m55/frame-002.jpg
-assets/360/m55/frame-003.jpg
-assets/360/m55/frame-004.jpg
-assets/360/m55/frame-005.jpg
-assets/360/m55/frame-006.jpg
-assets/360/m55/frame-007.jpg
-assets/360/m55/frame-008.jpg
-assets/360/m55/frame-009.jpg
-assets/360/m55/frame-010.jpg
-assets/360/m55/frame-011.jpg
-assets/360/m55/frame-012.jpg
-assets/360/m55/frame-013.jpg
-assets/360/m55/frame-014.jpg
-assets/360/m55/frame-015.jpg
-assets/360/m55/frame-016.jpg
-assets/360/m55/frame-017.jpg
-assets/360/m55/frame-018.jpg
-assets/360/m55/frame-019.jpg
-assets/360/m55/frame-020.jpg
-assets/360/m55/frame-021.jpg
-assets/360/m55/frame-022.jpg
-assets/360/m55/frame-023.jpg
-assets/360/m55/frame-024.jpg
-assets/360/m55/frame-025.jpg
-assets/360/m55/frame-026.jpg
-assets/360/m55/frame-027.jpg
-assets/360/m55/frame-028.jpg
-assets/360/m55/frame-029.jpg
-assets/360/m55/frame-030.jpg
-assets/360/m55/frame-031.jpg
-assets/360/m55/frame-032.jpg
-assets/360/m55/frame-033.jpg
-assets/360/m55/frame-034.jpg
-assets/360/m55/frame-035.jpg
-assets/360/m55/frame-036.jpg
-assets/360/m55/frame-037.jpg
-assets/360/m55/frame-038.jpg
-assets/hero/b20-hero.png
-assets/hero/ex-hero.png
-assets/hero/s35-hero.png
-assets/input-png/gl35-black.png
-assets/input-png/gl35-sage.png
-assets/input-png/gl45-black.png
-assets/input-png/gl45-sage.png
-assets/input-png/gl55-black.png
-assets/input-png/gl55-sage.png
-assets/output-trimmed/gl35-black.png
-assets/output-trimmed/gl35-sage.png
-assets/output-trimmed/gl45-black.png
-assets/output-trimmed/gl45-sage.png
-assets/output-trimmed/gl55-black.png
-assets/output-trimmed/gl55-sage.png
-assets/products/ax.png
-assets/products/b.jpg
-assets/products/b20.png
-assets/products/d.jpg
-assets/products/ex.png
-assets/products/exm.jpg
-assets/products/exm.png
-assets/products/gl/4 models.png
-assets/products/gl/control-panel.png
-assets/products/gl/front.png
-assets/products/gl/handle-detail.png
-assets/products/gl/open-lid front.png
-assets/products/gl/open-lid.png
-assets/products/gl.png
-assets/products/k.jpg
-assets/products/ke.jpg
-assets/products/m.png
-assets/products/p12.png
-assets/products/s18-orange.png
-assets/products/S35.png
-assets/products/tf.jpg
-outputs/ax.jpg
-outputs/b.jpg
-outputs/d.jpg
-outputs/ex.jpg
-outputs/exm.jpg
-outputs/gl.jpg
-outputs/k.jpg
-outputs/ke.jpg
-outputs/kelvcoop-interactive-site.zip
-outputs/m.jpg
-outputs/s.jpg
-outputs/tf.jpg
+public/assets/.DS_Store
 public/assets/360/gl55/frame-001.jpg
 public/assets/360/gl55/frame-002.jpg
 public/assets/360/gl55/frame-003.jpg
@@ -304,22 +196,23 @@ public/assets/360/m55/frame-035.jpg
 public/assets/360/m55/frame-036.jpg
 public/assets/360/m55/frame-037.jpg
 public/assets/360/m55/frame-038.jpg
+public/assets/brand/k-icon.svg
+public/assets/community/.DS_Store
+public/assets/community/community-hero.jpg
+public/assets/community/jonny-card.jpg
+public/assets/community/mason-card.jpg
+public/assets/community/vicky-card.jpg
+public/assets/community/yiwen-card.jpg
 public/assets/downloads/ex-series-manual.pdf
 public/assets/downloads/exm-series-manual.pdf
-public/assets/downloads/travel-science-brochure.pdf
 public/assets/hero/b20-hero.png
 public/assets/hero/ex-hero.png
 public/assets/hero/s35-hero.png
-public/assets/products/ax/gallery/1.png
-public/assets/products/ax/gallery/2.png
-public/assets/products/ax/gallery/4.png
-public/assets/products/ax/gallery/7.png
-public/assets/products/ax/gallery/10.png
-public/assets/products/ax/gallery/ax.png
-public/assets/products/ax/gallery/ax30-front.png
+public/assets/icons/arrowleft.svg
+public/assets/icons/arrowright.svg
+public/assets/products/.DS_Store
+public/assets/products/ax.png
 public/assets/products/ax/gallery/ax30-open.png
-public/assets/products/ax/gallery/ax30-side.png
-public/assets/products/ax/gallery/ax30-side2.png
 public/assets/products/ax/gallery/ax40-front.png
 public/assets/products/ax/gallery/ax50-black.png
 public/assets/products/ax/gallery/ax50-side.png
@@ -332,224 +225,76 @@ public/assets/products/ax/models/ax40-light-gray.png
 public/assets/products/ax/models/ax50-black.png
 public/assets/products/ax/models/ax50-champagne.png
 public/assets/products/ax/models/ax50-light-gray.png
-public/assets/products/ax 10.02.27.jpg
-public/assets/products/ax.png
-public/assets/products/b/b25.png
-public/assets/products/b/gallery/1.png
-public/assets/products/b/gallery/2.png
-public/assets/products/b/gallery/4.png
-public/assets/products/b/gallery/b20.png
-public/assets/products/b/gallery/主图1.jpg
-public/assets/products/b/gallery/主图2.jpg
 public/assets/products/b.jpg
+public/assets/products/b/b25.png
 public/assets/products/b20.png
 public/assets/products/d.jpg
-public/assets/products/ex/ex.png
-public/assets/products/ex/gallery/2.png
-public/assets/products/ex/gallery/623 拷贝.png
-public/assets/products/ex/gallery/E30.png
-public/assets/products/ex/gallery/E50.png
-public/assets/products/ex/gallery/EX50.png
-public/assets/products/ex/gallery/细节图 拷贝.png
-public/assets/products/ex/gallery/细节图 拷贝2.png
-public/assets/products/ex/gallery/细节图 拷贝3.png
-public/assets/products/ex 10.05.28.jpg
 public/assets/products/ex.png
-public/assets/products/exm/6.png
-public/assets/products/exm/exm.png
+public/assets/products/exm.png
+public/assets/products/exm/.DS_Store
 public/assets/products/exm/gallery/1.png
 public/assets/products/exm/gallery/6.png
-public/assets/products/exm/gallery/11.png
 public/assets/products/exm/gallery/623 拷贝.png
 public/assets/products/exm/gallery/xj.2.png
 public/assets/products/exm/gallery/开瓶器更新2.png
-public/assets/products/exm/gallery/开瓶器更新8.png
-public/assets/products/exm 10.05.11.jpg
-public/assets/products/exm 10.35.08.jpg
-public/assets/products/exm.png
+public/assets/products/exm/models/.DS_Store
+public/assets/products/exm/models/exm30-black.jpg
+public/assets/products/exm/models/exm30-bluegray&lightgray.png
+public/assets/products/exm/models/exm40-black.jpg
+public/assets/products/exm/models/exm40-bluegray&lightgray.png
+public/assets/products/exm/models/exm50-black.jpg
+public/assets/products/exm/models/exm50-bluegray&lightgray.png
+public/assets/products/gl.png
 public/assets/products/gl/control-panel.png
 public/assets/products/gl/front.png
-public/assets/products/gl/gallery/gl-control-panel-close.jpg
-public/assets/products/gl/gallery/gl-detail-control-panel.png
-public/assets/products/gl/gallery/gl-lifestyle-camp.jpg
-public/assets/products/gl/gallery/gl-lifestyle-storage.jpg
-public/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg
-public/assets/products/gl/gallery/gl-lineup-black.jpg
-public/assets/products/gl/gallery/gl-open-angle.jpg
-public/assets/products/gl/gallery/gl-open-top.jpg
-public/assets/products/gl/gallery/gl75-main-render.png
 public/assets/products/gl/gl-black-open.png
 public/assets/products/gl/gl-sage-open.png
 public/assets/products/gl/handle-detail.png
-public/assets/products/gl/models/gl35-black 2.png
-public/assets/products/gl/models/gl35-black.jpg
 public/assets/products/gl/models/gl35-black.png
 public/assets/products/gl/models/gl35-sage.png
-public/assets/products/gl/models/gl45-black.jpg
 public/assets/products/gl/models/gl45-black.png
 public/assets/products/gl/models/gl45-sage.png
-public/assets/products/gl/models/gl55-black 2.png
-public/assets/products/gl/models/gl55-black.jpg
 public/assets/products/gl/models/gl55-black.png
 public/assets/products/gl/models/gl55-sage.png
-public/assets/products/gl/models/gl75-black 2.png
 public/assets/products/gl/models/gl75-black.png
-public/assets/products/gl/models/gl75-sage.png
-public/assets/products/gl/models/untitled.1351.png
-public/assets/products/gl/models/暂时测试隐藏/gl45-black.png
-public/assets/products/gl/models/暂时测试隐藏/gl45-sage.png
 public/assets/products/gl/open-lid.png
-public/assets/products/gl/render/gl35-black.png
-public/assets/products/gl/render/gl35-sage.png
-public/assets/products/gl/render/gl45-black.png
-public/assets/products/gl/render/gl45-sage.png
-public/assets/products/gl/render/gl55-black.png
-public/assets/products/gl/render/gl55-sage.png
-public/assets/products/gl 10.06.11.jpg
-public/assets/products/gl.png
 public/assets/products/k.jpg
-public/assets/products/ke 10.02.53.jpg
-public/assets/products/ke.jpg
+public/assets/products/m.png
 public/assets/products/m/gallery/m45-black.png
 public/assets/products/m/gallery/m45-front.png
 public/assets/products/m/gallery/m45-open.png
 public/assets/products/m/gallery/m45-side.png
-public/assets/products/m/gallery/M45.14 拷贝.png
-public/assets/products/m/gallery/M45土色.2 拷贝.png
-public/assets/products/m/gallery/M45土色.3.png
-public/assets/products/m/gallery/M系列双温效果图.png
-public/assets/products/m/gallery/M页面图.png
-public/assets/products/m/gallery/untitled.1488.png
-public/assets/products/m/gallery/双门.png
-public/assets/products/m/gallery/屏幕.png
-public/assets/products/m/gallery/把手.png
-public/assets/products/m/gallery/拉杆（特写拉杆.png
-public/assets/products/m/gallery/电池.png
-public/assets/products/m/gallery/车家两用太阳能.png
-public/assets/products/m/gallery/轮子（特写轮子.png
 public/assets/products/m/models/m35-black.png
 public/assets/products/m/models/m35-sage.png
 public/assets/products/m/models/m45-black.png
 public/assets/products/m/models/m45-sage.png
 public/assets/products/m/models/m55-black.png
 public/assets/products/m/models/m55-sage.png
-public/assets/products/m/拉杆（特写拉杆.png
-public/assets/products/m 10.05.47.jpg
-public/assets/products/m.png
 public/assets/products/p12.png
-public/assets/products/productcollectionspage-images/ax-card.webp
-public/assets/products/productcollectionspage-images/b-card.webp
-public/assets/products/productcollectionspage-images/d-card.webp
-public/assets/products/productcollectionspage-images/ex-card.webp
-public/assets/products/productcollectionspage-images/exm-card.webp
-public/assets/products/productcollectionspage-images/gl-card.webp
-public/assets/products/productcollectionspage-images/k-card.webp
-public/assets/products/productcollectionspage-images/m-card.webp
-public/assets/products/productcollectionspage-images/s-card.webp
-public/assets/products/productcollectionspage-images/tf-card.webp
-public/assets/products/s 10.03.28.jpg
-public/assets/products/s-upgraded-cutout.png
-public/assets/products/S18/gallery/1.png
-public/assets/products/S18/gallery/2.png
-public/assets/products/S18/gallery/3.png
-public/assets/products/S18/gallery/4.png
-public/assets/products/S18/gallery/5.png
-public/assets/products/S18/gallery/6.png
-public/assets/products/S18/gallery/7.png
-public/assets/products/S18/gallery/0908banjin 拷贝.png
-public/assets/products/S18/gallery/0915 拷贝.png
-public/assets/products/S18/gallery/S18.20.png
 public/assets/products/s18-orange.png
 public/assets/products/S35.png
-public/assets/products/stx/gallery/2.png
-public/assets/products/stx/gallery/3.png
-public/assets/products/stx/gallery/4.png
-public/assets/products/stx/gallery/5.png
-public/assets/products/stx/gallery/p12.png
 public/assets/products/tf.jpg
-work/gl-assets-preview.png
-work/gl-detail-contact.png
-work/gl-flyer-1.png
-work/gl-flyer-2.png
-work/gl-flyer-hi-1.png
-work/gl-flyer-hi-2.png
-work/pdf-preview/foldout-1.png
-work/pdf-preview/foldout-2.png
-work/pdf-preview/foldout-3.png
-work/pdf-preview/foldout-4.png
-work/pdf-preview/travel_science-01.png
-work/pdf-preview/travel_science-02.png
-work/pdf-preview/travel_science-03.png
-work/pdf-preview/travel_science-04.png
+public/assets/services/.DS_Store
+public/assets/services/accessories-lineup.png
+public/assets/services/community-connected.png
+public/assets/services/custom-project-sketch.png
+public/assets/services/gallery/.DS_Store
+public/assets/services/gallery/solar-panel.png
+public/assets/services/gallery/tool-battery-holder.png
+public/assets/services/gallery/untitled.1488.png
+public/assets/services/gallery/烟线.png
+public/assets/services/gallery/电池.jpg
+public/assets/services/gallery/适配器.png
 ```
+
+## Runtime Asset Reference Scan
+
+Detected runtime asset references in source files: 155
+Missing referenced runtime assets: 0
 
 ## Source Contents
 
-### .gitignore
-
-Size: 161 bytes
-
-```text
-.DS_Store
-**/.DS_Store
-
-node_modules/
-.env
-.env.*
-
-dist/
-build/
-.cache/
-
-assets/
-outputs/
-work/
-review.txt
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.zip
-
-```
-
-### .vscode/settings.json
-
-Size: 40 bytes
-
-```json
-{
-    "liveServer.settings.port": 5501
-}
-
-```
-
-### assets/brand/k-icon.svg
-
-Size: 769 bytes
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138.18 122.55">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #231f20;
-      }
-    </style>
-  </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <path class="cls-1" d="M63.67,0L0,67.42V18.56C0,8.31,8.31,0,18.57,0h45.11Z"/>
-    <path class="cls-1" d="M138.18,0l-9.72,10.24-49.83,52.53-17.07,18-7.08,7.47-1.02,1.07-16.24,17.12-.09.09-1.93,2.03c-8.91,8.87-21.37,14.13-35.06,13.95-.05,0-.1,0-.15,0v-30.93l2.26-2.26,26.65-26.64L90.99.59c2.46-.39,4.99-.59,7.56-.59h39.64Z"/>
-    <path class="cls-1" d="M138.18,122.32v.24h-42.15c-4.63,0-9.07-1.84-12.34-5.11l-28.13-28.13h42.39c4.63,0,9.07,1.84,12.34,5.11l1.47,1.47,26.43,26.43Z"/>
-  </g>
-</svg>
-
-```
-
 ### chatgpt-review-prompt.md
-
-Size: 2050 bytes
 
 ```md
 Please review this frontend prototype and give design/code feedback.
@@ -583,7 +328,7 @@ Recent relevant CSS areas:
 
 Important current product card CSS:
 
-`\`\`css
+`​``css
 .product-card {
   overflow: hidden;
 }
@@ -612,15 +357,12 @@ Important current product card CSS:
 .product-card:hover img {
   transform: scale(1.025) rotate(-0.5deg);
 }
-`\`\`
+`​``
 
 Please focus on practical improvements rather than a full rewrite. If you suggest changes, give concrete CSS/JS snippets and explain what tradeoff each change makes.
-
 ```
 
 ### docs/hero-protection.md
-
-Size: 1194 bytes
 
 ```md
 # Homepage Hero Protection
@@ -654,12 +396,9 @@ The required hero control attributes are:
 The JavaScript entry point is `src/utils/heroScrollGate.js`. It owns the scroll gate measurement, wheel handling, resize handling, image load refresh, and the `--hero-bg-y` CSS variable update.
 
 Non-hero tasks must not modify `HeroCarousel.js`, the protected hero CSS block, or `heroScrollGate.js`. If hero behavior must change, create a dedicated hero task first and review the full hero behavior separately from product pages, gallery, navigation, or color selector work.
-
 ```
 
 ### gl-series.md
-
-Size: 5297 bytes
 
 ```md
 # GL Series
@@ -827,16 +566,13 @@ Size: 5297 bytes
 | --- | --- |
 | Travel Science brochure | `/Users/yiwenzhou/Documents/Kelvcoop/Travel Science画册.pdf` |
 | GL flyer | `/Users/yiwenzhou/Documents/Kelvcoop/单张flyers/GL单张-20250717.pdf` |
-
 ```
 
 ### index.html
 
-Size: 693 bytes
-
 ```html
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -845,20 +581,35 @@ Size: 693 bytes
       content="Travel Science designs portable cooling systems by Kelvcoop for modern travel, vehicle life, weekend escapes and tool-battery powered mobility."
     />
     <title>Travel Science | by Kelvcoop</title>
-    <link rel="stylesheet" href="/src/styles.css?v=20260622-nav-panel-gap" />
+    <script>
+      (() => {
+        try {
+          const savedTheme = window.localStorage.getItem("travelScienceTheme");
+          document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <style>
+      html[data-theme="dark"],
+      html[data-theme="dark"] body {
+        background: #070809;
+        color: #f5f2ec;
+        color-scheme: dark;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/styles.css?v=20260624-family-compact-header" />
     <link rel="preload" as="image" href="/assets/hero/s35-hero.png" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.js?v=20260622-route-scroll-top"></script>
+    <script type="module" src="/src/main.js?v=20260624-family-compact-header"></script>
   </body>
 </html>
-
 ```
 
 ### package-lock.json
-
-Size: 242 bytes
 
 ```json
 {
@@ -874,12 +625,9 @@ Size: 242 bytes
     }
   }
 }
-
 ```
 
 ### package.json
-
-Size: 394 bytes
 
 ```json
 {
@@ -895,59 +643,9 @@ Size: 394 bytes
   "dependencies": {},
   "devDependencies": {}
 }
-
-```
-
-### public/assets/brand/k-icon.svg
-
-Size: 769 bytes
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138.18 122.55">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #231f20;
-      }
-    </style>
-  </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <path class="cls-1" d="M63.67,0L0,67.42V18.56C0,8.31,8.31,0,18.57,0h45.11Z"/>
-    <path class="cls-1" d="M138.18,0l-9.72,10.24-49.83,52.53-17.07,18-7.08,7.47-1.02,1.07-16.24,17.12-.09.09-1.93,2.03c-8.91,8.87-21.37,14.13-35.06,13.95-.05,0-.1,0-.15,0v-30.93l2.26-2.26,26.65-26.64L90.99.59c2.46-.39,4.99-.59,7.56-.59h39.64Z"/>
-    <path class="cls-1" d="M138.18,122.32v.24h-42.15c-4.63,0-9.07-1.84-12.34-5.11l-28.13-28.13h42.39c4.63,0,9.07,1.84,12.34,5.11l1.47,1.47,26.43,26.43Z"/>
-  </g>
-</svg>
-
-```
-
-### public/assets/icons/arrowleft.svg
-
-Size: 249 bytes
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.69 206.57">
-  <polygon points="59.47 206.57 113.69 206.57 54.28 103.31 113.65 .07 59.49 0 0 103.3 59.47 206.57"/>
-</svg>
-
-```
-
-### public/assets/icons/arrowright.svg
-
-Size: 246 bytes
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.69 206.57">
-  <polygon points="54.23 206.57 0 206.57 59.41 103.31 .04 .07 54.21 0 113.69 103.3 54.23 206.57"/>
-</svg>
-
 ```
 
 ### README.md
-
-Size: 350 bytes
 
 ```md
 # Travel Science Website
@@ -956,19 +654,19 @@ A static product website for Travel Science, by Kelvcoop.
 
 ## Local Preview
 
-`\`\`bash
+`​``bash
 npm run dev
-`\`\`
+`​``
 
 Then open:
 
-`\`\`text
+`​``text
 http://localhost:4173/
-`\`\`
+`​``
 
 ## Project Structure
 
-`\`\`text
+`​``text
 src/
   components/
   data/
@@ -976,15 +674,12 @@ src/
   utils/
 public/
   assets/
-`\`\`
+`​``
 
 Runtime assets referenced as `/assets/...` are served from `public/assets`.
-
 ```
 
 ### scripts/generate-gallery-manifest.mjs
-
-Size: 5639 bytes
 
 ```js
 import { existsSync } from "node:fs";
@@ -1004,7 +699,6 @@ const productFolders = {
   ex: "ex",
   exm: "exm",
   k: "k",
-  ke: "ke",
   m: "m",
   s: "S18",
   tf: "tf",
@@ -1015,10 +709,10 @@ const colorSlugAliases = {
   "black-gray": ["blackgrey"],
   "black-silver": ["black-and-silver"],
   "black-beige-gray": ["black-beige", "black-beige-grey"],
-  "blue-gray-beige-gray": ["blue-gray-beige", "blue-grey-beige-grey"],
+  "blue-gray-light-gray": ["bluegray&lightgray", "bluegray-lightgray", "blue-gray-light", "blue-grey-light-grey"],
   "dark-gray-light-gray": ["dark-grey-light-grey"],
   "light-gray": ["light-grey"],
-  "mung-bean-gray": ["mung-gray", "mung-bean-grey", "sage", "sage-green"],
+  "mung-bean-gray": ["mung-gray", "mung-bean-grey"],
   "sage-green": ["sage"],
 };
 
@@ -1153,12 +847,9 @@ async function generateManifests() {
 }
 
 await generateManifests();
-
 ```
 
 ### scripts/generate-product-gallery.mjs
-
-Size: 2544 bytes
 
 ```js
 import { readdir, writeFile } from "node:fs/promises";
@@ -1234,12 +925,9 @@ async function generateProductGallery() {
 }
 
 await generateProductGallery();
-
 ```
 
 ### scripts/trim-png-by-group-union-bbox.py
-
-Size: 5544 bytes
 
 ```py
 #!/usr/bin/env python3
@@ -1247,10 +935,10 @@ Size: 5544 bytes
 Trim PNG product renders by a shared alpha union bbox per model + angle group.
 
 Default input:
-  assets/input-png
+  public/assets/input-png
 
 Default output:
-  assets/output-trimmed
+  public/assets/output-trimmed
 
 This script does not scale, recenter, or overwrite source images. Each group
 uses one shared crop box so color changes for the same model + angle do not
@@ -1268,14 +956,15 @@ from typing import Iterable
 from PIL import Image
 
 
-INPUT_DIR = Path("assets/input-png")
-OUTPUT_DIR = Path("assets/output-trimmed")
+INPUT_DIR = Path("public/assets/input-png")
+OUTPUT_DIR = Path("public/assets/output-trimmed")
 
 
 # Edit this list if your color naming changes. The longest suffix match wins,
 # so "sage-green" is handled before the fallback that removes only "-green".
 COLOR_SUFFIXES = (
     "black-beige-gray",
+    "blue-gray-light-gray",
     "blue-gray-beige-gray",
     "dark-gray-light-gray",
     "mung-bean-gray",
@@ -1458,12 +1147,9 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
 ```
 
 ### server.mjs
-
-Size: 1431 bytes
 
 ```js
 import { createReadStream, existsSync, statSync } from "node:fs";
@@ -1508,12 +1194,9 @@ createServer((request, response) => {
 }).listen(port, () => {
   console.log(`Travel Science site running at http://localhost:${port}`);
 });
-
 ```
 
 ### src/components/ContactSection.js
-
-Size: 456 bytes
 
 ```js
 export function ContactSection() {
@@ -1526,46 +1209,9 @@ export function ContactSection() {
     </section>
   `;
 }
-
-```
-
-### src/components/FeaturedProducts.js
-
-Size: 815 bytes
-
-```js
-import { productHeadline, productIntro } from "../data/products.js";
-
-export function FeaturedProducts({ products }) {
-  return `
-    <section class="featured reveal">
-      ${products.map(featuredProduct).join("")}
-    </section>
-  `;
-}
-
-function featuredProduct(product, index) {
-  return `
-    <article class="feature-product ${index % 2 ? "is-reversed" : ""}">
-      <div class="feature-visual">
-        <img src="${product.image}" alt="${product.name}">
-      </div>
-      <div class="feature-copy">
-        <p class="kicker">Featured system</p>
-        <h2>${product.name}</h2>
-        <h3>${productHeadline(product)}</h3>
-        <p>${productIntro(product)}</p>
-        <a class="card-cta" href="#/products/${product.id}" data-go="/products/${product.id}">View Product</a>
-      </div>
-    </article>
-  `;
-}
-
 ```
 
 ### src/components/Footer.js
-
-Size: 502 bytes
 
 ```js
 import { socialLinks } from "../data/socialLinks.js";
@@ -1579,28 +1225,28 @@ export function Footer() {
         <p>Follow Travel Science</p>
         <div class="footer-social-links">
           ${socialLinks.map((link) => `
-            <a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>
+            <a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>
           `).join("")}
         </div>
       </div>
     </footer>
   `;
 }
-
 ```
 
 ### src/components/Header.js
 
-Size: 5679 bytes
-
 ```js
 import { products } from "../data/products.js";
+import { productFamilies } from "../data/productFamilies.js";
 
 const productById = new Map(products.map((product) => [product.id, product]));
+const familyById = new Map(productFamilies.map((family) => [family.id, family]));
 
 const productMenuGroups = [
   {
     title: "Compact Cooling",
+    familyId: "compact-cooling",
     description: "Under 30L, lighter and easier to carry.",
     items: [
       { id: "d", name: "D Series", detail: "9L" },
@@ -1611,14 +1257,17 @@ const productMenuGroups = [
   },
   {
     title: "Large Capacity",
+    familyId: "large-capacity",
     description: "30L and above for larger storage needs.",
     items: [
       { id: "ax", name: "AX Series", detail: "30L&ndash;50L" },
       { id: "ex", name: "EX Series", detail: "30L&ndash;50L" },
+      { id: "gl", name: "GL Series", detail: "35L&ndash;75L" },
     ],
   },
   {
     title: "Dual-zone Storage",
+    familyId: "dual-zone-storage",
     description: "Large-capacity dual-zone storage for chilled and frozen items.",
     items: [
       { id: "gl", name: "GL Series", detail: "35L&ndash;75L" },
@@ -1628,12 +1277,22 @@ const productMenuGroups = [
   },
   {
     title: "Wheeled Mobility",
+    familyId: "wheeled-mobility",
     description: "Large-capacity cooling with wheels and pull-handle structure.",
     items: [
       { id: "exm", name: "EXM Series", detail: "30L&ndash;50L" },
       { id: "m", name: "M Series", detail: "35L&ndash;55L &middot; Dual-zone" },
     ],
   },
+];
+
+const mobileProductMenuItems = [
+  { id: "ex", name: "EX Series", tag: "", capacity: "30L&ndash;50L" },
+  { id: "gl", name: "GL Series", tag: "Dual-zone", capacity: "35L&ndash;75L" },
+  { id: "ax", name: "AX Series", tag: "Dual-zone", capacity: "30L&ndash;50L" },
+  { id: "tf", name: "TF Series", tag: "Dual-zone", capacity: "35L&ndash;55L" },
+  { id: "exm", name: "EXM Series", tag: "", capacity: "30L&ndash;50L" },
+  { id: "m", name: "M Series", tag: "Dual-zone", capacity: "35L&ndash;55L" },
 ];
 
 function productMenuItem(item) {
@@ -1648,13 +1307,20 @@ function productMenuItem(item) {
   `;
 }
 
+function productMenuGroupHeading(group) {
+  const family = familyById.get(group.familyId);
+  if (!family) return `<h3>${group.title}</h3>`;
+  return `<h3><a href="${family.href}" data-go="${family.target}">${group.title}</a></h3>`;
+}
+
 function mobileProductMenuItem(item) {
   if (!productById.has(item.id)) return "";
 
   return `
     <a class="mobile-product-row" href="#/products/${item.id}" data-go="/products/${item.id}">
       <span class="mobile-product-name">${item.name}</span>
-      <span class="mobile-product-capacity">${item.detail}</span>
+      <span class="mobile-product-tag">${item.tag}</span>
+      <span class="mobile-product-capacity">${item.capacity}</span>
     </a>
   `;
 }
@@ -1685,7 +1351,7 @@ export function Header({ theme, menuOpen, mobileProductsOpen = false, productsOp
                   <div class="products-menu-grid">
                     ${productMenuGroups.map((group) => `
                       <section class="products-menu-group">
-                        <h3>${group.title}</h3>
+                        ${productMenuGroupHeading(group)}
                         <p>${group.description}</p>
                         <div class="products-menu-items">
                           ${group.items.map(productMenuItem).join("")}
@@ -1697,16 +1363,14 @@ export function Header({ theme, menuOpen, mobileProductsOpen = false, productsOp
               </div>
             </div>
             <div class="mobile-products-panel ${mobileProductsOpen ? "is-open" : ""}" aria-label="Mobile product series">
-              ${productMenuGroups.map((group) => `
-                <section class="mobile-products-group">
-                  <h4>${group.title}</h4>
-                  ${group.items.map(mobileProductMenuItem).join("")}
-                </section>
-              `).join("")}
+              <a class="mobile-products-view-all" href="#/products" data-go="/products">view all product <span aria-hidden="true">&rarr;</span></a>
+              <div class="mobile-products-list">
+                ${mobileProductMenuItems.map(mobileProductMenuItem).join("")}
+              </div>
             </div>
           </div>
           <a href="#/custom-projects" data-go="/custom-projects">Custom Projects</a>
-          <a href="#/capabilities" data-go="/capabilities">Support</a>
+          <a href="#/support" data-go="/support">Support</a>
         </div>
       </nav>
       <div class="nav-actions">
@@ -1717,12 +1381,9 @@ export function Header({ theme, menuOpen, mobileProductsOpen = false, productsOp
     </header>
   `;
 }
-
 ```
 
 ### src/components/HeroCarousel.js
-
-Size: 3545 bytes
 
 ```js
 // HERO CONTRACT:
@@ -1801,12 +1462,9 @@ export function HeroCarousel({ slides, currentSlide }) {
     </section>
   `;
 }
-
 ```
 
 ### src/components/ProductCard.js
-
-Size: 891 bytes
 
 ```js
 import { productHeadline, productIntro } from "../data/products.js";
@@ -1830,12 +1488,9 @@ export function ProductCard(product) {
     </article>
   `;
 }
-
 ```
 
 ### src/components/ProductDetailTemplate.js
-
-Size: 14205 bytes
 
 ```js
 import { ContactSection } from "./ContactSection.js";
@@ -1847,24 +1502,24 @@ import { productHeadline, productIntro } from "../data/products.js";
 export function ProductDetailTemplate({ product, related = [] }) {
   return `
     <main class="product-page">
-      <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-        <a href="#/" data-go="/">Home</a>
-        <span aria-hidden="true">/</span>
-        <a href="#/products" data-go="/products">Products</a>
-        <span aria-hidden="true">/</span>
-        <span>${product.name}</span>
-      </nav>
-
-      <section class="product-hero reveal" ${productHeroState(product)}>
-        <div class="product-hero-copy">
-          <p class="kicker">${product.models.join(" / ")}</p>
+      <section class="product-hero product-config-panel reveal" ${productHeroState(product)}>
+        <div class="product-hero-copy product-config-copy">
+          <nav class="breadcrumb product-config-breadcrumb" aria-label="Breadcrumb">
+            <a href="#/" data-go="/">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="#/products" data-go="/products">Products</a>
+            <span aria-hidden="true">/</span>
+            <span>${product.name}</span>
+          </nav>
           <h1>${product.name}</h1>
-          <h2>${productHeadline(product)}</h2>
+          <h2>${withAccentPeriod(productHeadline(product))}</h2>
           <p>${productIntro(product)}</p>
+        </div>
+        <div class="product-config-controls">
           ${modelSelector(product)}
           ${colorSelector(product)}
         </div>
-        <div class="product-hero-media">
+        <div class="product-hero-media product-config-visual">
           <img class="${product.id === "gl" ? "gl-product-hero-image" : ""}" data-product-hero-image src="${productHeroImage(product)}" alt="${product.alt || product.name}">
         </div>
       </section>
@@ -1901,6 +1556,13 @@ export function ProductDetailTemplate({ product, related = [] }) {
       ${ContactSection()}
     </main>
   `;
+}
+
+function withAccentPeriod(text) {
+  if (!text) return "";
+  return text.endsWith(".")
+    ? `${text.slice(0, -1)}<span class="period-accent">.</span>`
+    : text;
 }
 
 function productHeroState(product) {
@@ -2099,7 +1761,7 @@ function gallerySection(product) {
   if (!gallery.length) return "";
 
   const sectionClass = "gl-product-gallery-section reveal";
-  const trackClass = "gl-product-gallery-track";
+  const trackClass = "gallery-track gl-product-gallery-track";
   const cardClass = ` class="gl-product-gallery-card"`;
   const imageClass = ` class="gl-product-gallery-image"`;
   const headingClass = "section-heading gl-product-gallery-heading";
@@ -2113,7 +1775,9 @@ function gallerySection(product) {
     .map(
       (item) => `
         <article${cardClass}>
-          <img${imageClass} src="${item.src || item.image}" alt="${item.alt || item.title || product.name}" onerror="this.closest('article')?.remove()">
+          <div class="gl-product-gallery-image-frame">
+            <img${imageClass} src="${item.src || item.image}" alt="${item.alt || item.title || product.name}" draggable="false" onerror="this.closest('article')?.remove()">
+          </div>
           <div class="gl-product-gallery-body">
             ${item.title ? `<h3>${item.title}</h3>` : ""}
             ${item.text ? `<p>${item.text}</p>` : ""}
@@ -2128,10 +1792,10 @@ function gallerySection(product) {
       <div class="gl-product-gallery-inner">
         ${heading}
       </div>
-      <div class="gl-product-gallery-viewport horizontal-bleed">
+      <div class="gl-product-gallery-viewport">
         ${horizontalControls()}
-        <div class="horizontal-scroll" data-horizontal-scroll>
-          <div class="${trackClass} horizontal-track">
+        <div class="gallery-scroller" data-horizontal-scroll>
+          <div class="${trackClass}" data-horizontal-track>
             ${cards}
           </div>
         </div>
@@ -2221,8 +1885,8 @@ function productDocuments(product) {
   return [
     {
       label: "Product brochure",
-      href: product.documents?.brochure || "/assets/downloads/travel-science-brochure.pdf",
-      status: "Download",
+      href: product.documents?.brochure,
+      status: product.documents?.brochure ? "Download" : "Request document",
     },
     {
       label: "User manual",
@@ -2268,12 +1932,9 @@ function inquirySection(product) {
 function spec(label, value) {
   return `<div><dt>${label}</dt><dd>${value || "TBD"}</dd></div>`;
 }
-
 ```
 
 ### src/components/ProductFamily.js
-
-Size: 998 bytes
 
 ```js
 export function ProductFamily({ categories }) {
@@ -2293,124 +1954,105 @@ export function ProductFamily({ categories }) {
 
 function productFamilyCard(category) {
   return `
-    <article class="product-family-card">
+    <a class="product-family-card" href="${category.href}" data-go="${category.target}" aria-label="Open ${category.name}">
       <div class="family-image"><img src="${category.image}" onerror="this.onerror=null;this.src='${category.fallback || category.image}'" alt="${category.name}"></div>
       <div>
         <h3>${category.name}</h3>
         <p>${category.label}</p>
       </div>
       <span class="arrow-accent" aria-hidden="true">→</span>
+    </a>
+  `;
+}
+```
+
+### src/components/ServiceEntryCards.js
+
+```js
+function textWithBreaks(value) {
+  return value.split("\n").join("<br>");
+}
+
+function serviceEntryCard(card, index) {
+  const hashHref = `#${card.href}`;
+  const imageStyle = card.imagePosition ? ` style="object-position: ${card.imagePosition};"` : "";
+  const themeClass = card.theme ? ` service-entry-card--${card.theme}` : "";
+
+  return `
+    <article class="feature-product service-entry-card${themeClass} ${index % 2 ? "is-reversed" : ""}">
+      <div class="feature-visual">
+        <img src="${card.image}" alt="${card.label}"${imageStyle}>
+      </div>
+      <div class="feature-copy">
+        <p class="kicker">${card.label}</p>
+        <h2>${textWithBreaks(card.title)}</h2>
+        <p>${textWithBreaks(card.description)}</p>
+        <a class="card-cta" href="${hashHref}" data-go="${card.href}">${card.buttonText}</a>
+      </div>
     </article>
   `;
 }
 
+export function ServiceEntryCards({ cards }) {
+  return `
+    <section class="featured service-entry-cards reveal">
+      ${cards.map(serviceEntryCard).join("")}
+    </section>
+  `;
+}
+```
+
+### src/data/accessories.js
+
+```js
+export const accessoryItems = [
+  {
+    name: "Power modules",
+    description: "Battery and power accessories for extended outdoor cooling use.",
+  },
+  {
+    name: "Compressor parts",
+    description: "Cooling-system parts prepared for service, replacement and project support.",
+  },
+  {
+    name: "DC cables",
+    description: "Vehicle power cables for DC 12/24V portable fridge operation.",
+  },
+  {
+    name: "AC adapters",
+    description: "Home and workshop power adapters for flexible indoor use.",
+  },
+  {
+    name: "Storage baskets",
+    description: "Wire baskets and storage inserts for cleaner organization inside the fridge.",
+  },
+  {
+    name: "Solar charging",
+    description: "Portable solar charging accessories for longer trips and off-grid scenarios.",
+  },
+];
+
+export const accessoryUseCases = [
+  "Outdoor trips",
+  "Vehicle travel",
+  "Distributor service",
+  "Replacement planning",
+  "Custom project kits",
+];
 ```
 
 ### src/data/galleryManifest.js
-
-Size: 10261 bytes
 
 ```js
 // This file is generated by scripts/generate-gallery-manifest.mjs.
 // Run npm run dev or npm run preview after adding or deleting gallery images.
 
 export const galleryManifest = {
-  "gl": [
-    {
-      "image": "/assets/products/gl/gallery/gl-control-panel-close.jpg",
-      "title": "Gl control panel close",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-detail-control-panel.png",
-      "title": "Gl detail control panel",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-camp.jpg",
-      "title": "Gl lifestyle camp",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-storage.jpg",
-      "title": "Gl lifestyle storage",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg",
-      "title": "Gl lifestyle vehicle",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lineup-black.jpg",
-      "title": "Gl lineup black",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-open-angle.jpg",
-      "title": "Gl open angle",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-open-top.jpg",
-      "title": "Gl open top",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl75-main-render.png",
-      "title": "Gl75 main render",
-      "text": "Product detail image."
-    }
-  ],
+  "gl": [],
   "ax": [
-    {
-      "image": "/assets/products/ax/gallery/1.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/2.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/4.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/7.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/10.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/ax.png",
-      "title": "Ax",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/ax30-front.png",
-      "title": "Ax30 front",
-      "text": "Product detail image."
-    },
     {
       "image": "/assets/products/ax/gallery/ax30-open.png",
       "title": "Ax30 open",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/ax30-side.png",
-      "title": "Ax30 side",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ax/gallery/ax30-side2.png",
-      "title": "Ax30 side2",
       "text": "Product detail image."
     },
     {
@@ -2429,81 +2071,9 @@ export const galleryManifest = {
       "text": "Product detail image."
     }
   ],
-  "b": [
-    {
-      "image": "/assets/products/b/gallery/1.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/b/gallery/2.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/b/gallery/4.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/b/gallery/b20.png",
-      "title": "B20",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/b/gallery/主图1.jpg",
-      "title": "主图1",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/b/gallery/主图2.jpg",
-      "title": "主图2",
-      "text": "Product detail image."
-    }
-  ],
+  "b": [],
   "d": [],
-  "ex": [
-    {
-      "image": "/assets/products/ex/gallery/2.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/623 拷贝.png",
-      "title": "拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/E30.png",
-      "title": "E30",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/E50.png",
-      "title": "E50",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/EX50.png",
-      "title": "EX50",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝.png",
-      "title": "细节图 拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝2.png",
-      "title": "细节图 拷贝2",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝3.png",
-      "title": "细节图 拷贝3",
-      "text": "Product detail image."
-    }
-  ],
+  "ex": [],
   "exm": [
     {
       "image": "/assets/products/exm/gallery/1.png",
@@ -2512,11 +2082,6 @@ export const galleryManifest = {
     },
     {
       "image": "/assets/products/exm/gallery/6.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/exm/gallery/11.png",
       "title": "Product detail",
       "text": "Product detail image."
     },
@@ -2534,15 +2099,9 @@ export const galleryManifest = {
       "image": "/assets/products/exm/gallery/开瓶器更新2.png",
       "title": "开瓶器更新2",
       "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/exm/gallery/开瓶器更新8.png",
-      "title": "开瓶器更新8",
-      "text": "Product detail image."
     }
   ],
   "k": [],
-  "ke": [],
   "m": [
     {
       "image": "/assets/products/m/gallery/m45-black.png",
@@ -2563,133 +2122,14 @@ export const galleryManifest = {
       "image": "/assets/products/m/gallery/m45-side.png",
       "title": "M45 side",
       "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/M45.14 拷贝.png",
-      "title": "M45.14 拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/M45土色.2 拷贝.png",
-      "title": "M45土色.2 拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/M45土色.3.png",
-      "title": "M45土色.3",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/M系列双温效果图.png",
-      "title": "M系列双温效果图",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/M页面图.png",
-      "title": "M页面图",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/untitled.1488.png",
-      "title": "Untitled.1488",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/双门.png",
-      "title": "双门",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/屏幕.png",
-      "title": "屏幕",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/把手.png",
-      "title": "把手",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/拉杆（特写拉杆.png",
-      "title": "拉杆（特写拉杆",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/电池.png",
-      "title": "电池",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/车家两用太阳能.png",
-      "title": "车家两用太阳能",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/m/gallery/轮子（特写轮子.png",
-      "title": "轮子（特写轮子",
-      "text": "Product detail image."
     }
   ],
-  "s": [
-    {
-      "image": "/assets/products/S18/gallery/1.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/2.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/3.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/4.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/5.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/6.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/7.png",
-      "title": "Product detail",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/0908banjin 拷贝.png",
-      "title": "Banjin 拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/0915 拷贝.png",
-      "title": "拷贝",
-      "text": "Product detail image."
-    },
-    {
-      "image": "/assets/products/S18/gallery/S18.20.png",
-      "title": "S18.20",
-      "text": "Product detail image."
-    }
-  ],
+  "s": [],
   "tf": []
 };
-
 ```
 
 ### src/data/heroSlides.js
-
-Size: 2128 bytes
 
 ```js
 // TODO: Convert hero PNG backgrounds to optimized WebP/AVIF before production.
@@ -2699,10 +2139,10 @@ export const HERO_SLIDE_INTERVAL = null;
 export const heroSlides = [
   {
     id: "s35",
-    eyebrow: "Next-gen S Series.",
+    eyebrow: "S-Series.",
     badge: "NEW UPGRADE",
-    title: "The second fridge.\nPowered differently.",
-    text: "Runs on Makita batteries and other power tool batteries. A portable second fridge for home, workshop and weekend use.",
+    title: "Cooling powered by\nthe tool batteries you already use.",
+    text: "",
     background: "/assets/hero/s35-hero.png",
     position: "center center",
     cta: "Explore S Series",
@@ -2741,8 +2181,8 @@ export const heroSlides = [
     id: "exm-series",
     eyebrow: "EXM Series.",
     badge: "WHEELED SERIES",
-    title: "Roll farther.\nStay colder.",
-    text: "A wheeled outdoor cooling platform for vehicle travel, coastal routes and longer days away from the city.",
+    title: "Wheeled cooling for\nvehicle travel and outdoor supply.",
+    text: "",
     background: "/assets/hero/ex-hero.png",
     position: "center center",
     cta: "Explore EXM Series",
@@ -2758,35 +2198,39 @@ export const heroSlides = [
     ],
   },
 ];
-
 ```
 
 ### src/data/homepage.js
 
-Size: 1603 bytes
-
 ```js
 export const categoryCopy = [
   {
-    name: "S35 (Upgraded)",
-    label: "Battery Powered",
-    image: "/assets/products/S35.png",
-    fallback: "/assets/products/s18-orange.png",
-  },
-  {
-    name: "B Series",
-    label: "Compact Cooling",
+    name: "Compact Cooling",
+    label: "Under 30L, lighter and easier to carry.",
     image: "/assets/products/b20.png",
+    href: "#/products/compact-cooling",
+    target: "/products/compact-cooling",
   },
   {
-    name: "GL Series",
-    label: "Expedition Cooling",
+    name: "Large Capacity",
+    label: "30L and above for larger storage needs.",
+    image: "/assets/products/ex.png",
+    href: "#/products/large-capacity",
+    target: "/products/large-capacity",
+  },
+  {
+    name: "Dual-zone Storage",
+    label: "Separated cooling zones for chilled and frozen items.",
     image: "/assets/products/gl.png",
+    href: "#/products/dual-zone-storage",
+    target: "/products/dual-zone-storage",
   },
   {
-    name: "EX Series",
-    label: "Wheeled Mobility",
+    name: "Wheeled Mobility",
+    label: "Cooling systems with wheels and pull-handle layouts.",
     image: "/assets/products/exm.png",
+    href: "#/products/wheeled-mobility",
+    target: "/products/wheeled-mobility",
   },
 ];
 
@@ -2799,18 +2243,18 @@ export const businessEntries = [
     target: "/custom-projects",
   },
   {
-    title: "OEM / ODM Inquiry",
-    text: "Start with an existing model, private-label request or new product direction.",
-    cta: "Send inquiry",
-    href: "#/oem-odm",
-    target: "/oem-odm",
+    title: "Support",
+    text: "Find product documents, manuals, after-sales information and technical support.",
+    cta: "View support",
+    href: "#/support",
+    target: "/support",
   },
   {
-    title: "Capabilities & Support",
-    text: "Find product documents, manuals, after-sales information and common service questions.",
-    cta: "View capabilities",
-    href: "#/capabilities",
-    target: "/capabilities",
+    title: "Contact",
+    text: "Reach the team for inquiries, cooperation details, contact information and social channels.",
+    cta: "Contact us",
+    href: "#/contact",
+    target: "/contact",
   },
 ];
 
@@ -2820,107 +2264,95 @@ export const projectSteps = [
   ["Sample", "Build or prepare samples for testing, review and packaging checks."],
   ["Production", "Move into tooling, QC, packaging and repeatable supply."],
 ];
+```
 
+### src/data/productFamilies.js
+
+```js
+export const productFamilies = [
+  {
+    id: "compact-cooling",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Compact Cooling",
+    summary: "Under 30L, lighter and easier to carry.",
+    description: "Ideal for everyday trips, solo adventures and short getaways. Quiet compressor cooling in a compact form.",
+    href: "#/products/compact-cooling",
+    target: "/products/compact-cooling",
+    heroImage: "/assets/products/b20.png",
+    products: ["d", "k", "s", "b"],
+    features: ["Easy to carry", "Compact compressor cooling", "Vehicle-ready power", "Daily travel use"],
+    useCases: ["Solo trips", "Picnics", "Daily vehicle use", "Small retail display"],
+  },
+  {
+    id: "large-capacity",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Large Capacity",
+    summary: "30L and above for larger storage needs.",
+    description: "Designed for longer routes, family travel and larger cold-storage requirements.",
+    href: "#/products/large-capacity",
+    target: "/products/large-capacity",
+    heroImage: "/assets/products/ex.png",
+    products: ["ax", "ex", "gl"],
+    features: ["Larger storage volume", "Longer trip support", "Compressor cooling", "Strong equipment presence"],
+    useCases: ["Family travel", "Long-distance driving", "Outdoor supply", "Larger cold storage"],
+  },
+  {
+    id: "dual-zone-storage",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Dual-zone Storage",
+    summary: "Separated cooling zones for chilled and frozen items.",
+    description: "Dual-zone layouts help organize fresh supplies, frozen goods and drinks for longer trips.",
+    href: "#/products/dual-zone-storage",
+    target: "/products/dual-zone-storage",
+    heroImage: "/assets/products/gl.png",
+    products: ["gl", "ax", "tf", "m"],
+    features: ["Separate chilled and frozen storage", "Better organization", "Longer route support", "Multi-model range"],
+    useCases: ["Fresh + frozen storage", "Camping", "Road trips", "Organized supplies"],
+  },
+  {
+    id: "wheeled-mobility",
+    eyebrow: "PRODUCT FAMILY",
+    title: "Wheeled Mobility",
+    summary: "Cooling systems with wheels and pull-handle layouts.",
+    description: "Built for vehicle travel, outdoor supply and easier movement over longer distances.",
+    href: "#/products/wheeled-mobility",
+    target: "/products/wheeled-mobility",
+    heroImage: "/assets/products/exm.png",
+    products: ["exm", "m"],
+    features: ["Wheels and pull-handle layout", "Easier movement", "Vehicle travel ready", "Outdoor supply use"],
+    useCases: ["Vehicle travel", "Campsites", "Coastal routes", "Moving heavier loads"],
+  },
+];
+
+export function productFamilyById(id) {
+  return productFamilies.find((family) => family.id === id);
+}
 ```
 
 ### src/data/productGallery.js
-
-Size: 4421 bytes
 
 ```js
 // This file is generated by scripts/generate-product-gallery.mjs.
 // Run npm run generate:gallery after adding or deleting gallery images.
 
 export const productGallery = {
-  "gl": [
-    {
-      "image": "/assets/products/gl/gallery/gl-control-panel-close.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-detail-control-panel.png"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-camp.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-storage.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-lineup-black.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-open-angle.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl-open-top.jpg"
-    },
-    {
-      "image": "/assets/products/gl/gallery/gl75-main-render.png"
-    }
-  ],
+  "gl": [],
   "ax": [
     {
-      "image": "/assets/products/ax/gallery/1.png"
+      "image": "/assets/products/ax/gallery/ax30-open.png"
     },
     {
-      "image": "/assets/products/ax/gallery/2.png"
+      "image": "/assets/products/ax/gallery/ax40-front.png"
     },
     {
-      "image": "/assets/products/ax/gallery/4.png"
+      "image": "/assets/products/ax/gallery/ax50-black.png"
     },
     {
-      "image": "/assets/products/ax/gallery/7.png"
-    },
-    {
-      "image": "/assets/products/ax/gallery/10.png"
-    },
-    {
-      "image": "/assets/products/ax/gallery/ax.png"
+      "image": "/assets/products/ax/gallery/ax50-side.png"
     }
   ],
-  "exm": [
-    {
-      "image": "/assets/products/exm/gallery/6.png"
-    },
-    {
-      "image": "/assets/products/exm/gallery/11.png"
-    },
-    {
-      "image": "/assets/products/exm/gallery/623 拷贝.png"
-    },
-    {
-      "image": "/assets/products/exm/gallery/xj.2.png"
-    },
-    {
-      "image": "/assets/products/exm/gallery/开瓶器更新2.png"
-    },
-    {
-      "image": "/assets/products/exm/gallery/开瓶器更新8.png"
-    }
-  ],
-  "b": [
-    {
-      "image": "/assets/products/b/gallery/1.png"
-    },
-    {
-      "image": "/assets/products/b/gallery/2.png"
-    },
-    {
-      "image": "/assets/products/b/gallery/4.png"
-    },
-    {
-      "image": "/assets/products/b/gallery/b20.png"
-    },
-    {
-      "image": "/assets/products/b/gallery/主图1.jpg"
-    },
-    {
-      "image": "/assets/products/b/gallery/主图2.jpg"
-    }
-  ],
+  "exm": [],
+  "b": [],
   "k": [],
   "tf": [],
   "m": [
@@ -2928,106 +2360,23 @@ export const productGallery = {
       "image": "/assets/products/m/gallery/m45-black.png"
     },
     {
+      "image": "/assets/products/m/gallery/m45-front.png"
+    },
+    {
       "image": "/assets/products/m/gallery/m45-open.png"
     },
     {
       "image": "/assets/products/m/gallery/m45-side.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/M45.14 拷贝.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/M45土色.2 拷贝.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/M45土色.3.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/M系列双温效果图.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/M页面图.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/untitled.1488.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/双门.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/屏幕.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/把手.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/拉杆（特写拉杆.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/电池.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/车家两用太阳能.png"
-    },
-    {
-      "image": "/assets/products/m/gallery/轮子（特写轮子.png"
     }
   ],
-  "ex": [
-    {
-      "image": "/assets/products/ex/gallery/2.png"
-    },
-    {
-      "image": "/assets/products/ex/gallery/623 拷贝.png"
-    },
-    {
-      "image": "/assets/products/ex/gallery/E30.png"
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝.png"
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝2.png"
-    },
-    {
-      "image": "/assets/products/ex/gallery/细节图 拷贝3.png"
-    }
-  ],
+  "ex": [],
   "s35": [],
-  "s": [
-    {
-      "image": "/assets/products/S18/gallery/1.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/3.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/4.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/5.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/6.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/7.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/0915 拷贝.png"
-    },
-    {
-      "image": "/assets/products/S18/gallery/S18.20.png"
-    }
-  ],
+  "s": [],
   "d": []
 };
-
 ```
 
 ### src/data/productImageManifest.js
-
-Size: 1983 bytes
 
 ```js
 // This file is generated by scripts/generate-gallery-manifest.mjs.
@@ -3037,19 +2386,18 @@ export const productImageManifest = {
   "gl": {
     "GL35": {
       "Black": "/assets/products/gl/models/gl35-black.png",
-      "mung-bean-gray": "/assets/products/gl/models/gl35-sage.png"
+      "Sage Green": "/assets/products/gl/models/gl35-sage.png"
     },
     "GL45": {
       "Black": "/assets/products/gl/models/gl45-black.png",
-      "mung-bean-gray": "/assets/products/gl/models/gl45-sage.png"
+      "Sage Green": "/assets/products/gl/models/gl45-sage.png"
     },
     "GL55": {
       "Black": "/assets/products/gl/models/gl55-black.png",
-      "mung-bean-gray": "/assets/products/gl/models/gl55-sage.png"
+      "Sage Green": "/assets/products/gl/models/gl55-sage.png"
     },
     "GL75": {
-      "Black": "/assets/products/gl/models/gl75-black.png",
-      "mung-bean-gray": "/assets/products/gl/models/gl75-sage.png"
+      "Black": "/assets/products/gl/models/gl75-black.png"
     }
   },
   "ax": {
@@ -3072,9 +2420,21 @@ export const productImageManifest = {
   "b": {},
   "d": {},
   "ex": {},
-  "exm": {},
+  "exm": {
+    "EXM30": {
+      "all-black": "/assets/products/exm/models/exm30-black.jpg",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm30-bluegray&lightgray.png"
+    },
+    "EXM40": {
+      "all-black": "/assets/products/exm/models/exm40-black.jpg",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm40-bluegray&lightgray.png"
+    },
+    "EXM50": {
+      "all-black": "/assets/products/exm/models/exm50-black.jpg",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm50-bluegray&lightgray.png"
+    }
+  },
   "k": {},
-  "ke": {},
   "m": {
     "M35": {
       "black": "/assets/products/m/models/m35-black.png",
@@ -3092,12 +2452,9 @@ export const productImageManifest = {
   "s": {},
   "tf": {}
 };
-
 ```
 
 ### src/data/products.js
-
-Size: 66218 bytes
 
 ```js
 // TODO: Remove or connect this copy object when language switching is finalized.
@@ -3242,6 +2599,8 @@ export const copy = {
   },
 };
 
+const DEFAULT_TEMPERATURE_RANGE = "Down to -20˚C";
+
 export const products = [
   {
     id: "gl",
@@ -3250,31 +2609,30 @@ export const products = [
     models: ["GL35", "GL45", "GL55", "GL75"],
     tag: "expedition",
     image: "/assets/products/gl/models/gl35-black.png",
-    cardImage: "/assets/products/productcollectionspage-images/gl-card.webp",
     alt: "GL Series expedition portable fridge for overlanding SUV travel and larger cold storage",
     defaultModel: "GL35",
     defaultColor: "Black",
     colorOptions: [
       { name: "Black", value: "Black", swatch: "#121211" },
-      { name: "Beige Gray", value: "beige-gray", swatch: "#c8c1b4" },
-      { name: "Mung Bean Gray / 绿豆沙", value: "mung-bean-gray", swatch: "#9da58e" },
+      { name: "Sage Green", value: "Sage Green", swatch: "#879078" },
     ],
     modelOptions: ["GL35", "GL45", "GL55", "GL75"],
     productImages: {
       GL35: {
         Black: "/assets/products/gl/models/gl35-black.png",
-        "mung-bean-gray": "/assets/products/gl/models/gl35-sage.png",
+        "Sage Green": "/assets/products/gl/models/gl35-sage.png",
       },
       GL45: {
         Black: "/assets/products/gl/models/gl45-black.png",
-        "mung-bean-gray": "/assets/products/gl/models/gl45-sage.png",
+        "Sage Green": "/assets/products/gl/models/gl45-sage.png",
       },
       GL55: {
         Black: "/assets/products/gl/models/gl55-black.png",
-        "mung-bean-gray": "/assets/products/gl/models/gl55-sage.png",
+        "Sage Green": "/assets/products/gl/models/gl55-sage.png",
       },
       GL75: {
         Black: "/assets/products/gl/models/gl75-black.png",
+        "Sage Green": "/assets/products/gl/models/gl75-black.png",
       },
     },
     seo: {
@@ -3323,7 +2681,7 @@ export const products = [
         capacity: "35L",
         voltage: "DC 12/24V; AC with adapter",
         cooling: "Compressor cooling",
-        temperatureRange: "-20C to 20C / -4F to 68F",
+        temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 390mm",
         packingSize: "730mm x 495mm x 460mm",
         netWeight: "14.4kg",
@@ -3338,7 +2696,7 @@ export const products = [
         capacity: "45L",
         voltage: "DC 12/24V; AC with adapter",
         cooling: "Compressor cooling",
-        temperatureRange: "-20C to 20C / -4F to 68F",
+        temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 450mm",
         packingSize: "730mm x 495mm x 520mm",
         netWeight: "14.8kg",
@@ -3353,7 +2711,7 @@ export const products = [
         capacity: "55L",
         voltage: "DC 12/24V; AC with adapter",
         cooling: "Compressor cooling",
-        temperatureRange: "-20C to 20C / -4F to 68F",
+        temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 510mm",
         packingSize: "730mm x 495mm x 580mm",
         netWeight: "15.3kg",
@@ -3368,7 +2726,7 @@ export const products = [
         capacity: "75L",
         voltage: "DC 12/24V; AC with adapter",
         cooling: "Compressor cooling",
-        temperatureRange: "-20C to 20C / -4F to 68F",
+        temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "729mm x 410mm x 627mm",
         packingSize: "735mm x 495mm x 705mm",
         netWeight: "16.3kg",
@@ -3380,68 +2738,48 @@ export const products = [
     ],
     gallery: [
       {
-        image: "/assets/products/gl/gallery/gl-lifestyle-camp.jpg",
-        title: "Outdoor camp setting",
+        image: "/assets/products/gl/front.png",
+        title: "Front exterior",
         text: "GL Series shaped for extended outdoor stays and larger cold-storage needs.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-lifestyle-vehicle.jpg",
-        title: "Vehicle storage",
+        image: "/assets/products/gl/open-lid.png",
+        title: "Open storage",
         text: "Designed to move naturally between SUV storage and outdoor use.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-lifestyle-storage.jpg",
-        title: "Cold storage in use",
+        image: "/assets/products/gl/control-panel.png",
+        title: "Control panel",
         text: "Dual-zone storage for drinks, fruit and longer travel supplies.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-lineup-black.jpg",
-        title: "Four-capacity lineup",
+        image: "/assets/products/gl/handle-detail.png",
+        title: "Handle detail",
         text: "GL35, GL45, GL55 and GL75 cover different route and storage needs.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-angle-black.jpg",
-        title: "Front angle",
-        text: "Rugged proportions with a strong outdoor equipment presence.",
-      },
-      {
-        image: "/assets/products/gl/gallery/gl-open-angle.jpg",
-        title: "Open storage",
+        image: "/assets/products/gl/gl-black-open.png",
+        title: "Black configuration",
         text: "Dual-lid access for larger cold-storage needs.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-open-top.jpg",
-        title: "Dual-zone layout",
+        image: "/assets/products/gl/gl-sage-open.png",
+        title: "Sage configuration",
         text: "Independent compartments support flexible storage and operation.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-control-panel-close.jpg",
-        title: "Control panel",
+        image: "/assets/products/gl.png",
+        title: "Product family",
         text: "Clear operation for vehicle travel and outdoor use.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-detail-control-panel.png",
-        title: "Control detail",
+        image: "/assets/products/gl/models/gl75-black.png",
+        title: "GL75 render",
         text: "Close detail view of the control and display area.",
       },
       {
-        image: "/assets/products/gl/gallery/gl-side-profile-01.jpg",
-        title: "Side profile",
-        text: "Side form and structure for vehicle and outdoor handling.",
-      },
-      {
-        image: "/assets/products/gl/gallery/gl-side-profile-02.jpg",
-        title: "Side profile detail",
-        text: "Exterior shell detail for rugged outdoor use.",
-      },
-      {
-        image: "/assets/products/gl/gallery/gl-side-profile-03.jpg",
-        title: "Handle-side profile",
-        text: "Side structure and handle detail for larger-capacity movement.",
-      },
-      {
-        image: "/assets/products/gl/gallery/gl75-main-render.png",
-        title: "GL75 render",
+        image: "/assets/products/gl/models/gl55-sage.png",
+        title: "GL55 sage render",
         text: "Large-capacity GL75 configuration for extended cold-storage needs.",
       },
     ],
@@ -3508,9 +2846,6 @@ export const products = [
       },
     ],
     certifications: ["CE", "CB", "RoHS", "RED"],
-    documents: {
-      brochure: "/assets/downloads/travel-science-brochure.pdf",
-    },
     inquiryFocus: {
       title: "Start a GL Series project.",
       text: "Request specifications, customization options or distributor details for GL35, GL45, GL55 and GL75.",
@@ -3524,7 +2859,6 @@ export const products = [
     models: ["AX30", "AX40", "AX50"],
     tag: "vehicle",
     image: "/assets/products/ax.png",
-    cardImage: "/assets/products/productcollectionspage-images/ax-card.webp",
     capacity: "30L - 50L",
     voltage: "DC 12/24V",
     cooling: "Compressor cooling",
@@ -3553,7 +2887,6 @@ export const products = [
     models: ["EXM30", "EXM40", "EXM50"],
     tag: "vehicle",
     image: "/assets/products/exm.png",
-    cardImage: "/assets/products/productcollectionspage-images/exm-card.webp",
     capacity: "30L - 50L",
     voltage: "DC 12/24V",
     cooling: "Compressor cooling",
@@ -3586,7 +2919,6 @@ export const products = [
     models: ["B20", "B25"],
     tag: "compact",
     image: "/assets/products/b20.png",
-    cardImage: "/assets/products/productcollectionspage-images/b-card.webp",
     capacity: "20L - 25L",
     voltage: "DC 12/24V",
     cooling: "Compact compressor platform",
@@ -3615,7 +2947,6 @@ export const products = [
     models: ["K15", "K20"],
     tag: "compact",
     image: "/assets/products/k.jpg",
-    cardImage: "/assets/products/productcollectionspage-images/k-card.webp",
     capacity: "15L - 20L",
     voltage: "DC 12/24V",
     cooling: "Portable cooling",
@@ -3638,41 +2969,12 @@ export const products = [
     ],
   },
   {
-    id: "ke",
-    name: "KE Series",
-    nameZh: "KE 系列",
-    models: ["KE25", "KE30", "KE40", "KE50", "KE75"],
-    tag: "classic",
-    image: "/assets/products/ke.jpg",
-    capacity: "25L - 75L",
-    voltage: "DC 12/24V",
-    cooling: "Compressor cooling",
-    application: "Wide-capacity programs and distributor lineups",
-    applicationZh: "宽容量渠道系列、经销商产品线",
-    intro:
-      "A broad capacity family for distributors who need a complete shelf from small to large formats.",
-    introZh: "宽容量产品家族，适合经销商从小到大完整铺线。",
-    highlights: [
-      "Broad size coverage",
-      "Useful for distributor planning",
-      "Clear price ladder",
-      "Scalable production mix",
-    ],
-    highlightsZh: [
-      "容量覆盖广",
-      "适合经销商规划",
-      "价格梯度清晰",
-      "生产组合可扩展",
-    ],
-  },
-  {
     id: "tf",
     name: "TF Series",
     nameZh: "TF 系列",
     models: ["TF35", "TF45", "TF55"],
     tag: "classic",
     image: "/assets/products/tf.jpg",
-    cardImage: "/assets/products/productcollectionspage-images/tf-card.webp",
     capacity: "35L - 55L",
     voltage: "DC 12/24V",
     cooling: "Compressor cooling",
@@ -3701,7 +3003,6 @@ export const products = [
     models: ["M35", "M45", "M55"],
     tag: "expedition",
     image: "/assets/products/m.png",
-    cardImage: "/assets/products/productcollectionspage-images/m-card.webp",
     viewer: {
       type: "frames",
       count: 38,
@@ -3738,7 +3039,6 @@ export const products = [
     models: ["EX30", "EX40", "EX50"],
     tag: "vehicle",
     image: "/assets/products/ex.png",
-    cardImage: "/assets/products/productcollectionspage-images/ex-card.webp",
     imageClass: "product-card-image--ex",
     capacity: "30L - 50L",
     voltage: "DC 12/24V",
@@ -3772,7 +3072,6 @@ export const products = [
     models: ["S35"],
     tag: "project",
     image: "/assets/products/S35.png",
-    cardImage: "/assets/products/productcollectionspage-images/s-card.webp",
     capacity: "35L",
     voltage: "DC 12/24V, Makita 18V LXT and tool-battery route",
     cooling: "Portable compressor / battery-compatible platform",
@@ -3802,7 +3101,6 @@ export const products = [
     models: ["S18"],
     tag: "project",
     image: "/assets/products/s18-orange.png",
-    cardImage: "/assets/products/productcollectionspage-images/s-card.webp",
     capacity: "18L",
     voltage: "DC 12/24V, battery project optional",
     cooling: "Portable compressor / project platform",
@@ -3832,7 +3130,6 @@ export const products = [
     models: ["D9"],
     tag: "compact",
     image: "/assets/products/d.jpg",
-    cardImage: "/assets/products/productcollectionspage-images/d-card.webp",
     capacity: "9L",
     voltage: "DC 12/24V",
     cooling: "Compact cooling",
@@ -3882,8 +3179,7 @@ const dSeriesColors = [
 
 const exSeriesColors = [
   { name: "All Black", value: "all-black", swatch: "#08090a", swatches: ["#08090a"] },
-  { name: "Black & Beige Gray", value: "black-beige-gray", swatch: "#08090a", swatches: ["#08090a", "#c8c1b4"] },
-  { name: "Blue Gray & Beige Gray", value: "blue-gray-beige-gray", swatch: "#6f7f8d", swatches: ["#6f7f8d", "#c8c1b4"] },
+  { name: "Blue Gray & Light Gray", value: "blue-gray-light-gray", swatch: "#6f7f8d", swatches: ["#6f7f8d", "#d4d5d2"] },
 ];
 
 function modelColorImages(models, colors, fallbackImage) {
@@ -4114,42 +3410,6 @@ const productDetailEnhancements = {
     ],
     certifications: ["TBD"],
     inquiryFocus: inquiry("K Series", "Send target model, quantity, market and customization needs for K15 or K20."),
-  },
-  ke: {
-    seo: {
-      title: "KE Series Wide-Capacity Portable Fridge | Travel Science",
-      description:
-        "KE Series portable compressor fridges for wide-capacity distributor programs and complete product lineups.",
-      keywords: [
-        "wide capacity portable fridge",
-        "KE Series portable fridge",
-        "compressor car refrigerator",
-        "distributor car fridge lineup",
-      ],
-    },
-    modelDetails: [
-      modelDetail("ke25", "KE25", "25L", "DC 12/24V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Wide-capacity programs and distributor lineups"),
-      modelDetail("ke30", "KE30", "30L", "DC 12/24V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Wide-capacity programs and distributor lineups"),
-      modelDetail("ke40", "KE40", "40L", "DC 12/24V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Wide-capacity programs and distributor lineups"),
-      modelDetail("ke50", "KE50", "50L", "DC 12/24V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Wide-capacity programs and distributor lineups"),
-      modelDetail("ke75", "KE75", "75L", "DC 12/24V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Wide-capacity programs and distributor lineups"),
-    ],
-    gallery: galleryFromImage("/assets/products/ke.jpg", "Broad-size product family for distributor planning."),
-    featureDetails: [
-      feature("Cooling system", "Compressor cooling for wide-capacity lineups."),
-      feature("Power route", "DC 12/24V vehicle-ready power."),
-      feature("Channel direction", "Broad distributor lineup and price ladder."),
-      feature("Production mix", "Product family for small-to-large capacity programs."),
-    ],
-    materials: standardTbdMaterials(),
-    useCases: [
-      useCase("Distributor lineup", "Wide capacity coverage for complete product shelves."),
-      useCase("Price ladder planning", "Multiple capacities for market segmentation."),
-      useCase("Vehicle travel", "Compressor cooling for vehicle and outdoor use."),
-      useCase("Scalable production mix", "Product family for small-to-large capacity programs."),
-    ],
-    certifications: ["TBD"],
-    inquiryFocus: inquiry("KE Series", "Send target model, quantity, market and distributor-lineup requirements for KE Series."),
   },
   tf: {
     seo: {
@@ -4505,7 +3765,7 @@ function modelDetail(
     capacity,
     voltage,
     cooling,
-    temperatureRange,
+    temperatureRange: DEFAULT_TEMPERATURE_RANGE,
     productDimensions,
     packingSize,
     netWeight,
@@ -4627,11 +3887,6 @@ export const productPositioning = {
     headline: "Small cooling for tight spaces.",
     text: "The D Series is a very small car refrigerator for drinks, medicine and everyday carry inside compact vehicle spaces.",
   },
-  ke: {
-    headline: "Wide-capacity cooling for distributor lineups.",
-    text:
-      "The KE Series is a broad capacity family for distributors who need a complete shelf from small to large formats.",
-  },
 };
 
 export function productById(id) {
@@ -4707,12 +3962,9 @@ export const metrics = [
   { en: "Service", zh: "服务", value: "OEM / ODM" },
   { en: "Export", zh: "出口", value: "US / EU / AU / SEA" },
 ];
-
 ```
 
 ### src/data/seo.js
-
-Size: 262 bytes
 
 ```js
 export const seo = {
@@ -4720,38 +3972,104 @@ export const seo = {
   description:
     "Travel Science designs portable compressor fridges and vehicle cooling systems by Kelvcoop for travel, outdoor use, distributors and custom projects.",
 };
+```
 
+### src/data/serviceCards.js
+
+```js
+export const serviceCards = [
+  {
+    label: "ACCESSORIES",
+    title: "Gear that goes\nfurther with you.",
+    description: "Explore our range of accessories designed to extend the capability of your fridge.",
+    buttonText: "View Accessories",
+    href: "/accessories",
+    image: "/assets/services/accessories-lineup.png",
+    imagePosition: "center",
+  },
+  {
+    label: "CUSTOM PROJECTS",
+    title: "Built for your\nunique needs.",
+    description: "From concept to creation, we deliver tailored cooling solutions for your business and adventure.",
+    buttonText: "Start a Project",
+    href: "/custom-projects",
+    image: "/assets/services/custom-project-sketch.png",
+    imagePosition: "center",
+  },
+  {
+    label: "JOIN OUR JOURNEY",
+    title: "Adventure is\nbetter together.",
+    description: "Follow us for stories, tips and updates from the road.\nLet's explore more.",
+    buttonText: "Follow Us",
+    href: "/community",
+    image: "/assets/services/community-connected.png",
+    imagePosition: "center",
+  },
+];
+```
+
+### src/data/socialCrew.js
+
+```js
+export const communityHeroImage = "/assets/community/community-hero.jpg";
+
+export const socialCrew = [
+  {
+    name: "Yiwen",
+    platforms: ["TikTok"],
+    image: "/assets/community/yiwen-card.jpg",
+    accentColor: "#ff5f9a",
+    links: [],
+  },
+  {
+    name: "Jonny",
+    platforms: ["Instagram"],
+    image: "/assets/community/jonny-card.jpg",
+    accentColor: "#ff7a1a",
+    links: [
+      { label: "Follow on Instagram", href: "https://www.instagram.com/kelvcoop_car_fridge?igsh=MXMzY2NkNmlhcHp6dA%3D%3D", icon: "instagram" },
+    ],
+  },
+  {
+    name: "Mason",
+    platforms: ["LinkedIn"],
+    image: "/assets/community/mason-card.jpg",
+    accentColor: "#2f80ff",
+    links: [],
+  },
+  {
+    name: "Vicky",
+    platforms: ["Facebook", "X"],
+    image: "/assets/community/vicky-card.jpg",
+    accentColor: "#8b5cff",
+    links: [
+      { label: "Follow on Facebook", href: "https://www.facebook.com/vickie.liu.165033?mibextid=wwXIfr&rdid=635W4EY5wZT7CSJR&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BawxA5vYY%2F%3Fmibextid%3DwwXIfr", icon: "facebook" },
+      { label: "Follow on X", href: "https://x.com/VickieLiu12", icon: "x" },
+    ],
+  },
+];
 ```
 
 ### src/data/socialLinks.js
 
-Size: 314 bytes
-
 ```js
 export const socialLinks = [
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
-  },
-  {
     label: "Facebook",
-    href: "https://www.facebook.com/",
-  },
-  {
-    label: "TikTok",
-    href: "https://www.tiktok.com/",
+    href: "https://www.facebook.com/vickie.liu.165033?mibextid=wwXIfr&rdid=635W4EY5wZT7CSJR&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BawxA5vYY%2F%3Fmibextid%3DwwXIfr",
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/kelvcoop_car_fridge?igsh=MXMzY2NkNmlhcHp6dA%3D%3D",
+  },
+  {
+    label: "X",
+    href: "https://x.com/VickieLiu12",
   },
 ];
-
 ```
 
 ### src/main.js
-
-Size: 4822 bytes
 
 ```js
 import { Footer } from "./components/Footer.js";
@@ -4765,11 +4083,19 @@ import { bindNavigation } from "./utils/navigation.js";
 const app = document.getElementById("root");
 const heroScrollGate = createHeroScrollGate();
 
+function initialTheme() {
+  try {
+    return window.localStorage.getItem("travelScienceTheme") === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
 const state = {
   menuOpen: false,
   mobileProductsOpen: false,
   productsOpen: false,
-  theme: window.localStorage.getItem("travelScienceTheme") || "light",
+  theme: initialTheme(),
   currentHeroSlide: 0,
   headerMode: "hero",
 };
@@ -4926,134 +4252,218 @@ mobileNavQuery.addEventListener("change", handleMobileBreakpointChange);
 handleMobileBreakpointChange(mobileNavQuery);
 window.addEventListener("hashchange", render);
 render();
-
 ```
 
-### src/pages/CapabilitiesPage.js
-
-Size: 3730 bytes
+### src/pages/AccessoriesPage.js
 
 ```js
-const downloadGroups = [
+import { accessoryItems, accessoryUseCases } from "../data/accessories.js";
+
+const accessoryGallery = [
   {
-    label: "Product brochures",
-    href: "/assets/downloads/travel-science-brochure.pdf",
-    status: "Download",
+    image: "/assets/services/gallery/tool-battery-holder.png",
+    alt: "Tool battery holder accessory",
   },
   {
-    label: "User manuals",
-    status: "Request document",
+    image: "/assets/services/gallery/电池.jpg",
+    alt: "Battery accessory",
   },
   {
-    label: "Spec sheets",
-    status: "Request document",
+    image: "/assets/services/gallery/烟线.png",
+    alt: "Vehicle power cable accessory",
   },
   {
-    label: "Certification documents",
-    status: "Request document",
+    image: "/assets/services/gallery/适配器.png",
+    alt: "Power adapter accessory",
+  },
+  {
+    image: "/assets/services/gallery/untitled.1488.png",
+    alt: "Storage basket accessory",
+  },
+  {
+    image: "/assets/services/gallery/solar-panel.png",
+    alt: "Solar panel accessory",
   },
 ];
 
-const supportItems = [
-  "Product use guidance",
-  "Troubleshooting support",
-  "Spare parts and accessory support",
-  "Warranty and service communication",
-  "Distributor service coordination",
-];
-
-const questions = [
-  [
-    "Can I request product specifications before ordering?",
-    "Yes. Send the target model or product series and we will provide available specifications.",
-  ],
-  [
-    "Do you support private label or packaging customization?",
-    "Yes. Logo, color, packaging and documentation options can be discussed by project.",
-  ],
-  [
-    "Can you support different markets and certifications?",
-    "Certification support depends on product model and target market.",
-  ],
-  [
-    "Where can I get manuals or brochures?",
-    "Available documents can be downloaded here or requested through the inquiry page.",
-  ],
-  [
-    "Do you provide after-sales support for distributors?",
-    "Yes. Support can include usage guidance, troubleshooting, spare parts and service coordination.",
-  ],
-];
-
-export function CapabilitiesPage() {
+function horizontalControls() {
   return `
-    <main class="page b2b-page">
-      <section class="page-hero">
-        <p class="kicker">Capabilities & Support</p>
-        <h1>Product documents, support and service information.</h1>
-        <p>Access manuals, brochures, specifications, after-sales information and common questions for Travel Science cooling products.</p>
+    <div class="horizontal-control-row">
+      <button class="scroll-arrow scroll-arrow--prev" type="button" data-horizontal-prev aria-label="Scroll previous"><span class="scroll-arrow-icon" aria-hidden="true">&larr;</span></button>
+      <button class="scroll-arrow scroll-arrow--next" type="button" data-horizontal-next aria-label="Scroll next"><span class="scroll-arrow-icon" aria-hidden="true">&rarr;</span></button>
+    </div>
+  `;
+}
+
+export function AccessoriesPage() {
+  return `
+    <main class="page accessories-page">
+      <section class="page-hero reveal">
+        <p class="kicker">Accessories</p>
+        <h1>Gear that goes further with your fridge.</h1>
+        <p>Explore power, storage, service and travel accessories designed to extend the capability of Travel Science cooling products.</p>
       </section>
 
-      <section class="downloads">
-        <div>
-          <p class="kicker">Downloads</p>
-          <h2>Product documents.</h2>
-        </div>
-        <div class="download-list">
-          ${downloadGroups.map(downloadLink).join("")}
+      <section class="gl-product-gallery-section accessory-gallery reveal">
+        <div class="gl-product-gallery-viewport">
+          ${horizontalControls()}
+          <div class="gallery-scroller" data-horizontal-scroll>
+            <div class="gallery-track gl-product-gallery-track" data-horizontal-track>
+              ${accessoryGallery.map((item) => `
+                <article class="gl-product-gallery-card accessory-gallery-card">
+                  <div class="gl-product-gallery-image-frame">
+                    <img class="gl-product-gallery-image" src="${item.image}" alt="${item.alt}" draggable="false">
+                  </div>
+                </article>
+              `).join("")}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="product-section">
+      <section class="product-section reveal">
         <div class="section-heading">
-          <p class="kicker">After-sales service</p>
-          <h2>Support for use, service and distribution.</h2>
+          <p class="kicker">Available categories</p>
+          <h2>Choose accessories around the way your fridge is used.</h2>
         </div>
-        <div class="feature-detail-grid">
-          ${supportItems.map((item) => `<article><h3>${item}</h3></article>`).join("")}
-        </div>
-      </section>
-
-      <section class="product-section">
-        <div class="section-heading">
-          <p class="kicker">Q&A</p>
-          <h2>Common questions.</h2>
-        </div>
-        <div class="qa-list">
-          ${questions.map(([question, answer]) => `
+        <div class="accessory-grid">
+          ${accessoryItems.map((item) => `
             <article>
-              <h3>${question}</h3>
-              <p>${answer}</p>
+              <h3>${item.name}</h3>
+              <p>${item.description}</p>
             </article>
           `).join("")}
         </div>
       </section>
 
-      <section class="product-inquiry">
-        <p class="kicker">Support inquiry</p>
-        <h2>Need a document or service answer?</h2>
-        <p>Send the product series, model or question and we will point you to the right information.</p>
-        <a class="hero-cta" href="#/oem-odm" data-go="/oem-odm">Contact support</a>
+      <section class="certifications reveal">
+        <div>
+          <p class="kicker">Suitable for</p>
+          <h2>Accessory planning for daily use and commercial support.</h2>
+        </div>
+        <div>
+          ${accessoryUseCases.map((item) => `<span>${item}</span>`).join("")}
+        </div>
+      </section>
+
+      <section class="product-inquiry reveal">
+        <p class="kicker">Accessory support</p>
+        <h2>Need compatibility or accessory kit details?</h2>
+        <p>Send the product series, model, target market and accessory needs. We will help match the right options.</p>
+        <a class="hero-cta" href="#/contact" data-go="/contact">Contact us</a>
       </section>
     </main>
   `;
 }
+```
 
-function downloadLink(item) {
-  if (item.href) {
-    return `<a href="${item.href}" download>${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
-  }
+### src/pages/CommunityPage.js
 
-  const subject = encodeURIComponent(`Request ${item.label}`);
-  const body = encodeURIComponent(`Hello Travel Science team,\n\nPlease send the ${item.label.toLowerCase()}.\n\nThank you.`);
-  return `<a href="mailto:info@kelvcoop.com?subject=${subject}&body=${body}">${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
+```js
+import { communityHeroImage, socialCrew } from "../data/socialCrew.js";
+
+const platformIcons = {
+  facebook: `
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97H15.83c-1.49 0-1.955.93-1.955 1.884v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073Z"/>
+    </svg>
+  `,
+  instagram: `
+    <svg viewBox="0 0 132.004 132" width="18" height="18" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="instagramGradientBlue">
+          <stop offset="0" stop-color="#3771c8"/>
+          <stop offset=".128" stop-color="#3771c8"/>
+          <stop offset="1" stop-color="#60f" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="instagramGradientWarm">
+          <stop offset="0" stop-color="#fd5"/>
+          <stop offset=".1" stop-color="#fd5"/>
+          <stop offset=".5" stop-color="#ff543e"/>
+          <stop offset="1" stop-color="#c837ab"/>
+        </linearGradient>
+        <radialGradient id="instagramGradientBase" cx="158.429" cy="578.088" r="65" href="#instagramGradientWarm" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 -1.98198 1.8439 0 -1031.402 454.004)" fx="158.429" fy="578.088"/>
+        <radialGradient id="instagramGradientOverlay" cx="147.694" cy="473.455" r="65" href="#instagramGradientBlue" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.17394 .86872 -3.5818 .71718 1648.348 -458.493)" fx="147.694" fy="473.455"/>
+      </defs>
+      <path fill="url(#instagramGradientBase)" d="M65.03 0C37.888 0 29.95.028 28.407.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468C4 13.126 1.5 18.394.595 24.656c-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28 7.79-2.01 14.24-7.29 17.75-14.53 1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624C116.9 4 111.64 1.5 105.372.596 102.335.157 101.73.027 86.19 0H65.03z" transform="translate(1.004 1)"/>
+      <path fill="url(#instagramGradientOverlay)" d="M65.03 0C37.888 0 29.95.028 28.407.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468C4 13.126 1.5 18.394.595 24.656c-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28 7.79-2.01 14.24-7.29 17.75-14.53 1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624C116.9 4 111.64 1.5 105.372.596 102.335.157 101.73.027 86.19 0H65.03z" transform="translate(1.004 1)"/>
+      <path fill="#fff" d="M66.004 18c-13.036 0-14.672.057-19.792.29-5.11.234-8.598 1.043-11.65 2.23-3.157 1.226-5.835 2.866-8.503 5.535-2.67 2.668-4.31 5.346-5.54 8.502-1.19 3.053-2 6.542-2.23 11.65C18.06 51.327 18 52.964 18 66s.058 14.667.29 19.787c.235 5.11 1.044 8.598 2.23 11.65 1.227 3.157 2.867 5.835 5.536 8.503 2.667 2.67 5.345 4.314 8.5 5.54 3.054 1.187 6.543 1.996 11.652 2.23 5.12.233 6.755.29 19.79.29 13.037 0 14.668-.057 19.788-.29 5.11-.234 8.602-1.043 11.656-2.23 3.156-1.226 5.83-2.87 8.497-5.54 2.67-2.668 4.31-5.346 5.54-8.502 1.18-3.053 1.99-6.542 2.23-11.65.23-5.12.29-6.752.29-19.788 0-13.036-.06-14.672-.29-19.792-.24-5.11-1.05-8.598-2.23-11.65-1.23-3.157-2.87-5.835-5.54-8.503-2.67-2.67-5.34-4.31-8.5-5.535-3.06-1.187-6.55-1.996-11.66-2.23-5.12-.233-6.75-.29-19.79-.29zm-4.306 8.65c1.278-.002 2.704 0 4.306 0 12.816 0 14.335.046 19.396.276 4.68.214 7.22.996 8.912 1.653 2.24.87 3.837 1.91 5.516 3.59 1.68 1.68 2.72 3.28 3.592 5.52.657 1.69 1.44 4.23 1.653 8.91.23 5.06.28 6.58.28 19.39s-.05 14.33-.28 19.39c-.214 4.68-.996 7.22-1.653 8.91-.87 2.24-1.912 3.835-3.592 5.514-1.68 1.68-3.275 2.72-5.516 3.59-1.69.66-4.232 1.44-8.912 1.654-5.06.23-6.58.28-19.396.28-12.817 0-14.336-.05-19.396-.28-4.68-.216-7.22-.998-8.913-1.655-2.24-.87-3.84-1.91-5.52-3.59-1.68-1.68-2.72-3.276-3.592-5.517-.657-1.69-1.44-4.23-1.653-8.91-.23-5.06-.276-6.58-.276-19.398s.046-14.33.276-19.39c.214-4.68.996-7.22 1.653-8.912.87-2.24 1.912-3.84 3.592-5.52 1.68-1.68 3.28-2.72 5.52-3.592 1.692-.66 4.233-1.44 8.913-1.655 4.428-.2 6.144-.26 15.09-.27zm29.928 7.97c-3.18 0-5.76 2.577-5.76 5.758 0 3.18 2.58 5.76 5.76 5.76 3.18 0 5.76-2.58 5.76-5.76 0-3.18-2.58-5.76-5.76-5.76zm-25.622 6.73c-13.613 0-24.65 11.037-24.65 24.65 0 13.613 11.037 24.645 24.65 24.645C79.617 90.645 90.65 79.613 90.65 66S79.616 41.35 66.003 41.35zm0 8.65c8.836 0 16 7.163 16 16 0 8.836-7.164 16-16 16-8.837 0-16-7.164-16-16 0-8.837 7.163-16 16-16z"/>
+    </svg>
+  `,
+  linkedin: `
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.554V9h3.565v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0Z"/>
+    </svg>
+  `,
+  tiktok: `
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path fill="#25f4ee" d="M14.1 2h3.1c.2 1.5.8 2.8 1.8 3.8 1 .9 2.2 1.4 3.7 1.6v3.8c-1.9 0-3.6-.6-5.1-1.6v6.1c0 3.8-3 6.8-6.8 6.8-3.6 0-6.6-2.8-6.8-6.4-.2-3.9 3-7.1 6.8-7.1.5 0 1 .1 1.5.2v4.1a3 3 0 0 0-1.7-.4c-1.7.1-3.1 1.6-3 3.3.1 1.6 1.4 2.9 3 3 1.8.1 3.3-1.4 3.3-3.2V2h.2Z"/>
+      <path fill="#ff2b77" d="M15.4 2h2c.3 1.3.9 2.4 1.8 3.2.9.8 2 1.3 3.5 1.5v4.5c-1.9 0-3.6-.6-5.1-1.6v6.1c0 3.8-3 6.8-6.8 6.8-2.2 0-4.1-1-5.4-2.6a6.8 6.8 0 0 0 11.5-5V8.8c1.5 1.1 3.2 1.6 5.1 1.6V8.2c-3.4-.4-6.2-2.8-6.6-6.2Z"/>
+      <path fill="#fff" d="M12.9 2H16c.2 1.5.8 2.8 1.8 3.8 1 .9 2.2 1.4 3.7 1.6v3.8c-1.9 0-3.6-.6-5.1-1.6v6.1c0 3.8-3 6.8-6.8 6.8-3.6 0-6.6-2.8-6.8-6.4-.2-3.9 3-7.1 6.8-7.1.5 0 1 .1 1.5.2v4.1a3 3 0 0 0-1.7-.4c-1.7.1-3.1 1.6-3 3.3.1 1.6 1.4 2.9 3 3 1.8.1 3.3-1.4 3.3-3.2V2h.2Z"/>
+    </svg>
+  `,
+  x: `
+    <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M13.9 10.5 21.3 2h-1.8l-6.4 7.4L8 2H2l7.8 11.3L2 22h1.8l6.8-7.8L16 22h6l-8.1-11.5zm-2.4 2.8-.8-1.1L4.5 3.3h2.7l5 7.1.8 1.1 6.5 9.3h-2.7l-5.3-7.5z"/>
+    </svg>
+  `,
+};
+
+function platformIcon(icon) {
+  return `<span class="crew-platform-icon crew-platform-icon--${icon}">${platformIcons[icon] || icon}</span>`;
 }
 
+function crewCard(member) {
+  const style = ` style="--crew-accent: ${member.accentColor};"`;
+
+  return `
+    <article class="crew-card"${style}>
+      <div class="crew-platform-icons crew-platform-icons--hero">
+        ${member.links.map((link) => platformIcon(link.icon)).join("")}
+      </div>
+      <h3>${member.platforms.join(" & ")}</h3>
+      <div class="crew-card-actions">
+        ${member.links.map((link) => `
+          <a class="crew-social-button crew-social-button--${link.icon}" href="${link.href}" aria-label="${link.label}"${link.href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>
+            <span>${link.label}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        `).join("")}
+      </div>
+      <div class="crew-person-row">
+        <img class="crew-avatar" src="${member.image}" alt="${member.name}">
+        <span>${member.name}</span>
+      </div>
+    </article>
+  `;
+}
+
+export function CommunityPage() {
+  return `
+    <main class="community-page">
+      <section class="community-landing reveal">
+        <div class="community-hero-card">
+          <div class="community-copy-panel">
+            <p class="community-breadcrumb">HOME <span>/</span> COMMUNITY</p>
+            <p class="community-label">LET'S BE FRIENDS</p>
+            <h1>Different people.<br>One adventure.</h1>
+            <p class="community-note">Pick a platform.<br>We'll see you there.<span class="community-paper-plane" aria-hidden="true"><svg viewBox="0 0 86 28" focusable="false"><path class="community-paper-plane-trail" d="M2 18c10-7 19-9 31-5 7 2 12 2 17-1"/><path class="community-paper-plane-mark" d="M54 5 82 14 54 24l5-9-5-10Z"/><path class="community-paper-plane-fold" d="M59 15h23M59 15l-5 9"/></svg></span></p>
+          </div>
+          <div class="community-image-panel">
+            <img src="${communityHeroImage}" alt="Travel Science crew at a summer campsite">
+          </div>
+          <div class="crew-grid">
+            ${socialCrew.map(crewCard).join("")}
+          </div>
+          <p class="community-mobile-ending">See you out there.</p>
+        </div>
+      </section>
+    </main>
+  `;
+}
 ```
 
 ### src/pages/ContactPage.js
-
-Size: 1824 bytes
 
 ```js
 import { socialLinks } from "../data/socialLinks.js";
@@ -5082,7 +4492,7 @@ export function ContactPage() {
           <div><dt>Email</dt><dd>info@kelvcoop.com</dd></div>
           <div><dt>Phone</dt><dd>Available on request</dd></div>
           <div><dt>Address</dt><dd>Kelvcoop manufacturing and export office, China</dd></div>
-          <div><dt>Inquiry type</dt><dd>Product details, distributor cooperation, RFQ, OEM/ODM and custom projects</dd></div>
+          <div><dt>Contact type</dt><dd>Product details, distributor cooperation, custom projects and service questions</dd></div>
         </dl>
       </section>
 
@@ -5091,19 +4501,16 @@ export function ContactPage() {
         <h2>Connect with us for product updates, project references and distributor information.</h2>
         <div class="contact-social-links">
           ${socialLinks.map((link) => `
-            <a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>
+            <a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>
           `).join("")}
         </div>
       </section>
     </main>
   `;
 }
-
 ```
 
 ### src/pages/CustomProjectsPage.js
-
-Size: 2629 bytes
 
 ```js
 import { projectSteps } from "../data/homepage.js";
@@ -5172,30 +4579,25 @@ export function CustomProjectsPage() {
         <p class="kicker">Start a project</p>
         <h2>Share your target product and market.</h2>
         <p>Send the series, capacity, quantity, customization direction and timeline you want to discuss.</p>
-        <a class="hero-cta" href="#/oem-odm" data-go="/oem-odm">Start a custom project</a>
+        <a class="hero-cta" href="#/contact" data-go="/contact">Start a custom project</a>
       </section>
     </main>
   `;
 }
-
 ```
 
 ### src/pages/HomePage.js
 
-Size: 1691 bytes
-
 ```js
-import { FeaturedProducts } from "../components/FeaturedProducts.js";
 import { HeroCarousel } from "../components/HeroCarousel.js";
 import { ProductFamily } from "../components/ProductFamily.js";
+import { ServiceEntryCards } from "../components/ServiceEntryCards.js";
 import { ContactSection } from "../components/ContactSection.js";
 import { businessEntries, categoryCopy } from "../data/homepage.js";
-import { FEATURED_PRODUCT_IDS, productById } from "../data/products.js";
 import { heroSlides } from "../data/heroSlides.js";
+import { serviceCards } from "../data/serviceCards.js";
 
 export function HomePage({ currentHeroSlide }) {
-  const featured = FEATURED_PRODUCT_IDS.map(productById).filter(Boolean);
-
   return `
     <main>
       ${HeroCarousel({ slides: heroSlides, currentSlide: currentHeroSlide })}
@@ -5207,7 +4609,7 @@ export function HomePage({ currentHeroSlide }) {
           <p>Product specifications, customization and supply planning for outdoor cooling programs.</p>
         </section>
 
-        ${FeaturedProducts({ products: featured })}
+        ${ServiceEntryCards({ cards: serviceCards })}
         ${businessEntrySection()}
         ${ContactSection()}
       </div>
@@ -5234,76 +4636,9 @@ function businessEntrySection() {
     </section>
   `;
 }
-
-```
-
-### src/pages/OemOdmPage.js
-
-Size: 1819 bytes
-
-```js
-const inquiryOptions = [
-  "Existing model inquiry",
-  "Private label / logo request",
-  "Packaging customization",
-  "New product development",
-  "Distributor cooperation",
-];
-
-const inquiryChecklist = [
-  "Product series or model",
-  "Target market",
-  "Estimated order quantity",
-  "Required certifications",
-  "Color / logo / packaging needs",
-  "Timeline",
-  "Contact details",
-];
-
-export function OemOdmPage() {
-  return `
-    <main class="page b2b-page">
-      <section class="page-hero">
-        <p class="kicker">OEM / ODM Inquiry</p>
-        <h1>Start with a model, specification or custom request.</h1>
-        <p>Send your target product series, market, quantity and customization needs. We will respond with product details, options and next steps.</p>
-      </section>
-
-      <section class="product-section">
-        <div class="section-heading">
-          <p class="kicker">Inquiry options</p>
-          <h2>Choose the path that fits your project.</h2>
-        </div>
-        <div class="entry-card-grid">
-          ${inquiryOptions.map((item) => `<article class="entry-card"><h3>${item}</h3></article>`).join("")}
-        </div>
-      </section>
-
-      <section class="certifications">
-        <div>
-          <p class="kicker">Inquiry checklist</p>
-          <h2>Helpful details to include.</h2>
-        </div>
-        <div>
-          ${inquiryChecklist.map((item) => `<span>${item}</span>`).join("")}
-        </div>
-      </section>
-
-      <section class="product-inquiry">
-        <p class="kicker">Send inquiry</p>
-        <h2>Contact Travel Science.</h2>
-        <p>Email your project details to info@kelvcoop.com.</p>
-        <a class="hero-cta" href="mailto:info@kelvcoop.com?subject=OEM%20%2F%20ODM%20Inquiry%20-%20Travel%20Science">Send project inquiry</a>
-      </section>
-    </main>
-  `;
-}
-
 ```
 
 ### src/pages/ProductDetailPage.js
-
-Size: 693 bytes
 
 ```js
 import { ProductDetailTemplate } from "../components/ProductDetailTemplate.js";
@@ -5328,12 +4663,220 @@ function notFound() {
     </main>
   `;
 }
+```
 
+### src/pages/ProductFamilyPage.js
+
+```js
+import { productFamilyById } from "../data/productFamilies.js";
+import { productById } from "../data/products.js";
+
+const emptyValue = "—";
+
+export function ProductFamilyPage({ familyId }) {
+  const family = productFamilyById(familyId);
+  if (!family) return notFound();
+
+  const familyProducts = family.products.map(productById).filter(Boolean);
+
+  return `
+    <main class="family-page">
+      ${familyHero(family)}
+      ${compareSection(family, familyProducts)}
+      ${featureSection(family)}
+      ${useCaseSection(family)}
+      ${helpSection()}
+    </main>
+  `;
+}
+
+function familyHero(family) {
+  return `
+    <section class="family-manifest-hero reveal">
+      <div class="family-manifest-copy">
+        <nav class="breadcrumb family-manifest-breadcrumb" aria-label="Breadcrumb">
+          <a href="#/" data-go="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="#/products" data-go="/products">Products</a>
+          <span aria-hidden="true">/</span>
+          <span>${family.title}</span>
+        </nav>
+        <p class="kicker">${family.eyebrow}</p>
+        <h1>${family.title}<span class="period-accent">.</span></h1>
+        <h2>${family.summary}</h2>
+        <p>${family.description}</p>
+        <div class="family-manifest-actions">
+          <a class="hero-cta" href="#lineup" data-local-anchor="lineup">Compare all models</a>
+          <a class="text-button" href="#/products" data-go="/products">View all products <span class="arrow-accent">→</span></a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function compareSection(family, products) {
+  return `
+    <section class="family-section family-compare reveal">
+      <div class="section-heading" id="lineup">
+        <p class="kicker">Compare all models</p>
+        <h2>${family.title} lineup.</h2>
+      </div>
+      <div class="family-comparison-mobile">
+        ${products.map(compareCard).join("")}
+        <a class="text-button family-table-jump" href="#comparison-table" data-local-anchor="comparison-table">View comparison table <span class="arrow-accent">→</span></a>
+      </div>
+      <div class="family-comparison-table-wrap" id="comparison-table">
+        <table class="family-comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Specification</th>
+              ${products.map((product) => `
+                <th scope="col">
+                  <a class="family-product-heading" href="#/products/${product.id}" data-go="/products/${product.id}">
+                    <img src="${product.cardImage || product.image}" alt="${product.name}">
+                    <span>${product.name}</span>
+                    <small>${value(product.capacity)}</small>
+                  </a>
+                </th>
+              `).join("")}
+            </tr>
+          </thead>
+          <tbody>
+            ${comparisonRows(products).map(({ label, values }) => `
+              <tr>
+                <th scope="row">${label}</th>
+                ${values.map((item) => `<td>${item}</td>`).join("")}
+              </tr>
+            `).join("")}
+            <tr>
+              <th scope="row">View details</th>
+              ${products.map((product) => `<td><a class="table-link" href="#/products/${product.id}" data-go="/products/${product.id}">View details →</a></td>`).join("")}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function comparisonRows(products) {
+  return [
+    { label: "Model", values: products.map((product) => value(product.models?.join(" / ") || product.name)) },
+    { label: "Capacity", values: products.map((product) => value(product.capacity)) },
+    { label: "Dimensions", values: products.map((product) => value(firstDetail(product)?.productDimensions)) },
+    { label: "Net weight", values: products.map((product) => value(firstDetail(product)?.netWeight)) },
+    { label: "Temperature range", values: products.map((product) => value(firstDetail(product)?.temperatureRange)) },
+    { label: "Voltage / Power", values: products.map((product) => value(product.voltage || firstDetail(product)?.voltage)) },
+    { label: "Cooling type", values: products.map((product) => value(product.cooling || firstDetail(product)?.cooling)) },
+    { label: "Zone", values: products.map(zoneValue) },
+    { label: "Mobility", values: products.map(mobilityValue) },
+    { label: "Best for", values: products.map((product) => value(product.application || firstDetail(product)?.application)) },
+  ];
+}
+
+function compareCard(product) {
+  const detail = firstDetail(product);
+  return `
+    <article class="family-compare-card">
+      <img src="${product.cardImage || product.image}" alt="${product.name}">
+      <div>
+        <h3>${product.name}</h3>
+        <dl>
+          ${definition("Capacity", product.capacity)}
+          ${definition("Voltage", product.voltage || detail?.voltage)}
+          ${definition("Temperature", detail?.temperatureRange)}
+          ${definition("Best for", product.application || detail?.application)}
+        </dl>
+        <a class="text-button" href="#/products/${product.id}" data-go="/products/${product.id}">View details <span class="arrow-accent">→</span></a>
+      </div>
+    </article>
+  `;
+}
+
+function featureSection(family) {
+  return `
+    <section class="family-section reveal" id="key-features">
+      <div class="section-heading">
+        <p class="kicker">Key features</p>
+        <h2>Why choose ${family.title}.</h2>
+      </div>
+      <div class="family-feature-grid">
+        ${family.features.map((feature, index) => `
+          <article>
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <h3>${feature}</h3>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function useCaseSection(family) {
+  return `
+    <section class="family-section reveal" id="use-cases">
+      <div class="section-heading">
+        <p class="kicker">Use cases</p>
+        <h2>Built around real routes.</h2>
+      </div>
+      <div class="family-use-case-list">
+        ${family.useCases.map((item) => `<span>${item}</span>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function helpSection() {
+  return `
+    <section class="family-help reveal" id="faqs">
+      <div>
+        <p class="kicker">Need help choosing?</p>
+        <h2>Our team can help you find the right model for your market or use case.</h2>
+      </div>
+      <div class="family-help-actions">
+        <a class="hero-cta" href="#/contact" data-go="/contact">Contact us <span aria-hidden="true">→</span></a>
+        <a class="text-button" href="#/products" data-go="/products">View all products <span class="arrow-accent">→</span></a>
+      </div>
+    </section>
+  `;
+}
+
+function firstDetail(product) {
+  return product?.modelDetails?.[0] || null;
+}
+
+function value(input) {
+  return input || emptyValue;
+}
+
+function definition(label, input) {
+  return `<div><dt>${label}</dt><dd>${value(input)}</dd></div>`;
+}
+
+function zoneValue(product) {
+  if (["gl", "ax", "tf", "m"].includes(product.id)) return "Dual-zone";
+  return emptyValue;
+}
+
+function mobilityValue(product) {
+  if (["gl", "exm", "m"].includes(product.id)) return "Wheels / pull handle";
+  return "Portable";
+}
+
+function notFound() {
+  return `
+    <main class="page">
+      <section class="page-hero">
+        <p class="kicker">404</p>
+        <h1>Product family not found.</h1>
+        <a class="hero-cta" href="#/products" data-go="/products">Explore Products</a>
+      </section>
+    </main>
+  `;
+}
 ```
 
 ### src/pages/ProductsPage.js
-
-Size: 492 bytes
 
 ```js
 import { ContactSection } from "../components/ContactSection.js";
@@ -5353,22 +4896,140 @@ export function ProductsPage() {
     </main>
   `;
 }
+```
 
+### src/pages/SupportPage.js
+
+```js
+const downloadGroups = [
+  {
+    label: "Product brochures",
+    status: "Request document",
+  },
+  {
+    label: "User manuals",
+    status: "Request document",
+  },
+  {
+    label: "Spec sheets",
+    status: "Request document",
+  },
+  {
+    label: "Certification documents",
+    status: "Request document",
+  },
+];
+
+const supportItems = [
+  "Product use guidance",
+  "Troubleshooting support",
+  "Spare parts and accessory support",
+  "Warranty and service communication",
+  "Distributor service coordination",
+];
+
+const questions = [
+  [
+    "Can I request product specifications before ordering?",
+    "Yes. Send the target model or product series and we will provide available specifications.",
+  ],
+  [
+    "Do you support private label or packaging customization?",
+    "Yes. Logo, color, packaging and documentation options can be discussed by project.",
+  ],
+  [
+    "Can you support different markets and certifications?",
+    "Certification support depends on product model and target market.",
+  ],
+  [
+    "Where can I get manuals or brochures?",
+    "Available documents can be downloaded here or requested through the contact page.",
+  ],
+  [
+    "Do you provide after-sales support for distributors?",
+    "Yes. Support can include usage guidance, troubleshooting, spare parts and service coordination.",
+  ],
+];
+
+export function SupportPage() {
+  return `
+    <main class="page b2b-page">
+      <section class="page-hero">
+        <p class="kicker">Support</p>
+        <h1>Product documents, support and service information.</h1>
+        <p>Access manuals, brochures, specifications, after-sales information and common questions for Travel Science cooling products.</p>
+      </section>
+
+      <section class="downloads">
+        <div>
+          <p class="kicker">Downloads</p>
+          <h2>Product documents.</h2>
+        </div>
+        <div class="download-list">
+          ${downloadGroups.map(downloadLink).join("")}
+        </div>
+      </section>
+
+      <section class="product-section">
+        <div class="section-heading">
+          <p class="kicker">After-sales service</p>
+          <h2>Support for use, service and distribution.</h2>
+        </div>
+        <div class="feature-detail-grid">
+          ${supportItems.map((item) => `<article><h3>${item}</h3></article>`).join("")}
+        </div>
+      </section>
+
+      <section class="product-section">
+        <div class="section-heading">
+          <p class="kicker">Q&A</p>
+          <h2>Common questions.</h2>
+        </div>
+        <div class="qa-list">
+          ${questions.map(([question, answer]) => `
+            <article>
+              <h3>${question}</h3>
+              <p>${answer}</p>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+
+      <section class="product-inquiry">
+        <p class="kicker">Support request</p>
+        <h2>Need a document or service answer?</h2>
+        <p>Send the product series, model or question and we will point you to the right information.</p>
+        <a class="hero-cta" href="#/contact" data-go="/contact">Contact support</a>
+      </section>
+    </main>
+  `;
+}
+
+function downloadLink(item) {
+  if (item.href) {
+    return `<a href="${item.href}" download>${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
+  }
+
+  const subject = encodeURIComponent(`Request ${item.label}`);
+  const body = encodeURIComponent(`Hello Travel Science team,\n\nPlease send the ${item.label.toLowerCase()}.\n\nThank you.`);
+  return `<a href="mailto:info@kelvcoop.com?subject=${subject}&body=${body}">${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
+}
 ```
 
 ### src/router.js
 
-Size: 1712 bytes
-
 ```js
-import { CapabilitiesPage } from "./pages/CapabilitiesPage.js";
+import { AccessoriesPage } from "./pages/AccessoriesPage.js";
+import { CommunityPage } from "./pages/CommunityPage.js";
 import { ContactPage } from "./pages/ContactPage.js";
 import { CustomProjectsPage } from "./pages/CustomProjectsPage.js";
 import { HomePage } from "./pages/HomePage.js";
-import { OemOdmPage } from "./pages/OemOdmPage.js";
 import { ProductDetailPage } from "./pages/ProductDetailPage.js";
+import { ProductFamilyPage } from "./pages/ProductFamilyPage.js";
 import { ProductsPage } from "./pages/ProductsPage.js";
+import { SupportPage } from "./pages/SupportPage.js";
 import { seo } from "./data/seo.js";
+import { productFamilyById } from "./data/productFamilies.js";
 import { productById } from "./data/products.js";
 
 export function route() {
@@ -5386,14 +5047,16 @@ export function go(path) {
 
 export function renderRoute({ currentHeroSlide }) {
   const current = route();
+  if (current === "/accessories") return AccessoriesPage();
+  if (current === "/community") return CommunityPage();
   if (current === "/products") return ProductsPage();
   if (current === "/custom-projects") return CustomProjectsPage();
-  if (current === "/oem-odm") return OemOdmPage();
-  if (current === "/capabilities") return CapabilitiesPage();
+  if (current === "/support") return SupportPage();
   if (current === "/contact") return ContactPage();
 
   if (current.startsWith("/products/")) {
     const productId = current.match(/^\/products\/([^/]+)/)?.[1];
+    if (productFamilyById(productId)) return ProductFamilyPage({ familyId: productId });
     return ProductDetailPage({ productId });
   }
 
@@ -5405,6 +5068,13 @@ export function routeSeo() {
 
   if (current.startsWith("/products/")) {
     const productId = current.match(/^\/products\/([^/]+)/)?.[1];
+    const family = productFamilyById(productId);
+    if (family) {
+      return {
+        title: `${family.title} | Travel Science`,
+        description: family.description || seo.description,
+      };
+    }
     const product = productById(productId);
     if (product?.seo) {
       return {
@@ -5416,12 +5086,9 @@ export function routeSeo() {
 
   return seo;
 }
-
 ```
 
 ### src/styles.css
-
-Size: 82192 bytes
 
 ```css
 /* Base */
@@ -6022,6 +5689,15 @@ html[data-theme="dark"] .site-header.is-over-content .nav-cta {
   text-transform: uppercase;
 }
 
+.products-menu-group h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.products-menu-group h3 a:hover {
+  color: #ff7a00;
+}
+
 .products-menu-group p {
   min-height: 36px;
   margin: 0 0 6px;
@@ -6425,17 +6101,19 @@ html[data-theme="dark"] .hero-bg {
 .hero-badge {
   display: inline-flex;
   width: fit-content;
-  min-height: 26px;
+  min-height: 0;
   align-items: center;
   margin-bottom: 12px;
-  padding: 7px 13px;
+  padding: 0;
   border: 0;
-  border-radius: 999px;
-  background: rgba(8, 9, 10, 0.88);
-  color: #fff;
-  font-size: 10px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--orange);
+  font-size: 13px;
   font-weight: 900;
-  letter-spacing: 0.04em;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .hero-actions {
@@ -6783,6 +6461,8 @@ html[data-theme="dark"] .hero-bg {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-solid);
+  color: var(--text);
+  text-decoration: none;
   transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
 }
 
@@ -6857,6 +6537,235 @@ html[data-theme="dark"] .product-hero-media {
   justify-self: end;
   color: var(--orange);
   font-weight: 900;
+}
+
+/* Product Family Manifest */
+.family-page {
+  width: 100%;
+  margin: 0;
+  padding-top: 96px;
+  background: var(--bg);
+}
+
+.family-manifest-hero,
+.family-section,
+.family-help {
+  width: var(--content-max);
+  margin-inline: auto;
+}
+
+.family-manifest-hero {
+  display: block;
+  padding: clamp(34px, 4vw, 52px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: #050607;
+  color: #f7f4ef;
+  overflow: hidden;
+}
+
+.family-manifest-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: clamp(18px, 2.4vw, 30px);
+  color: rgba(247, 244, 239, 0.48);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.family-manifest-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.family-manifest-breadcrumb a:hover {
+  color: var(--orange);
+}
+
+.family-manifest-copy .kicker {
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.family-manifest-copy h1 {
+  max-width: 10ch;
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.family-manifest-copy h2 {
+  max-width: 720px;
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.12;
+}
+
+.family-manifest-copy p:not(.kicker) {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: rgba(247, 244, 239, 0.68);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.family-manifest-actions,
+.family-help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.family-manifest-actions .text-button,
+.family-help-actions .text-button {
+  color: #f7f4ef;
+}
+
+.family-section,
+.family-help {
+  padding: clamp(42px, 4vw, 64px) 0;
+  border-top: 1px solid var(--line);
+}
+
+#lineup,
+#comparison-table {
+  scroll-margin-top: calc(var(--nav-top) + var(--nav-height) + 24px);
+}
+
+.family-comparison-mobile {
+  display: none;
+}
+
+.family-comparison-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-solid);
+  -webkit-overflow-scrolling: touch;
+}
+
+.family-comparison-table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+}
+
+.family-comparison-table th,
+.family-comparison-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: left;
+  vertical-align: top;
+}
+
+.family-comparison-table th:first-child,
+.family-comparison-table td:first-child {
+  border-left: 0;
+}
+
+.family-comparison-table tbody tr:last-child th,
+.family-comparison-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.family-comparison-table thead th {
+  color: var(--text);
+  font-weight: 900;
+}
+
+.family-product-heading {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.family-product-heading img {
+  width: 120px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.family-product-heading span {
+  font-weight: 900;
+}
+
+.family-product-heading small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.table-link {
+  color: var(--orange);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.family-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.family-feature-grid article {
+  min-height: 150px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-solid);
+}
+
+.family-feature-grid span {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.family-feature-grid h3 {
+  margin: 0;
+}
+
+.family-use-case-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.family-use-case-list span {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-solid);
+  color: var(--text);
+  font-weight: 800;
+}
+
+.family-help {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: var(--space-section-tight);
+}
+
+.family-help h2 {
+  max-width: 700px;
 }
 
 /* Sections */
@@ -6958,6 +6867,13 @@ html[data-theme="dark"] .product-hero-media {
 .feature-visual img {
   width: 58%;
   height: 58%;
+}
+
+.service-entry-card .feature-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .feature-copy {
@@ -7225,6 +7141,11 @@ a.entry-card:hover {
   padding-top: 104px;
 }
 
+.product-page {
+  width: 100%;
+  max-width: none;
+}
+
 .page-hero {
   padding: 54px 0 44px;
 }
@@ -7324,39 +7245,89 @@ a.entry-card:hover {
   color: var(--orange);
 }
 
-.product-hero {
+.product-hero,
+.product-config-panel {
+  --text: #f7f4ef;
+  --muted: rgba(247, 244, 239, 0.68);
+  --quiet: rgba(247, 244, 239, 0.48);
+  --line: rgba(255, 255, 255, 0.18);
+  --panel-solid: rgba(255, 255, 255, 0.035);
+
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 28px;
+  grid-template-columns: minmax(360px, 0.42fr) minmax(520px, 0.58fr);
+  grid-template-areas:
+    "copy visual"
+    "controls visual";
+  gap: clamp(44px, 5vw, 72px);
   align-items: center;
+  width: min(calc(100vw - 80px), 1320px);
+  max-width: none;
+  margin-inline: auto;
   min-height: auto;
-  padding-bottom: var(--space-section-tight);
+  padding: clamp(48px, 6vw, 72px) 0;
+  background: #050607;
+  box-shadow: 0 0 0 100vmax #050607;
+  clip-path: inset(0 -100vmax);
+  color: var(--text);
 }
 
-.product-hero:has(.product-color-selector) {
-  align-items: stretch;
+.product-config-copy {
+  grid-area: copy;
+  min-width: 0;
 }
 
-.product-hero:has(.product-color-selector) .product-hero-copy {
-  display: flex;
-  flex-direction: column;
+.product-config-controls {
+  grid-area: controls;
+  min-width: 0;
+}
+
+.product-config-visual {
+  grid-area: visual;
+  min-width: 0;
+}
+
+.product-config-breadcrumb {
+  width: 100%;
+  margin: 0 0 26px;
+  flex-wrap: wrap;
+  color: rgba(247, 244, 239, 0.42);
 }
 
 .product-hero-copy h1 {
+  margin-bottom: 10px;
+  color: var(--text);
   font-size: clamp(32px, 3.8vw, 52px);
   line-height: 1.04;
   letter-spacing: -0.034em;
 }
 
+.product-hero-copy h2 {
+  color: var(--text);
+}
+
 .product-hero-copy p {
   max-width: 620px;
+  color: var(--muted);
   font-size: 15px;
   line-height: 1.5;
 }
 
 .product-hero-media {
-  min-height: clamp(320px, 42vw, 520px);
-  border-radius: 8px;
+  width: 100%;
+  min-height: clamp(460px, 48vw, 620px);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #eef0f0 0%, #d7dada 100%);
+}
+
+.product-config-visual img,
+.product-hero-media.product-config-visual img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+}
+
+.product-config-visual .gl-product-hero-image {
+  transform: none;
 }
 
 .gl-product-hero-image {
@@ -7365,53 +7336,66 @@ a.entry-card:hover {
 }
 
 .model-selector {
-  display: flex;
+  display: block;
   width: 100%;
-  height: 64px;
-  align-items: center;
-  gap: 48px;
-  margin-top: auto;
-  margin-bottom: 30px;
-  padding: 0 28px;
-  overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  margin-top: clamp(44px, 6vw, 72px);
+  margin-bottom: 28px;
+  padding: 0;
+  overflow: visible;
   border-radius: 0;
-  background: #111;
+  background: transparent;
 }
 
 .model-label {
-  min-width: 150px;
-  color: rgba(255, 255, 255, 0.72);
+  display: block;
+  min-width: 0;
+  margin-bottom: 20px;
+  color: var(--quiet);
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
 .model-tabs {
   display: flex;
   flex: 1;
+  max-width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 16px 28px;
+  overflow: visible;
 }
 
 .model-tab {
   position: relative;
-  height: 64px;
-  padding: 0 10px;
+  flex: 0 0 auto;
+  min-width: max-content;
+  height: auto;
+  padding: 0 0 12px;
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--text);
   font: inherit;
-  font-size: 24px;
-  font-weight: 800;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 900;
+  line-height: 1;
   letter-spacing: 0.02em;
+  white-space: nowrap;
   cursor: pointer;
   transition: color 200ms ease;
 }
 
 .model-tab:hover {
-  color: #fff;
+  color: var(--orange);
 }
 
 .model-tab.active {
@@ -7421,19 +7405,23 @@ a.entry-card:hover {
 .model-tab.active::after {
   content: "";
   position: absolute;
-  right: 8px;
+  right: auto;
   bottom: 0;
-  left: 8px;
+  left: 0;
+  width: min(72px, 100%);
   height: 2px;
   background: var(--orange);
 }
 
 .product-color-selector {
-  width: min(100%, 560px);
+  width: 100%;
+  max-width: none;
+  min-width: 0;
   margin-top: 0;
   padding-top: 0;
 }
 
+.product-color-selector > p,
 .product-hero-copy .product-color-selector > p {
   max-width: none;
   margin: 0 0 14px;
@@ -7446,24 +7434,33 @@ a.entry-card:hover {
 .product-color-options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
 }
 
 .product-color-option {
   position: relative;
   display: grid;
+  width: 100%;
+  min-width: 0;
   place-items: center;
-  min-height: 132px;
-  padding: 20px;
+  min-height: 128px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: var(--panel-solid);
+  background: rgba(255, 255, 255, 0.035);
   color: var(--text);
   font: inherit;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.product-color-option > span:not(.product-color-swatch) {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .product-color-option.is-unavailable {
@@ -7847,8 +7844,8 @@ html[data-theme="dark"] .horizontal-control-row .scroll-arrow {
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
-  scroll-padding-inline: max(5vw, 24px);
-  padding-inline: max(5vw, 24px);
+  scroll-padding-inline: 5vw;
+  padding-inline: 5vw;
   padding-bottom: 10px;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
@@ -7857,9 +7854,17 @@ html[data-theme="dark"] .horizontal-control-row .scroll-arrow {
 }
 
 .horizontal-track {
-  width: fit-content;
+  width: max-content;
   max-width: none;
   min-width: 0;
+}
+
+.model-specs .horizontal-track,
+.model-specs .model-spec-grid {
+  justify-content: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .model-spec-grid,
@@ -7884,23 +7889,27 @@ html[data-theme="dark"] .horizontal-control-row .scroll-arrow {
   --scroll-card-width: var(--gallery-card-width);
 }
 
-.horizontal-scroll::-webkit-scrollbar {
+.horizontal-scroll::-webkit-scrollbar,
+.gallery-scroller::-webkit-scrollbar {
   height: 10px;
 }
 
-.horizontal-scroll::-webkit-scrollbar-track {
+.horizontal-scroll::-webkit-scrollbar-track,
+.gallery-scroller::-webkit-scrollbar-track {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
 }
 
-.horizontal-scroll::-webkit-scrollbar-thumb {
+.horizontal-scroll::-webkit-scrollbar-thumb,
+.gallery-scroller::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background: #ff7a00;
   background-clip: padding-box;
 }
 
-.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+.horizontal-scroll::-webkit-scrollbar-thumb:hover,
+.gallery-scroller::-webkit-scrollbar-thumb:hover {
   border: 2px solid transparent;
   background: #ff8c1a;
   background-clip: padding-box;
@@ -8091,28 +8100,661 @@ html[data-theme="dark"] .gl-product-gallery-card p {
 }
 
 .feature-detail-grid,
-.use-case-grid {
+.use-case-grid,
+.accessory-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
 .feature-detail-grid article,
-.use-case-grid article {
+.use-case-grid article,
+.accessory-grid article {
   padding: clamp(16px, 1.8vw, 24px);
 }
 
 .feature-detail-grid h3,
-.use-case-grid h3 {
+.use-case-grid h3,
+.accessory-grid h3 {
   font-size: 18px;
 }
 
 .feature-detail-grid p,
 .use-case-grid p,
+.accessory-grid p,
 .product-inquiry p {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.accessory-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-solid);
+}
+
+.accessory-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding: var(--space-section-tight) 0;
+  border-top: 1px solid var(--line);
+}
+
+.accessory-showcase-media {
+  display: grid;
+  min-height: clamp(260px, 32vw, 460px);
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 66%, rgba(255, 255, 255, 0.76), transparent 46%),
+    linear-gradient(145deg, rgba(234, 238, 238, 0.72), rgba(255, 255, 255, 0.92));
+}
+
+.accessory-showcase-media img {
+  width: min(82%, 720px);
+  height: auto;
+}
+
+.accessory-showcase-copy p:not(.kicker) {
+  max-width: 560px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.accessory-gallery .gl-product-gallery-image-frame {
+  height: 100%;
+  max-height: 100%;
+}
+
+.accessory-gallery .gl-product-gallery-card .gl-product-gallery-image {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.community-page {
+  min-height: 100vh;
+  padding: 104px clamp(18px, 3vw, 44px) 204px;
+  background: #f4efe7;
+  color: #101112;
+}
+
+.community-landing {
+  width: min(100%, 1560px);
+  margin: 0 auto;
+}
+
+.community-hero-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.75fr) minmax(720px, 1.25fr);
+  min-height: clamp(700px, 78vh, 860px);
+  overflow: visible;
+  border-radius: 28px;
+  background: #f8f3eb;
+  box-shadow: 0 28px 90px rgba(68, 54, 35, 0.14);
+}
+
+.community-copy-panel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: clamp(34px, 4.4vw, 62px);
+  border-radius: 28px 0 0 28px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.24) 64%, rgba(0, 0, 0, 0));
+}
+
+.community-breadcrumb {
+  margin: 0 0 clamp(48px, 7vw, 84px);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.community-breadcrumb span {
+  display: inline-block;
+  margin: 0 14px;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.community-label {
+  margin: 0 0 16px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.community-copy-panel h1 {
+  max-width: 460px;
+  margin: 0 0 28px;
+  color: #fff;
+  font-size: clamp(54px, 6vw, 86px);
+  line-height: 0.92;
+}
+
+.community-copy-panel h1::first-letter {
+  letter-spacing: 0;
+}
+
+.community-body {
+  max-width: 390px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.48;
+}
+
+.community-note {
+  position: relative;
+  margin: auto 0 120px min(120px, 12vw);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  font-size: clamp(18px, 2vw, 24px);
+  transform: rotate(-4deg);
+}
+
+.community-paper-plane {
+  position: absolute;
+  left: calc(100% + 10px);
+  bottom: 0.05em;
+  display: inline-block;
+  width: 86px;
+  height: 28px;
+  color: var(--orange);
+  pointer-events: none;
+  transform-origin: 80% 50%;
+  animation: communityPaperPlaneFly 4.5s ease-in-out infinite;
+}
+
+.community-paper-plane svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.community-paper-plane-trail,
+.community-paper-plane-mark,
+.community-paper-plane-fold {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.community-paper-plane-trail {
+  stroke-width: 1.4;
+  stroke-dasharray: 4 6;
+  opacity: 0.72;
+}
+
+.community-paper-plane-mark,
+.community-paper-plane-fold {
+  stroke-width: 2;
+}
+
+.community-mobile-ending {
+  display: none;
+}
+
+@media (min-width: 1181px) {
+  .community-page {
+    padding-bottom: 420px;
+  }
+
+  .community-mobile-ending {
+    position: absolute;
+    right: 0;
+    bottom: clamp(-328px, calc(-294px - 2.2vw), -312px);
+    left: 0;
+    display: block;
+    margin: 0;
+    color: var(--orange);
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+  }
+}
+
+@keyframes communityPaperPlaneFly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-8deg);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(min(42vw, 620px), -54px) rotate(10deg);
+  }
+}
+
+.community-image-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  background: #d9d4c8;
+}
+
+.community-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+.crew-grid {
+  position: absolute;
+  z-index: 4;
+  right: clamp(28px, 4vw, 64px);
+  bottom: clamp(-194px, calc(-160px - 2.2vw), -178px);
+  left: clamp(28px, 4vw, 64px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(270px, 300px));
+  gap: clamp(14px, 1.6vw, 22px);
+  justify-content: center;
+  align-items: stretch;
+}
+
+.crew-card {
+  --crew-accent: var(--orange);
+  display: flex;
+  min-height: 420px;
+  max-height: 460px;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px 24px;
+  border: 1px solid color-mix(in srgb, var(--crew-accent) 68%, rgba(255, 255, 255, 0.2));
+  border-radius: 18px;
+  background: rgba(16, 19, 21, 0.78);
+  color: #f7f4ef;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.crew-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.crew-person-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--crew-accent) 38%, rgba(255, 255, 255, 0.14));
+  color: rgba(247, 244, 239, 0.78);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.crew-person-row span {
+  color: var(--crew-accent);
+}
+
+.crew-platform-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crew-platform-icon {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  flex: 0 0 34px;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.crew-platform-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.crew-platform-icons--hero {
+  gap: 12px;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.crew-platform-icons--hero .crew-platform-icon {
+  width: 72px;
+  height: 72px;
+  flex-basis: 72px;
+}
+
+.crew-platform-icon--linkedin {
+  color: #0a66c2;
+}
+
+.crew-platform-icon--facebook {
+  color: #1877f2;
+}
+
+.crew-platform-icon--x {
+  color: #fff;
+}
+
+.crew-card h3 {
+  margin: 20px 0 28px;
+  color: #fff;
+  font-size: clamp(32px, 2.4vw, 40px);
+  text-align: center;
+  line-height: 1;
+}
+
+.crew-card-actions {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+
+.crew-social-button {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--crew-accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--crew-accent) 28%, transparent);
+}
+
+.crew-social-button span:last-child {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.crew-social-button--tiktok {
+  background: linear-gradient(135deg, #ff2b77, #fe2c55);
+}
+
+.crew-social-button--instagram {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 58%, #8134af);
+}
+
+.crew-social-button--linkedin {
+  background: #0a66c2;
+}
+
+.crew-social-button--facebook {
+  background: #1877f2;
+}
+
+.crew-social-button--x {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: #050505;
+}
+
+html[data-theme="dark"] .community-page {
+  background: #07090b;
+  color: #f7f4ef;
+}
+
+html[data-theme="dark"] .community-hero-card {
+  background: #0e1113;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="dark"] .community-breadcrumb,
+html[data-theme="dark"] .community-body,
+html[data-theme="dark"] .community-note {
+  color: rgba(247, 244, 239, 0.68);
+}
+
+html[data-theme="dark"] .community-breadcrumb span {
+  color: rgba(247, 244, 239, 0.34);
+}
+
+html[data-theme="dark"] .community-copy-panel h1 {
+  color: #f7f4ef;
+}
+
+html[data-theme="dark"] .community-image-panel {
+  background: #111;
+}
+
+html[data-theme="dark"] .crew-card {
+  border-color: color-mix(in srgb, var(--crew-accent) 58%, rgba(255, 255, 255, 0.1));
+  background: rgba(16, 19, 21, 0.78);
+  color: #f7f4ef;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="dark"] .crew-person-row,
+html[data-theme="dark"] .crew-social-button {
+  color: #f7f4ef;
+}
+
+@media (max-width: 1180px) {
+  .community-hero-card {
+    grid-template-columns: minmax(320px, 0.8fr) minmax(520px, 1.2fr);
+    min-height: 940px;
+  }
+
+  .crew-grid {
+    grid-template-columns: repeat(2, minmax(270px, 300px));
+  }
+}
+
+@media (max-width: 760px) {
+  .community-page {
+    padding: 88px 20px 56px;
+  }
+
+  .community-hero-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .community-copy-panel {
+    display: contents;
+    min-height: 0;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  .community-breadcrumb {
+    display: none;
+  }
+
+  .community-label {
+    position: absolute;
+    z-index: 2;
+    top: 26px;
+    left: 22px;
+    margin: 0;
+    font-size: 11px;
+  }
+
+  .community-copy-panel h1 {
+    position: absolute;
+    z-index: 2;
+    top: 58px;
+    left: 22px;
+    max-width: 300px;
+    margin: 0;
+    font-size: clamp(44px, 15vw, 62px);
+  }
+
+  .community-note {
+    order: 2;
+    width: fit-content;
+    max-width: calc(100% - 74px);
+    margin: 28px 0 34px;
+    color: #101112;
+  }
+
+  html[data-theme="dark"] .community-note {
+    color: #f7f4ef;
+  }
+
+  .community-paper-plane {
+    left: calc(100% + 8px);
+    bottom: 0.1em;
+    width: 68px;
+    height: 22px;
+  }
+
+  .community-image-panel {
+    position: relative;
+    order: 1;
+    inset: auto;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    border-radius: 22px;
+  }
+
+  .community-image-panel img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .crew-grid {
+    position: static;
+    order: 3;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    justify-content: stretch;
+    padding: 0;
+  }
+
+  .crew-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+    max-height: none;
+    gap: 18px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .crew-platform-icons--hero {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    min-height: 48px;
+  }
+
+  .crew-platform-icons--hero .crew-platform-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .crew-card h3 {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 4px 0 12px;
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .crew-card-actions {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .crew-social-button {
+    min-height: 46px;
+  }
+
+  .crew-person-row {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: auto;
+    min-width: 76px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .crew-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .community-mobile-ending {
+    display: block;
+    order: 4;
+    margin: 34px 0 0;
+    color: var(--orange);
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .community-paper-plane {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .community-page .crew-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .certifications {
@@ -8450,81 +9092,122 @@ footer {
   }
 
   .mobile-products-panel.is-open {
-    display: grid;
+    display: flex;
   }
 
   .mobile-products-panel {
     position: relative;
     z-index: 1;
+    flex-direction: column;
     width: 100%;
     max-width: none;
+    min-width: 0;
     margin: 10px 0 28px;
     padding: 12px 0 4px;
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     gap: 0;
+    overflow: visible;
   }
 
-  .mobile-products-group {
-    display: grid;
-    gap: 0;
-    margin-bottom: 20px;
-  }
-
-  .mobile-products-group:last-child {
-    margin-bottom: 6px;
-  }
-
-  .mobile-products-group h4 {
-    margin: 22px 0 9px;
-    color: #ff5f1f;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .mobile-products-group a {
-    display: flex;
-    align-items: baseline;
+  .mobile-products-view-all {
+    display: inline-flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 14px;
     width: 100%;
+    min-width: 0;
+    padding: 14px 0 18px;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    color: rgba(17, 17, 17, 0.64);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .mobile-products-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mobile-product-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) auto auto;
+    align-items: baseline;
+    column-gap: 18px;
+    width: 100%;
+    min-width: 0;
     min-height: 0;
-    padding: 14px 0;
+    padding: 22px 0;
     overflow: visible;
     border-bottom: 1px solid rgba(17, 17, 17, 0.08);
     color: #111;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.18;
     text-decoration: none;
-    text-overflow: clip;
-    white-space: normal;
   }
 
-  .mobile-products-group a span {
+  .mobile-product-name {
+    min-width: 0;
+    overflow: hidden;
+    color: #111;
+    font-size: clamp(24px, 6.4vw, 36px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mobile-product-tag,
+  .mobile-product-capacity {
     flex-shrink: 0;
     overflow: visible;
-    color: rgba(17, 17, 17, 0.58);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.18;
+    font-size: clamp(20px, 5.6vw, 30px);
+    font-weight: 500;
+    line-height: 1;
     text-overflow: clip;
     white-space: nowrap;
+  }
+
+  .mobile-product-tag {
+    color: var(--orange);
+  }
+
+  .mobile-product-tag:empty {
+    display: block;
+    width: 0;
+  }
+
+  .mobile-product-capacity {
+    color: rgba(17, 17, 17, 0.58);
+    text-align: right;
   }
 
   html[data-theme="dark"] .mobile-products-panel {
     border-top-color: rgba(255, 255, 255, 0.14);
   }
 
-  html[data-theme="dark"] .mobile-products-group a {
+  html[data-theme="dark"] .mobile-products-view-all {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    color: rgba(247, 244, 239, 0.62);
+  }
+
+  html[data-theme="dark"] .mobile-product-row {
     border-bottom-color: rgba(255, 255, 255, 0.12);
     color: #f7f4ef;
   }
 
-  html[data-theme="dark"] .mobile-products-group a span {
+  html[data-theme="dark"] .mobile-product-name {
+    color: #f7f4ef;
+  }
+
+  html[data-theme="dark"] .mobile-product-capacity {
     color: rgba(247, 244, 239, 0.6);
+  }
+
+  html[data-theme="dark"] .mobile-product-tag {
+    color: var(--orange);
   }
 
   .nav-cta {
@@ -8585,7 +9268,9 @@ footer {
   .product-hero,
   .specs,
   .certifications,
-  .downloads {
+  .downloads,
+  .accessory-showcase,
+  .community-hero {
     grid-template-columns: 1fr;
   }
 
@@ -8599,8 +9284,15 @@ footer {
 
   .detail-grid,
   .feature-detail-grid,
-  .use-case-grid {
+  .use-case-grid,
+  .accessory-grid,
+  .crew-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .community-loop {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .process-grid,
@@ -8630,20 +9322,6 @@ footer {
   .nav .mobile-products-toggle {
     padding-block: 18px;
     font-size: 22px;
-  }
-
-  .mobile-products-group h4 {
-    margin: 20px 0 8px;
-    font-size: 12px;
-  }
-
-  .mobile-products-group a {
-    padding: 13px 0;
-    font-size: 21px;
-  }
-
-  .mobile-products-group a span {
-    font-size: 19px;
   }
 }
 
@@ -8857,6 +9535,8 @@ footer {
   .qa-list,
   .feature-detail-grid,
   .use-case-grid,
+  .accessory-grid,
+  .crew-grid,
   .product-grid,
   .related-grid {
     grid-template-columns: 1fr;
@@ -8892,6 +9572,8 @@ footer {
   .product-section,
   .certifications,
   .downloads,
+  .accessory-showcase,
+  .community-hero,
   .product-inquiry,
   .specs,
   .related,
@@ -8929,36 +9611,6 @@ footer {
 
   .product-hero-media {
     min-height: 280px;
-  }
-
-  .model-selector {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 22px;
-    margin-bottom: 18px;
-    padding: 14px 16px;
-  }
-
-  .model-label {
-    min-width: auto;
-    font-size: 11px;
-  }
-
-  .model-tabs {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 28px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
-  .model-tab {
-    flex: 0 0 auto;
-    height: 42px;
-    padding: 0 4px;
-    font-size: 20px;
   }
 
   .product-color-selector {
@@ -9032,6 +9684,178 @@ footer {
 
   footer {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-hero-copy {
+    min-width: 0;
+  }
+
+  .model-selector {
+    gap: 12px;
+    row-gap: 12px;
+    margin-top: 18px;
+    margin-bottom: 16px;
+    padding: 14px;
+  }
+
+  .model-label {
+    width: 100%;
+    min-width: 0;
+    font-size: 11px;
+  }
+
+  .model-tabs {
+    gap: 12px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .model-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .model-tab {
+    height: auto;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .model-tab.active {
+    border-color: var(--orange);
+    background: rgba(242, 106, 33, 0.14);
+  }
+
+  .model-tab.active::after {
+    display: none;
+  }
+
+  .product-color-selector {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-color-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .product-color-option {
+    display: flex;
+    min-height: auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    text-align: left;
+  }
+
+  .product-color-swatch {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .product-config-panel {
+    width: min(calc(100vw - 48px), 1000px);
+    grid-template-columns: minmax(320px, 0.44fr) minmax(420px, 0.56fr);
+    grid-template-areas:
+      "copy visual"
+      "controls visual";
+    gap: 36px;
+  }
+
+  .product-config-visual {
+    min-height: clamp(340px, 40vw, 500px);
+  }
+
+  .product-color-options {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .product-config-panel {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "visual"
+      "controls";
+    width: min(calc(100vw - 40px), 720px);
+    gap: 28px;
+    margin-inline: auto;
+  }
+
+  .product-config-copy {
+    grid-area: copy;
+  }
+
+  .product-config-visual {
+    grid-area: visual;
+    min-height: clamp(320px, 80vw, 480px);
+  }
+
+  .product-config-controls {
+    grid-area: controls;
+  }
+
+  .model-selector {
+    display: block;
+    margin-top: 32px;
+    margin-bottom: 22px;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .model-tabs {
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .model-tab {
+    height: auto;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    font-size: 16px;
+    line-height: 1;
+    scroll-snap-align: start;
+  }
+
+  .model-tab.active {
+    border-color: var(--orange);
+    background: rgba(242, 106, 33, 0.14);
+  }
+
+  .model-tab.active::after {
+    display: none;
+  }
+
+  .product-color-options {
+    grid-template-columns: 1fr;
+  }
+
+  .product-color-option {
+    min-height: auto;
+    padding: 16px 18px;
   }
 }
 
@@ -9408,58 +10232,91 @@ footer {
   .mobile-nav-panel .mobile-products-panel {
     margin-top: 10px !important;
     padding-top: 12px !important;
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
   }
 
-  .mobile-nav-panel .mobile-products-group {
-    margin-bottom: 20px !important;
-  }
-
-  .mobile-nav-panel .mobile-products-group:last-child {
-    margin-bottom: 6px !important;
-  }
-
-  .mobile-nav-panel .mobile-products-group h4 {
-    margin: 22px 0 9px !important;
-    color: #ff5f1f;
-    font-size: 13px !important;
-    font-weight: 700;
+  .mobile-nav-panel .mobile-products-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    padding: 14px 0 18px !important;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    color: rgba(17, 17, 17, 0.64);
+    font-size: 15px !important;
+    font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .mobile-nav-panel .mobile-products-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
   }
 
   .mobile-nav-panel .mobile-product-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) auto auto;
     align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
+    column-gap: 18px;
     width: 100%;
-    padding: 14px 0 !important;
+    min-width: 0;
+    padding: 22px 0 !important;
     overflow: visible;
     border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    color: #111;
     text-decoration: none;
-    text-overflow: clip;
   }
 
   .mobile-nav-panel .mobile-product-name {
-    overflow: visible;
+    min-width: 0;
+    overflow: hidden;
     color: #111;
-    font-size: 22px !important;
-    font-weight: 500;
-    line-height: 1.18;
-    text-overflow: clip;
-    white-space: normal;
+    font-size: clamp(24px, 6.4vw, 36px) !important;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
+  .mobile-nav-panel .mobile-product-tag,
   .mobile-nav-panel .mobile-product-capacity {
     flex-shrink: 0;
     overflow: visible;
-    color: rgba(17, 17, 17, 0.58);
-    font-size: 20px !important;
-    font-weight: 400;
-    line-height: 1.18;
+    font-size: clamp(20px, 5.6vw, 30px) !important;
+    font-weight: 500;
+    line-height: 1;
     text-overflow: clip;
     white-space: nowrap;
+  }
+
+  .mobile-nav-panel .mobile-product-tag {
+    color: var(--orange);
+  }
+
+  .mobile-nav-panel .mobile-product-tag:empty {
+    display: block;
+    width: 0;
+  }
+
+  .mobile-nav-panel .mobile-product-capacity {
+    color: rgba(17, 17, 17, 0.58);
+    text-align: right;
+  }
+
+  html[data-theme="dark"] .mobile-nav-panel .mobile-products-view-all {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    color: rgba(247, 244, 239, 0.62);
+  }
+
+  html[data-theme="dark"] .mobile-nav-panel .mobile-product-row {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
   }
 
   html[data-theme="dark"] .mobile-nav-panel .mobile-product-name {
@@ -9468,6 +10325,10 @@ footer {
 
   html[data-theme="dark"] .mobile-nav-panel .mobile-product-capacity {
     color: rgba(247, 244, 239, 0.6);
+  }
+
+  html[data-theme="dark"] .mobile-nav-panel .mobile-product-tag {
+    color: var(--orange);
   }
 }
 
@@ -9479,21 +10340,29 @@ footer {
     font-size: 22px !important;
   }
 
-  .mobile-nav-panel .mobile-products-group h4 {
-    margin: 20px 0 8px !important;
-    font-size: 12px !important;
-  }
-
   .mobile-nav-panel .mobile-product-row {
-    padding: 13px 0 !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 6px;
+    padding: 18px 0 !important;
   }
 
   .mobile-nav-panel .mobile-product-name {
-    font-size: 21px !important;
+    font-size: clamp(24px, 7vw, 32px) !important;
+  }
+
+  .mobile-nav-panel .mobile-product-tag {
+    grid-column: 1 / 2;
+    font-size: 17px !important;
+  }
+
+  .mobile-nav-panel .mobile-product-tag:empty {
+    display: none;
   }
 
   .mobile-nav-panel .mobile-product-capacity {
-    font-size: 19px !important;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: 22px !important;
   }
 }
 
@@ -9646,49 +10515,90 @@ footer {
 
 .gl-product-gallery-viewport {
   box-sizing: border-box;
+  position: relative;
   width: 100vw;
-  max-width: none;
   margin-left: 50%;
   overflow: hidden;
   padding: 0;
   transform: translateX(-50%);
 }
 
-.gl-product-gallery-viewport .horizontal-scroll {
-  padding-inline: var(--content-offset);
-  scroll-padding-inline: var(--content-offset);
+.gl-product-gallery-viewport .horizontal-control-row {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 0 auto 16px;
 }
 
-.gl-product-gallery-track {
+.gallery-scroller {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: 5vw;
+  padding-inline: 5vw;
+  padding-bottom: 10px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #ff7a00 rgba(255, 255, 255, 0.12);
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-track {
   display: flex;
   flex-wrap: nowrap;
-  gap: clamp(14px, 1.6vw, 24px);
+  gap: clamp(20px, 2vw, 32px);
   width: max-content;
+  justify-content: flex-start;
   min-width: 0;
-  margin-left: 0;
+  margin: 0;
   padding: 0;
   overflow: visible;
   scroll-snap-type: x proximity;
   touch-action: pan-x;
 }
 
+.gl-product-gallery-track {
+  width: max-content;
+}
+
 .gl-product-gallery-card {
-  flex: 0 0 clamp(320px, 36vw, 640px);
-  min-width: 320px;
+  display: flex;
+  height: clamp(288px, 27.2vw, 384px);
+  flex: 0 0 clamp(360px, 28vw, 520px);
+  width: clamp(360px, 28vw, 520px);
+  min-width: 0;
+  flex-direction: column;
   overflow: hidden;
   scroll-snap-align: start;
 }
 
+.gl-product-gallery-image-frame {
+  display: flex;
+  width: 100%;
+  height: 68%;
+  max-height: 68%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+}
+
 .gl-product-gallery-card .gl-product-gallery-image {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  width: auto;
+  max-width: 82%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .gl-product-gallery-body {
   position: static;
+  flex: 1 1 auto;
   width: auto;
+  min-height: 0;
   margin: 0;
   padding: 28px 32px 30px;
   background: var(--gallery-card-bg);
@@ -9711,8 +10621,14 @@ footer {
 }
 
 @media (max-width: 900px) {
+  .gallery-track,
+  .gl-product-gallery-track {
+    gap: 18px;
+  }
+
   .gl-product-gallery-card {
-    flex-basis: clamp(280px, 72vw, 460px);
+    flex-basis: clamp(300px, 42vw, 380px);
+    width: clamp(300px, 42vw, 380px);
   }
 }
 
@@ -9723,14 +10639,10 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .horizontal-scroll {
-    padding-inline: 20px;
-    scroll-padding-inline: 20px;
-  }
-
-  .gl-product-gallery-viewport .horizontal-scroll {
-    padding-inline: var(--content-offset);
-    scroll-padding-inline: var(--content-offset);
+  .horizontal-scroll,
+  .gallery-scroller {
+    padding-inline: 5vw;
+    scroll-padding-inline: 5vw;
   }
 
   .model-spec-card {
@@ -9738,25 +10650,26 @@ footer {
     min-width: min(86vw, 420px);
   }
 
-  .gallery-grid article,
-  .gl-product-gallery-card {
-    flex: 0 0 min(86vw, 480px);
+  .gallery-grid article {
+    flex: 0 0 auto;
+    width: min(86vw, 480px);
     min-width: min(86vw, 480px);
   }
 
   .gl-product-gallery-viewport {
     width: 100vw;
-    max-width: none;
   }
 
+  .gallery-track,
   .gl-product-gallery-track {
     gap: 14px;
   }
 
   .gl-product-gallery-card {
-    flex: 0 0 min(86vw, 480px);
-    min-width: min(86vw, 480px);
-    max-width: none;
+    height: clamp(288px, 27.2vw, 384px);
+    flex: 0 0 min(86vw, 420px);
+    width: min(86vw, 420px);
+    min-width: 0;
   }
 
   .gl-product-gallery-body {
@@ -9764,11 +10677,258 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .site-header.is-over-hero {
+    height: 54px;
+    min-height: 54px;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-header.is-over-hero .theme-button {
+    display: none;
+  }
+
+  .site-header.is-over-hero .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .site-header.is-over-hero .brand-text strong {
+    font-size: 16px;
+    letter-spacing: 0;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.38);
+  }
+
+  .site-header.is-over-hero .mobile-menu-toggle {
+    width: 46px !important;
+    min-width: 46px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.38));
+  }
+
+  .hero-badge {
+    min-height: 0;
+    margin-bottom: 12px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-features,
+  .hero-slide-b-series .hero-features {
+    display: none;
+  }
+
+  .hero-copy,
+  .hero-slide-b-series .hero-copy,
+  .hero-slide-s35 .hero-copy {
+    position: static;
+  }
+
+  .hero-actions,
+  .hero-slide-b-series .hero-actions {
+    position: absolute;
+    right: auto;
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    z-index: 8;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  .view-all-products {
+    white-space: nowrap;
+  }
+
+  .hero-arrow {
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 38px;
+    height: 38px;
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(0, 0, 0, 0.08);
+    opacity: 0.74;
+  }
+
+  .hero-arrow-left {
+    left: 18px;
+  }
+
+  .hero-arrow-right {
+    right: 18px;
+  }
+
+  .hero-dots,
+  .hero-pagination {
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+    gap: 9px;
+  }
+
+  .hero-index-item {
+    color: rgba(245, 243, 239, 0.48);
+  }
+
+  .hero-index-item.is-active {
+    color: rgba(245, 243, 239, 0.95);
+  }
+
+  .hero-index-line {
+    background: rgba(245, 243, 239, 0.26);
+  }
+
+  .hero-index-item.is-active .hero-index-line {
+    background: var(--orange);
+  }
+}
+
+@media (max-width: 900px) {
+  .family-page {
+    padding-top: 78px;
+  }
+
+  .family-manifest-hero,
+  .family-section,
+  .family-help {
+    width: min(calc(100vw - 40px), 720px);
+  }
+
+  .family-manifest-hero {
+    padding: 24px 20px 30px;
+  }
+
+  .family-manifest-copy h1 {
+    max-width: none;
+    font-size: clamp(44px, 12vw, 68px);
+    line-height: 0.95;
+  }
+
+  .family-manifest-breadcrumb {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .family-manifest-copy .kicker {
+    margin-bottom: 12px;
+  }
+
+  .family-manifest-copy h2 {
+    margin-bottom: 12px;
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .family-manifest-copy p:not(.kicker) {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .family-manifest-actions,
+  .family-help-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .family-comparison-mobile {
+    display: grid;
+    gap: 14px;
+  }
+
+  .family-comparison-table-wrap {
+    margin-top: 18px;
+  }
+
+  .family-compare-card {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel-solid);
+  }
+
+  .family-compare-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+  }
+
+  .family-compare-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .family-compare-card dl {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 12px;
+  }
+
+  .family-compare-card dl > div {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .family-compare-card dt {
+    color: var(--quiet);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .family-compare-card dd {
+    min-width: 0;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .family-table-jump {
+    justify-self: start;
+  }
+
+  .family-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .family-help {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  .family-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .family-compare-card {
+    grid-template-columns: 1fr;
+  }
+
+  .family-compare-card img {
+    height: 150px;
+  }
+
+  .family-comparison-table {
+    min-width: 760px;
+  }
+}
 ```
 
 ### src/utils/dom.js
-
-Size: 2011 bytes
 
 ```js
 export function applySeo(seo) {
@@ -9840,12 +11000,9 @@ export function revealSections(root = document) {
 
   elements.forEach((element) => observer.observe(element));
 }
-
 ```
 
 ### src/utils/heroScrollGate.js
-
-Size: 3662 bytes
 
 ```js
 // PROTECTED HERO SCROLL GATE. Do not modify unless explicitly asked.
@@ -9986,12 +11143,9 @@ export function createHeroScrollGate() {
     destroy,
   };
 }
-
 ```
 
 ### src/utils/navigation.js
-
-Size: 14805 bytes
 
 ```js
 import { go, route } from "../router.js";
@@ -10035,6 +11189,16 @@ export function bindNavigation({
       } else {
         document.getElementById(element.dataset.anchor)?.scrollIntoView({ behavior: "smooth" });
       }
+      render();
+    });
+  });
+
+  root.querySelectorAll("[data-local-anchor]").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      setMenuOpen(false);
+      state.mobileProductsOpen = false;
+      document.getElementById(element.dataset.localAnchor)?.scrollIntoView({ behavior: "smooth" });
       render();
     });
   });
@@ -10259,12 +11423,20 @@ export function bindNavigation({
     const section = scroller.closest("section");
     const prev = section?.querySelector("[data-horizontal-prev]");
     const next = section?.querySelector("[data-horizontal-next]");
-    const track = scroller.querySelector(".horizontal-track");
+    const track = scroller.querySelector("[data-horizontal-track], .horizontal-track");
     if (!prev || !next || !track) return;
 
     const scrollTolerance = 2;
     const maxScrollLeft = () => Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+    const clampScrollLeft = () => {
+      const max = maxScrollLeft();
+      const clamped = Math.min(Math.max(scroller.scrollLeft, 0), max);
+      if (scroller.scrollLeft !== clamped) {
+        scroller.scrollLeft = clamped;
+      }
+    };
     const updateArrowState = () => {
+      clampScrollLeft();
       const max = maxScrollLeft();
       prev.disabled = scroller.scrollLeft <= scrollTolerance;
       next.disabled = scroller.scrollLeft >= max - scrollTolerance;
@@ -10276,9 +11448,12 @@ export function bindNavigation({
       return cardWidth + gap;
     };
     const scrollByStep = (direction) => {
-      scroller.scrollBy({ left: direction * scrollStep(), behavior: "smooth" });
+      const target = Math.min(Math.max(scroller.scrollLeft + direction * scrollStep(), 0), maxScrollLeft());
+      scroller.scrollTo({ left: target, behavior: "smooth" });
+      window.requestAnimationFrame(clampScrollLeft);
     };
 
+    scroller.scrollLeft = 0;
     prev.addEventListener("click", () => scrollByStep(-1));
     next.addEventListener("click", () => scrollByStep(1));
     scroller.addEventListener("scroll", updateArrowState, { passive: true });
@@ -10422,5 +11597,5 @@ export function bindNavigation({
     changeHeroSlideFromControl((state.currentHeroSlide + 1) % heroSlideCount);
   });
 }
-
 ```
+

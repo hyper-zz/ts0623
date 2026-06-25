@@ -1,86 +1,84 @@
-const downloadGroups = [
-  {
-    label: "Product brochures",
-    status: "Request document",
-  },
-  {
-    label: "User manuals",
-    status: "Request document",
-  },
-  {
-    label: "Spec sheets",
-    status: "Request document",
-  },
-  {
-    label: "Certification documents",
-    status: "Request document",
-  },
+const philosophyCards = [
+  ["1-Year Whole Unit", "Basic product coverage for confirmed manufacturing issues."],
+  ["3-Year Cooling System", "Extended support for compressor cooling system concerns."],
+  ["Wholesale Spare Parts", "Parts planning for distributors, fleets and service partners."],
+  ["Technical Support", "Model guidance, troubleshooting and service communication."],
 ];
 
-const supportItems = [
-  "Product use guidance",
-  "Troubleshooting support",
-  "Spare parts and accessory support",
-  "Warranty and service communication",
-  "Distributor service coordination",
+const sparePartsItems = [
+  ["Recommended packages", "Wholesale orders can include recommended spare parts packages based on order quantity."],
+  ["Model-based planning", "Parts support is planned around product series, market and after-sales needs."],
+  ["Distributor coordination", "We help partners prepare practical spare parts lists for service teams."],
 ];
 
 const questions = [
   [
-    "Can I request product specifications before ordering?",
-    "Yes. Send the target model or product series and we will provide available specifications.",
+    "What is covered by the warranty?",
+    "Warranty support focuses on confirmed product or cooling-system issues within the stated coverage period.",
   ],
   [
-    "Do you support private label or packaging customization?",
-    "Yes. Logo, color, packaging and documentation options can be discussed by project.",
+    "How do wholesale spare parts work?",
+    "Spare parts can be planned with wholesale orders based on model mix, quantity and service requirements.",
   ],
   [
-    "Can you support different markets and certifications?",
-    "Certification support depends on product model and target market.",
+    "What information should I provide for support?",
+    "Please share product series, model, order context, photos or video, and a clear issue description.",
   ],
   [
-    "Where can I get manuals or brochures?",
-    "Available documents can be downloaded here or requested through the contact page.",
-  ],
-  [
-    "Do you provide after-sales support for distributors?",
-    "Yes. Support can include usage guidance, troubleshooting, spare parts and service coordination.",
+    "Can you help with troubleshooting remotely?",
+    "Yes. We can review basic operating details and guide next steps before parts or service coordination.",
   ],
 ];
+
+const documentSeries = [
+  { name: "AX", size: "TBD", type: "PDF", url: "" },
+  { name: "B", size: "TBD", type: "PDF", url: "" },
+  { name: "GL / M", size: "TBD", type: "PDF", url: "" },
+  { name: "EX / EXM", size: "TBD", type: "PDF", url: "" },
+  { name: "D", size: "TBD", type: "PDF", url: "" },
+  { name: "K", size: "TBD", type: "PDF", url: "" },
+  { name: "S", size: "TBD", type: "PDF", url: "" },
+  { name: "TF", size: "TBD", type: "PDF", url: "" },
+];
+
+const downloads = {
+  userManuals: documentSeries,
+  specSheets: documentSeries,
+};
 
 export function SupportPage() {
   return `
     <main class="page b2b-page">
       <section class="page-hero">
-        <p class="kicker">Support</p>
-        <h1>Product documents, support and service information.</h1>
-        <p>Access manuals, brochures, specifications, after-sales information and common questions for Travel Science cooling products.</p>
+        <p class="kicker">Support Center</p>
+        <h1>Everything you need after delivery.</h1>
+        <p>Manuals, warranty guidance, spare parts support and technical help for Travel Science cooling products.</p>
       </section>
 
-      <section class="downloads">
-        <div>
-          <p class="kicker">Downloads</p>
-          <h2>Product documents.</h2>
-        </div>
-        <div class="download-list">
-          ${downloadGroups.map(downloadLink).join("")}
-        </div>
-      </section>
-
-      <section class="product-section">
+      <section class="product-section" id="warranty">
         <div class="section-heading">
-          <p class="kicker">After-sales service</p>
-          <h2>Support for use, service and distribution.</h2>
+          <p class="kicker">Service philosophy</p>
+          <h2>Built to last. Supported to stay.</h2>
         </div>
         <div class="feature-detail-grid">
-          ${supportItems.map((item) => `<article><h3>${item}</h3></article>`).join("")}
+          ${philosophyCards.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
+        </div>
+      </section>
+
+      <section class="product-section" id="spare-parts">
+        <div class="section-heading">
+          <p class="kicker">Spare Parts Program</p>
+          <h2>Parts support for wholesale partners.</h2>
+        </div>
+        <div class="feature-detail-grid">
+          ${sparePartsItems.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
         </div>
       </section>
 
       <section class="product-section">
         <div class="section-heading">
-          <p class="kicker">Q&A</p>
-          <h2>Common questions.</h2>
+          <p class="kicker">Support Q&A</p>
+          <h2>Common service questions.</h2>
         </div>
         <div class="qa-list">
           ${questions.map(([question, answer]) => `
@@ -92,22 +90,93 @@ export function SupportPage() {
         </div>
       </section>
 
+      <section class="downloads" id="downloads">
+        <div>
+          <p class="kicker">Downloads</p>
+          <h2>Product documents.</h2>
+        </div>
+        <div class="support-downloads">
+          ${downloadAccordion("User manuals", "Select a series", downloads.userManuals)}
+          ${downloadDisabledRow("Product brochures", "Coming soon")}
+          ${downloadAccordion("Spec sheets", "Select a series", downloads.specSheets)}
+          ${downloadDisabledRow("Warranty overview", "Coming soon")}
+        </div>
+      </section>
+
       <section class="product-inquiry">
         <p class="kicker">Support request</p>
-        <h2>Need a document or service answer?</h2>
-        <p>Send the product series, model or question and we will point you to the right information.</p>
-        <a class="hero-cta" href="#/contact" data-go="/contact">Contact support</a>
+        <h2>Still need help?</h2>
+        <p>Send the product series, model and support topic so we can route your request.</p>
+        <a class="hero-cta" href="#/contact" data-go="/contact">Contact Support</a>
       </section>
     </main>
   `;
 }
 
-function downloadLink(item) {
-  if (item.href) {
-    return `<a href="${item.href}" download>${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
-  }
+function downloadAccordion(label, helper, documents) {
+  return `
+    <details class="support-download-row">
+      <summary>
+        <span class="support-download-title">
+          <strong>${label}</strong>
+          <small>${helper}</small>
+        </span>
+        <span class="support-download-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="support-download-panel">
+        <div class="support-download-panel-inner">
+          ${documents.map(documentItem).join("")}
+        </div>
+      </div>
+    </details>
+  `;
+}
 
-  const subject = encodeURIComponent(`Request ${item.label}`);
-  const body = encodeURIComponent(`Hello Travel Science team,\n\nPlease send the ${item.label.toLowerCase()}.\n\nThank you.`);
-  return `<a href="mailto:info@kelvcoop.com?subject=${subject}&body=${body}">${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
+function downloadDisabledRow(label, status) {
+  return `
+    <div class="support-download-row is-disabled" aria-disabled="true">
+      <div class="support-download-disabled-content">
+        <span class="support-download-title">
+          <strong>${label}</strong>
+          <small>${status}</small>
+        </span>
+      </div>
+    </div>
+  `;
+}
+
+function documentItem(item) {
+  const action = item.url
+    ? `<a class="support-document-action" href="${item.url}" download aria-label="Download ${item.name} ${item.type}">${downloadIcon()}</a>`
+    : `<button class="support-document-action" type="button" disabled aria-label="${item.name} ${item.type} coming soon">${downloadIcon()}</button>`;
+
+  return `
+    <article class="support-document-item">
+      <span class="support-document-icon" aria-hidden="true">${pdfIcon()}</span>
+      <span class="support-document-name">${item.name}</span>
+      <span class="support-document-size">${item.size}</span>
+      <span class="support-document-type">${item.type}</span>
+      ${action}
+    </article>
+  `;
+}
+
+function pdfIcon() {
+  return `
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M7 3h7l4 4v14H7z"></path>
+      <path d="M14 3v5h5"></path>
+      <path d="M8.8 16h6.4"></path>
+    </svg>
+  `;
+}
+
+function downloadIcon() {
+  return `
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M12 4v10"></path>
+      <path d="m8 10 4 4 4-4"></path>
+      <path d="M6 19h12"></path>
+    </svg>
+  `;
 }

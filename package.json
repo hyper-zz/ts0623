@@ -8,6 +8,7 @@
     "dev": "node scripts/generate-gallery-manifest.mjs && node server.mjs",
     "preview": "node scripts/generate-gallery-manifest.mjs && node server.mjs"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
 }

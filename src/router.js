@@ -1,3 +1,5 @@
+import { AccessoriesPage } from "./pages/AccessoriesPage.js";
+import { CommunityPage } from "./pages/CommunityPage.js";
 import { ContactPage } from "./pages/ContactPage.js";
 import { CustomProjectsPage } from "./pages/CustomProjectsPage.js";
 import { HomePage } from "./pages/HomePage.js";
@@ -10,7 +12,12 @@ import { productFamilyById } from "./data/productFamilies.js";
 import { productById } from "./data/products.js";
 
 export function route() {
-  return window.location.hash.slice(1) || "/";
+  return (window.location.hash.slice(1) || "/").split("#")[0] || "/";
+}
+
+export function routeAnchor() {
+  const [, anchor] = (window.location.hash.slice(1) || "").split("#");
+  return anchor || "";
 }
 
 export function go(path) {
@@ -24,6 +31,8 @@ export function go(path) {
 
 export function renderRoute({ currentHeroSlide }) {
   const current = route();
+  if (current === "/accessories") return AccessoriesPage();
+  if (current === "/community") return CommunityPage();
   if (current === "/products") return ProductsPage();
   if (current === "/custom-projects") return CustomProjectsPage();
   if (current === "/support") return SupportPage();

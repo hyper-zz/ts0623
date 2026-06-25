@@ -56,6 +56,13 @@ const mobileProductMenuItems = [
   { id: "m", name: "M Series", tag: "Dual-zone", capacity: "35L&ndash;55L" },
 ];
 
+const supportMenuItems = [
+  { label: "Support Center", href: "#/support", target: "/support" },
+  { label: "Manuals & Downloads", href: "#/support#downloads", target: "/support#downloads" },
+  { label: "Warranty", href: "#/support#warranty", target: "/support#warranty" },
+  { label: "Spare Parts Program", href: "#/support#spare-parts", target: "/support#spare-parts" },
+];
+
 function productMenuItem(item) {
   if (!productById.has(item.id)) return "";
 
@@ -84,6 +91,10 @@ function mobileProductMenuItem(item) {
       <span class="mobile-product-capacity">${item.capacity}</span>
     </a>
   `;
+}
+
+function supportMenuItem(item) {
+  return `<a class="support-menu-item" href="${item.href}" data-go="${item.target}">${item.label}<span aria-hidden="true">&rarr;</span></a>`;
 }
 
 export function Header({ theme, menuOpen, mobileProductsOpen = false, productsOpen = false, headerMode = "hero" }) {
@@ -131,7 +142,15 @@ export function Header({ theme, menuOpen, mobileProductsOpen = false, productsOp
             </div>
           </div>
           <a href="#/custom-projects" data-go="/custom-projects">Custom Projects</a>
-          <a href="#/support" data-go="/support">Support</a>
+          <div class="nav-support nav-item">
+            <a class="nav-link nav-support-trigger" href="#/support" data-go="/support" aria-haspopup="true">Support</a>
+            <div class="support-dropdown" aria-label="Support menu">
+              ${supportMenuItems.map(supportMenuItem).join("")}
+            </div>
+            <div class="mobile-support-panel" aria-label="Mobile support links">
+              ${supportMenuItems.map(supportMenuItem).join("")}
+            </div>
+          </div>
         </div>
       </nav>
       <div class="nav-actions">

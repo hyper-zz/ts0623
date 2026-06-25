@@ -33,7 +33,7 @@ export function ContactPage() {
         <h2>Connect with us for product updates, project references and distributor information.</h2>
         <div class="contact-social-links">
           ${socialLinks.map((link) => `
-            <a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>
+            <a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>
           `).join("")}
         </div>
       </section>

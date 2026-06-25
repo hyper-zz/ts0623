@@ -1,14 +1,12 @@
-import { FeaturedProducts } from "../components/FeaturedProducts.js";
 import { HeroCarousel } from "../components/HeroCarousel.js";
 import { ProductFamily } from "../components/ProductFamily.js";
+import { ServiceEntryCards } from "../components/ServiceEntryCards.js";
 import { ContactSection } from "../components/ContactSection.js";
 import { businessEntries, categoryCopy } from "../data/homepage.js";
-import { FEATURED_PRODUCT_IDS, productById } from "../data/products.js";
 import { heroSlides } from "../data/heroSlides.js";
+import { serviceCards } from "../data/serviceCards.js";
 
 export function HomePage({ currentHeroSlide }) {
-  const featured = FEATURED_PRODUCT_IDS.map(productById).filter(Boolean);
-
   return `
     <main>
       ${HeroCarousel({ slides: heroSlides, currentSlide: currentHeroSlide })}
@@ -20,7 +18,7 @@ export function HomePage({ currentHeroSlide }) {
           <p>Product specifications, customization and supply planning for outdoor cooling programs.</p>
         </section>
 
-        ${FeaturedProducts({ products: featured })}
+        ${ServiceEntryCards({ cards: serviceCards })}
         ${businessEntrySection()}
         ${ContactSection()}
       </div>
