@@ -1,11 +1,19 @@
 export const socialLinks = [
   {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/search/results/all/?keywords=kelvcoop-travel%20science%20portable%20fridge%20freezer&origin=RICH_QUERY_TYPEAHEAD_HISTORY&spellCorrectionEnabled=true&heroEntityKey=urn%3Ali%3Aorganization%3A118313959&position=0",
+  },
+  {
     label: "Facebook",
     href: "https://www.facebook.com/vickie.liu.165033?mibextid=wwXIfr&rdid=635W4EY5wZT7CSJR&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BawxA5vYY%2F%3Fmibextid%3DwwXIfr",
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/kelvcoop_car_fridge?igsh=MXMzY2NkNmlhcHp6dA%3D%3D",
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@yiwen.zhou4",
   },
   {
     label: "X",

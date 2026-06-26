@@ -5,16 +5,16 @@ export const HERO_SLIDE_INTERVAL = null;
 export const heroSlides = [
   {
     id: "s35",
-    eyebrow: "S-Series.",
+    eyebrow: "S Series.",
     badge: "NEW UPGRADE",
-    title: "Cooling powered by\nthe tool batteries you already use.",
+    title: "Powered by\nthe tool batteries you already use.",
     text: "",
     background: "/assets/hero/s35-hero.png",
     position: "center center",
     cta: "Explore S Series",
     secondary: "View all products",
     target: "/products/s",
-    detailUrl: "/products/s35",
+    detailUrl: "/products/s",
     secondaryTarget: "/products",
     features: [
       "Tool battery compatible",
@@ -47,7 +47,7 @@ export const heroSlides = [
     id: "exm-series",
     eyebrow: "EXM Series.",
     badge: "WHEELED SERIES",
-    title: "Wheeled cooling for\nvehicle travel and outdoor supply.",
+    title: "Stay cool.\nRoll further.",
     text: "",
     background: "/assets/hero/ex-hero.png",
     position: "center center",
@@ -57,10 +57,10 @@ export const heroSlides = [
     detailUrl: "/products/exm",
     secondaryTarget: "/products",
     features: [
-      "Wheeled mobility",
-      "Pull-handle design",
-      "Outdoor-ready shell",
-      "Vehicle travel ready",
+      "Built-in wheels",
+      "Pull handle",
+      "Vehicle-ready",
+      "Outdoor-ready",
     ],
   },
 ];

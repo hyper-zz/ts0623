@@ -25,9 +25,92 @@ export const galleryManifest = {
       "text": "Product detail image."
     }
   ],
-  "b": [],
-  "d": [],
-  "ex": [],
+  "b": [
+    {
+      "image": "/assets/products/b/gallery/1.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/b/gallery/2.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/b/gallery/4.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/b/gallery/b20.png",
+      "title": "B20",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/b/gallery/主图2.jpg",
+      "title": "主图2",
+      "text": "Product detail image."
+    }
+  ],
+  "d": [
+    {
+      "image": "/assets/products/D/gallery/1.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/D/gallery/2.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/D/gallery/D9-in car.png",
+      "title": "D9 in car",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.1 拷贝.png",
+      "title": "D9.1 拷贝",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.2 拷贝.png",
+      "title": "D9.2 拷贝",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.8.png",
+      "title": "D9.8",
+      "text": "Product detail image."
+    }
+  ],
+  "ex": [
+    {
+      "image": "/assets/products/ex/gallery/2.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/ex/gallery/623 拷贝.png",
+      "title": "拷贝",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝.png",
+      "title": "细节图 拷贝",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝2.png",
+      "title": "细节图 拷贝2",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝3.png",
+      "title": "细节图 拷贝3",
+      "text": "Product detail image."
+    }
+  ],
   "exm": [
     {
       "image": "/assets/products/exm/gallery/1.png",
@@ -78,6 +161,32 @@ export const galleryManifest = {
       "text": "Product detail image."
     }
   ],
-  "s": [],
+  "s": [
+    {
+      "image": "/assets/products/S18/gallery/4.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/S18/gallery/5.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/S18/gallery/7.png",
+      "title": "Product detail",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/S18/gallery/0915 拷贝.png",
+      "title": "拷贝",
+      "text": "Product detail image."
+    },
+    {
+      "image": "/assets/products/S18/gallery/S18.20.png",
+      "title": "S18.20",
+      "text": "Product detail image."
+    }
+  ],
   "tf": []
 };

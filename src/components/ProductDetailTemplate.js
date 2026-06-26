@@ -1,10 +1,9 @@
-import { ContactSection } from "./ContactSection.js";
-import { ProductCard } from "./ProductCard.js";
+import { ProductMaterials } from "./ProductMaterials.js";
 import { galleryManifest } from "../data/galleryManifest.js";
 import { productImageManifest } from "../data/productImageManifest.js";
-import { productHeadline, productIntro } from "../data/products.js";
+import { productHeadline, productIntro, productPath } from "../data/products.js";
 
-export function ProductDetailTemplate({ product, related = [] }) {
+export function ProductDetailTemplate({ product, related = [], t }) {
   return `
     <main class="product-page">
       <section class="product-hero product-config-panel reveal" ${productHeroState(product)}>
@@ -29,36 +28,29 @@ export function ProductDetailTemplate({ product, related = [] }) {
         </div>
       </section>
 
-      <section class="statement reveal">
-        <p>${product.application}</p>
-      </section>
-
-      <section class="detail-grid reveal">
-        ${(product.featureDetails || product.highlights.map((title) => ({ title })))
-          .slice(0, 4)
-          .map((item) => `<article><span></span><h3>${item.title}</h3>${item.text ? `<p>${item.text}</p>` : ""}</article>`)
-          .join("")}
-      </section>
+      ${product.application ? `
+        <section class="statement reveal">
+          <p>${product.application}</p>
+        </section>
+      ` : ""}
 
       ${modelSpecifications(product)}
       ${gallerySection(product)}
-      ${coreFeatures(product)}
-      ${materialsSection(product)}
+      ${ProductMaterials({ product })}
       ${useCasesSection(product)}
       ${certificationsSection(product)}
       ${downloadsSection(product)}
-      ${inquirySection(product)}
 
       <section class="related reveal">
         <div class="section-heading">
-          <p class="kicker">Continue exploring</p>
-          <h2>More Travel Science systems.</h2>
+          <p class="kicker">Discover More</p>
+          <h2>More Travel Science Systems</h2>
         </div>
         <div class="related-grid">
-          ${related.map(ProductCard).join("")}
+          ${related.map(relatedProductCard).join("")}
         </div>
       </section>
-      ${ContactSection()}
+      ${inquirySection()}
     </main>
   `;
 }
@@ -123,6 +115,7 @@ function modelSelector(product) {
   const imageMap = productImageMap(product);
   if (!imageMap || !models?.length) return "";
   const activeModel = resolveProductSelection(product).model;
+  const modelLabel = (model) => product.modelLabels?.[model] || model;
 
   return `
     <div class="model-selector" aria-label="Select model">
@@ -135,7 +128,7 @@ function modelSelector(product) {
             data-product-model
             data-product-model-value="${model}"
             aria-pressed="${model === activeModel ? "true" : "false"}">
-            ${model}
+            ${modelLabel(model)}
           </button>
         `).join("")}
       </div>
@@ -206,11 +199,32 @@ function modelSpecifications(product) {
     `;
   }
 
+  const modelCount = product.models?.length || product.modelDetails.length;
+  const isCompact = modelCount <= 2;
+  const isSingle = modelCount === 1;
+  const title = isSingle
+    ? `${product.modelDetails[0]?.name || product.models?.[0] || product.name} at a glance.`
+    : "Choose the capacity that fits the route.";
+
+  if (isCompact) {
+    return `
+      <section class="model-specs model-specs--compact ${isSingle ? "model-specs--single" : "model-specs--pair"} reveal">
+        <div class="section-heading">
+          <p class="kicker">Model specifications</p>
+          <h2>${title}</h2>
+        </div>
+        <div class="model-spec-compact-grid">
+          ${product.modelDetails.map(modelSpecCard).join("")}
+        </div>
+      </section>
+    `;
+  }
+
   return `
     <section class="model-specs reveal">
       <div class="section-heading">
         <p class="kicker">Model specifications</p>
-        <h2>Choose the capacity that fits the route.</h2>
+        <h2>${title}</h2>
       </div>
       <div class="horizontal-bleed" data-horizontal-shell>
         ${horizontalControls()}
@@ -309,38 +323,6 @@ function gallerySection(product) {
   `;
 }
 
-function coreFeatures(product) {
-  if (!product.featureDetails?.length) return "";
-
-  return `
-    <section class="product-section reveal">
-      <div class="section-heading">
-        <p class="kicker">Core features</p>
-        <h2>Engineering Details</h2>
-      </div>
-      <div class="feature-detail-grid">
-        ${product.featureDetails.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p></article>`).join("")}
-      </div>
-    </section>
-  `;
-}
-
-function materialsSection(product) {
-  if (!product.materials?.length) return "";
-
-  return `
-    <section class="specs reveal">
-      <div>
-        <p class="kicker">Materials</p>
-        <h2>Durable structure, clearly specified.</h2>
-      </div>
-      <dl>
-        ${product.materials.map((item) => spec(item.part, item.material)).join("")}
-      </dl>
-    </section>
-  `;
-}
-
 function useCasesSection(product) {
   if (!product.useCases?.length) return "";
 
@@ -348,7 +330,7 @@ function useCasesSection(product) {
     <section class="product-section reveal">
       <div class="section-heading">
         <p class="kicker">Usage scenarios</p>
-        <h2>Made for longer routes.</h2>
+        <h2>${product.useCasesHeading || "Made for longer routes."}</h2>
       </div>
       <div class="use-case-grid">
         ${product.useCases.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p></article>`).join("")}
@@ -421,15 +403,33 @@ function documentLink(item) {
   return `<a href="mailto:info@kelvcoop.com?subject=${subject}&body=${body}">${item.label}<small>${item.status}</small><span class="arrow-accent">→</span></a>`;
 }
 
-function inquirySection(product) {
-  if (!product.inquiryFocus) return "";
+function relatedProductCard(item) {
+  const product = item.product;
+  const image = product.cardImage || product.image;
+  const imageClass = ["product-card-image", product.imageClass || product.cardImageClass].filter(Boolean).join(" ");
+  const path = productPath(product);
 
   return `
+    <article class="product-card">
+      <a class="product-media" href="#${path}" data-go="${path}" aria-label="Open ${product.name}">
+        <img class="${imageClass}" src="${image}" alt="${product.name}">
+      </a>
+      <div class="product-card-copy">
+        <h2>${product.name}</h2>
+        <p>${item.description}</p>
+        <a class="card-cta" href="#${path}" data-go="${path}">Explore</a>
+      </div>
+    </article>
+  `;
+}
+
+function inquirySection() {
+  return `
     <section class="product-inquiry reveal">
-      <p class="kicker">Inquiry</p>
-      <h2>${product.inquiryFocus.title}</h2>
-      <p>${product.inquiryFocus.text}</p>
-      <a class="hero-cta" href="mailto:info@kelvcoop.com?subject=${encodeURIComponent(product.inquiryFocus.title)}">${product.inquiryFocus.button}</a>
+      <p class="kicker">GET IN TOUCH</p>
+      <h2>Let's talk.</h2>
+      <p>Whether you're sourcing, customizing, or expanding your product line,<br>we're ready when you are.</p>
+      <a class="hero-cta" href="mailto:info@kelvcoop.com">info@kelvcoop.com</a>
     </section>
   `;
 }

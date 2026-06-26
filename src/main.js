@@ -1,7 +1,7 @@
 import { Footer } from "./components/Footer.js";
 import { Header } from "./components/Header.js";
 import { heroSlides } from "./data/heroSlides.js";
-import { renderRoute, route, routeAnchor, routeSeo } from "./router.js";
+import { renderRoute, route, routeAnchor, routeLocale, routeSeo } from "./router.js";
 import { applySeo, highlightPeriods, revealSections } from "./utils/dom.js";
 import { createHeroScrollGate } from "./utils/heroScrollGate.js";
 import { bindNavigation } from "./utils/navigation.js";
@@ -112,12 +112,14 @@ function render() {
   const currentRoute = route();
   const routeChanged = currentRoute !== lastRenderedRoute;
   lastRenderedRoute = currentRoute;
+  const locale = routeLocale();
 
   document.documentElement.dataset.theme = state.theme;
+  document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
   app.innerHTML = `
-    ${Header({ theme: state.theme, menuOpen: state.menuOpen, mobileProductsOpen: state.mobileProductsOpen, productsOpen: state.productsOpen, headerMode: state.headerMode })}
-    ${renderRoute({ currentHeroSlide: state.currentHeroSlide })}
-    ${Footer()}
+    ${Header({ theme: state.theme, locale, menuOpen: state.menuOpen, mobileProductsOpen: state.mobileProductsOpen, productsOpen: state.productsOpen, headerMode: state.headerMode })}
+    ${renderRoute({ currentHeroSlide: state.currentHeroSlide, locale })}
+    ${Footer({ locale })}
   `;
 
   applySeo(routeSeo());

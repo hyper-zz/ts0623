@@ -14,19 +14,20 @@ export function bindNavigation({
   toggleMenu,
   toggleMobileProducts,
 }) {
-  root.querySelectorAll("[data-go]").forEach((element) => {
-    element.addEventListener("click", (event) => {
-      if (element.classList.contains("hero-image-link") && Date.now() < (state.heroImageLinkSuppressUntil || 0)) {
-        event.preventDefault();
-        return;
-      }
+  root.addEventListener("click", (event) => {
+    const element = event.target.closest("[data-go]");
+    if (!element || !root.contains(element)) return;
+    if (element.classList.contains("hero-image-link") && Date.now() < (state.heroImageLinkSuppressUntil || 0)) {
       event.preventDefault();
-      setMenuOpen(false);
-      state.mobileProductsOpen = false;
-      setProductsOpen(false);
-      const routeChanged = go(element.dataset.go);
-      if (!routeChanged) render();
-    });
+      return;
+    }
+
+    event.preventDefault();
+    setMenuOpen(false);
+    state.mobileProductsOpen = false;
+    setProductsOpen(false);
+    const routeChanged = go(element.dataset.go);
+    if (!routeChanged) render();
   });
 
   root.querySelectorAll("[data-anchor]").forEach((element) => {
@@ -261,6 +262,42 @@ export function bindNavigation({
       const hero = image.closest("[data-product-hero]");
       if (!hero) return;
       markSelectedProductImageUnavailable(hero);
+    });
+  });
+
+  root.querySelectorAll("[data-product-materials]").forEach((section) => {
+    const previewImage = section.querySelector("[data-material-preview-image]");
+    const previewLabel = section.querySelector("[data-material-preview-label]");
+    const previewPart = section.querySelector("[data-material-preview-part]");
+    const preview = section.querySelector(".product-material-preview");
+    const desktopShell = section.querySelector(".product-materials-desktop");
+    const materialItems = section.querySelectorAll("[data-material-item]");
+
+    const activateMaterial = (item) => {
+      preview?.removeAttribute("hidden");
+      desktopShell?.classList.add("has-material-preview");
+
+      materialItems.forEach((current) => {
+        const isActive = current === item;
+        current.classList.toggle("is-active", isActive);
+        current.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (previewImage) {
+        const hasImage = Boolean(item.dataset.materialImage);
+        previewImage.hidden = !hasImage;
+        if (hasImage) {
+          previewImage.src = item.dataset.materialImage;
+          previewImage.alt = item.dataset.materialLabel || "";
+        }
+      }
+      if (previewLabel) previewLabel.textContent = item.dataset.materialLabel || "";
+      if (previewPart) previewPart.textContent = item.dataset.materialPart || "";
+    };
+
+    materialItems.forEach((item) => {
+      item.addEventListener("mouseenter", () => activateMaterial(item));
+      item.addEventListener("focus", () => activateMaterial(item));
     });
   });
 

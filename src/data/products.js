@@ -195,7 +195,7 @@ export const products = [
       label: "GL55 360",
     },
     capacity: "35L - 75L",
-    voltage: "DC 12/24V, AC adapter optional",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compressor cooling",
     application: "Overlanding, SUV, pickup, long-distance camping",
     applicationZh: "越野、自驾、皮卡、长途露营",
@@ -220,7 +220,7 @@ export const products = [
         id: "gl35",
         name: "GL35",
         capacity: "35L",
-        voltage: "DC 12/24V; AC with adapter",
+        voltage: "DC12/24V AC110～240V",
         cooling: "Compressor cooling",
         temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 390mm",
@@ -235,7 +235,7 @@ export const products = [
         id: "gl45",
         name: "GL45",
         capacity: "45L",
-        voltage: "DC 12/24V; AC with adapter",
+        voltage: "DC12/24V AC110～240V",
         cooling: "Compressor cooling",
         temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 450mm",
@@ -250,7 +250,7 @@ export const products = [
         id: "gl55",
         name: "GL55",
         capacity: "55L",
-        voltage: "DC 12/24V; AC with adapter",
+        voltage: "DC12/24V AC110～240V",
         cooling: "Compressor cooling",
         temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "685mm x 410mm x 510mm",
@@ -265,7 +265,7 @@ export const products = [
         id: "gl75",
         name: "GL75",
         capacity: "75L",
-        voltage: "DC 12/24V; AC with adapter",
+        voltage: "DC12/24V AC110～240V",
         cooling: "Compressor cooling",
         temperatureRange: DEFAULT_TEMPERATURE_RANGE,
         productDimensions: "729mm x 410mm x 627mm",
@@ -368,22 +368,23 @@ export const products = [
       { part: "Inner Base", material: "HIPS" },
       { part: "Optional Part", material: "Basket" },
     ],
+    useCasesHeading: "Built for demanding routes and full-feature programs.",
     useCases: [
       {
-        title: "Overlanding",
-        text: "Built for longer outdoor routes and larger cold-storage needs.",
+        title: "SUV and pickup travel",
+        text: "A strong fit for larger vehicles, road trips and outdoor setups.",
       },
       {
-        title: "SUV travel",
-        text: "Designed to move between vehicle storage and outdoor use.",
+        title: "Dual-zone storage",
+        text: "Separate compartments for different storage needs.",
       },
       {
-        title: "Pickup routes",
-        text: "Strong storage capacity for work, travel and equipment-based use.",
+        title: "Rugged outdoor handling",
+        text: "A blow-molded body built for loading, movement and repeated use.",
       },
       {
-        title: "Long-distance camping",
-        text: "Reliable cooling for extended outdoor stays.",
+        title: "Customization programs",
+        text: "A flexible platform for buyers who need broader configuration options.",
       },
     ],
     certifications: ["CE", "CB", "RoHS", "RED"],
@@ -401,7 +402,7 @@ export const products = [
     tag: "vehicle",
     image: "/assets/products/ax.png",
     capacity: "30L - 50L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compressor cooling",
     application: "Vehicle cabins, light camping, lifestyle channels",
     applicationZh: "车内、轻露营、生活方式渠道",
@@ -429,7 +430,7 @@ export const products = [
     tag: "vehicle",
     image: "/assets/products/exm.png",
     capacity: "30L - 50L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compressor cooling",
     application: "Export retail programs and customized front panels",
     applicationZh: "出口零售项目、定制面板",
@@ -461,7 +462,7 @@ export const products = [
     tag: "compact",
     image: "/assets/products/b20.png",
     capacity: "20L - 25L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compact compressor platform",
     application: "Small cars, day trips, office-to-car use",
     applicationZh: "小车、短途、办公到车载使用",
@@ -489,7 +490,7 @@ export const products = [
     tag: "compact",
     image: "/assets/products/k.jpg",
     capacity: "15L - 20L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Portable cooling",
     application: "Compact trunk, beverage storage, short-distance travel",
     applicationZh: "后备箱、饮品、短途出行",
@@ -517,7 +518,7 @@ export const products = [
     tag: "classic",
     image: "/assets/products/tf.jpg",
     capacity: "35L - 55L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compressor cooling",
     application: "Classic car fridge channels and fleet use",
     applicationZh: "传统车载冰箱渠道、车队使用",
@@ -552,7 +553,7 @@ export const products = [
       label: "M55 360",
     },
     capacity: "35L - 55L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Dual-zone compressor platform",
     application: "Premium outdoor, mobile camp, long-haul self-driving",
     applicationZh: "高端户外、移动营地、长途自驾",
@@ -582,7 +583,7 @@ export const products = [
     image: "/assets/products/ex.png",
     imageClass: "product-card-image--ex",
     capacity: "30L - 50L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compressor cooling",
     application: "Mainstream car refrigerator distribution",
     applicationZh: "主流车载冰箱渠道",
@@ -611,10 +612,11 @@ export const products = [
     name: "S35",
     nameZh: "S35",
     models: ["S35"],
+    hidden: true,
     tag: "project",
     image: "/assets/products/S35.png",
     capacity: "35L",
-    voltage: "DC 12/24V, Makita 18V LXT and tool-battery route",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Portable compressor / battery-compatible platform",
     application: "Camping, overlanding, outdoor work, tool-battery powered mobility",
     applicationZh: "露营、越野、户外工作、电动工具电池移动供电",
@@ -637,23 +639,23 @@ export const products = [
   },
   {
     id: "s",
-    name: "S18",
-    nameZh: "S18",
-    models: ["S18"],
+    name: "S Series",
+    nameZh: "S 系列",
+    models: ["S18", "S35 / S-Upgraded"],
     tag: "project",
     image: "/assets/products/s18-orange.png",
-    capacity: "18L",
-    voltage: "DC 12/24V, battery project optional",
+    capacity: "18L / tool-battery option",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Portable compressor / project platform",
     application: "Project development, compact outdoor concept, battery route",
     applicationZh: "项目开发、紧凑户外概念、电池方案",
     intro:
-      "A compact project platform with strong CMF potential and a clear position for battery-powered outdoor use.",
+      "The S Series covers compact second-fridge use and an upgraded tool-battery compatible route.",
     introZh:
       "具备强 CMF 潜力的紧凑项目平台，可继续发展电池户外方案。",
     highlights: [
-      "Project-friendly platform",
-      "Battery concept extension",
+      "S18 compact platform",
+      "S35 / S-Upgraded battery concept extension",
       "Compact outdoor positioning",
       "GLB model exists, web compression recommended",
     ],
@@ -672,9 +674,9 @@ export const products = [
     tag: "compact",
     image: "/assets/products/d.jpg",
     capacity: "9L",
-    voltage: "DC 12/24V",
+    voltage: "DC12/24V AC110～240V",
     cooling: "Compact cooling",
-    application: "Seat-side storage, drinks, medication or daily carry",
+    application: "",
     applicationZh: "座椅旁、饮品、药品或日常携带",
     intro:
       "A small product family for seat-side and short-distance usage, useful for entry SKU planning.",
@@ -769,9 +771,9 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("ax30", "AX30", "30L", "DC 12/24V", "Compressor cooling", "TBD", "665 x 380 x 390 mm", "695 x 440 x 427 mm", "16.8 kg", "21.7 kg", "60W", "20GP/40HQ: 200/420", "Compact portable cooling for vehicle travel and distributor product ranges"),
-      modelDetail("ax40", "AX40", "40L", "DC 12/24V", "Compressor cooling", "TBD", "665 x 380 x 480 mm", "695 x 440 x 497 mm", "18.8 kg", "22.1 kg", "60W", "20GP/40HQ: 160/420", "Compact portable cooling for vehicle travel and distributor product ranges"),
-      modelDetail("ax50", "AX50", "50L", "DC 12/24V", "Compressor cooling", "TBD", "665 x 380 x 550 mm", "695 x 440 x 567 mm", "20.8 kg", "23.8 kg", "60W", "20GP/40HQ: 120/336", "Compact portable cooling for vehicle travel and distributor product ranges"),
+      modelDetail("ax30", "AX30", "30L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "665 x 380 x 390 mm", "695 x 440 x 427 mm", "16.8 kg", "21.7 kg", "60W", "20GP/40HQ: 200/420", "Compact portable cooling for vehicle travel and distributor product ranges"),
+      modelDetail("ax40", "AX40", "40L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "665 x 380 x 480 mm", "695 x 440 x 497 mm", "18.8 kg", "22.1 kg", "60W", "20GP/40HQ: 160/420", "Compact portable cooling for vehicle travel and distributor product ranges"),
+      modelDetail("ax50", "AX50", "50L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "665 x 380 x 550 mm", "695 x 440 x 567 mm", "20.8 kg", "23.8 kg", "60W", "20GP/40HQ: 120/336", "Compact portable cooling for vehicle travel and distributor product ranges"),
     ],
     gallery: [
       {
@@ -842,9 +844,9 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("exm30", "EXM30", "30L", "DC 12/24V", "Compressor cooling", "TBD", "649 x 423 x 409 mm", "692 x 462 x 452 mm", "13.5 kg", "16.8 kg", "60W", "20GP/40HQ: 185/380", "Export retail programs, customized front panels and vehicle cooling"),
-      modelDetail("exm40", "EXM40", "40L", "DC 12/24V", "Compressor cooling", "TBD", "649 x 423 x 489 mm", "692 x 462 x 532 mm", "14.5 kg", "18 kg", "60W", "20GP/40HQ: 148/304", "Export retail programs, customized front panels and vehicle cooling"),
-      modelDetail("exm50", "EXM50", "50L", "DC 12/24V", "Compressor cooling", "TBD", "649 x 423 x 569 mm", "692 x 462 x 612 mm", "15.5 kg", "19.5 kg", "60W", "20GP/40HQ: 111/228", "Export retail programs, customized front panels and vehicle cooling"),
+      modelDetail("exm30", "EXM30", "30L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "649 x 423 x 409 mm", "692 x 462 x 452 mm", "13.5 kg", "16.8 kg", "60W", "20GP/40HQ: 185/380", "Export retail programs, customized front panels and vehicle cooling"),
+      modelDetail("exm40", "EXM40", "40L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "649 x 423 x 489 mm", "692 x 462 x 532 mm", "14.5 kg", "18 kg", "60W", "20GP/40HQ: 148/304", "Export retail programs, customized front panels and vehicle cooling"),
+      modelDetail("exm50", "EXM50", "50L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "649 x 423 x 569 mm", "692 x 462 x 612 mm", "15.5 kg", "19.5 kg", "60W", "20GP/40HQ: 111/228", "Export retail programs, customized front panels and vehicle cooling"),
     ],
     gallery: galleryFromImage("/assets/products/exm.png", "Export-ready body platform for retail configuration."),
     featureDetails: [
@@ -862,11 +864,12 @@ const productDetailEnhancements = {
       material("Inner Liner", "TBD"),
       material("Inner Base", "TBD"),
     ],
+    useCasesHeading: "Built for open storage on the move.",
     useCases: [
-      useCase("Export retail programs", "Portable cooling platform for multi-market retail configurations."),
-      useCase("Vehicle travel", "Compressor cooling for road trips and vehicle use."),
-      useCase("Brand customization", "Front label, color, packaging and accessory planning."),
-      useCase("Distributor range planning", "30L / 40L / 50L range for channel lineup planning."),
+      useCase("Wheeled outdoor supply", "Suitcase-style mobility for campsites, parking areas and outdoor setups."),
+      useCase("Vehicle travel", "Open single-zone storage for road trips, larger loads and flexible packing."),
+      useCase("Distributor range planning", "30L, 40L and 50L wheeled options for channel lineup planning."),
+      useCase("Brand customization", "Front-panel, color, packaging and accessory options for retail programs."),
     ],
     certifications: ["TBD"],
     documents: {
@@ -881,7 +884,7 @@ const productDetailEnhancements = {
     modelOptions: ["B20", "B25"],
     productImages: {
       B20: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b20.png"])),
-      B25: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b/b25.png"])),
+      B25: Object.fromEntries(bSeriesColors.map((color) => [color.value, "/assets/products/b/models/b25.png"])),
     },
     seo: {
       title: "B Series Compact Portable Fridge | Travel Science",
@@ -897,8 +900,8 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("b20", "B20", "20L", "DC 12/24V", "Compressor cooling", "Down to -20C / -4F", "457 x 308 x 368 mm", "525 x 355 x 425 mm", "8.4 kg", "10.3 kg", "60W", "20GP/40HQ: 355/876", "Road trips, picnic days, compact vehicle use and daily portable cooling"),
-      modelDetail("b25", "B25", "25L", "DC 12/24V", "Compressor cooling", "Down to -20C / -4F", "522 x 308 x 368 mm", "580 x 355 x 425 mm", "9.1 kg", "11.2 kg", "60W", "20GP/40HQ: 300/762", "Road trips, picnic days, compact vehicle use and daily portable cooling"),
+      modelDetail("b20", "B20", "20L", "DC12/24V AC110～240V", "Compressor cooling", "Down to -20C / -4F", "457 x 308 x 368 mm", "525 x 355 x 425 mm", "8.4 kg", "10.3 kg", "60W", "20GP/40HQ: 355/876", "Road trips, picnic days, compact vehicle use and daily portable cooling"),
+      modelDetail("b25", "B25", "25L", "DC12/24V AC110～240V", "Compressor cooling", "Down to -20C / -4F", "522 x 308 x 368 mm", "580 x 355 x 425 mm", "9.1 kg", "11.2 kg", "60W", "20GP/40HQ: 300/762", "Road trips, picnic days, compact vehicle use and daily portable cooling"),
     ],
     gallery: galleryFromImage("/assets/products/b20.png", "Compact body layout for vehicle storage and portable use."),
     featureDetails: [
@@ -908,16 +911,18 @@ const productDetailEnhancements = {
       feature("OEM / ODM", "Color, logo, label, packaging and documentation support."),
     ],
     materials: standardTbdMaterials(),
+    useCasesHeading: "Made for city life and weekend plans.",
     useCases: [
-      useCase("Road trips", "Compact cooling for drinks and food during short vehicle travel."),
-      useCase("Picnic days", "Easy-to-carry cooling for weekend outdoor use."),
-      useCase("Small vehicles", "Compact size for limited vehicle storage space."),
-      useCase("Daily use", "Portable cooling for everyday movement between home, car and outdoor use."),
+      useCase("Daily drives", "Fits naturally into everyday car use."),
+      useCase("Short escapes", "Ready for parks, beaches, picnics and quick getaways."),
+      useCase("Small spaces", "Compact enough for small cars, apartments and light storage needs."),
+      useCase("Lifestyle retail", "A polished format for modern consumer channels."),
     ],
     certifications: ["TBD"],
     inquiryFocus: inquiry("B Series", "Send target model, quantity, market and customization needs for B20 or B25."),
   },
   k: {
+    showFeatureSummary: false,
     seo: {
       title: "K Series Compact Portable Fridge | Travel Science",
       description:
@@ -932,22 +937,24 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("k15", "K15", "15L", "DC 12/24V", "Portable cooling", "TBD", "597 x 320 x 270 mm", "625 x 370 x 330 mm", "11 kg", "14 kg", "60W", "392/812/928 pcs", "Compact trunk, beverage storage and short-distance travel"),
-      modelDetail("k20", "K20", "20L", "DC 12/24V", "Portable cooling", "TBD", "597 x 320 x 333 mm", "625 x 370 x 395 mm", "12 kg", "15 kg", "60W", "336/696/696 pcs", "Compact trunk, beverage storage and short-distance travel"),
+      modelDetail("k15", "K15", "15L", "DC12/24V AC110～240V", "Portable cooling", "TBD", "597 x 320 x 270 mm", "625 x 370 x 330 mm", "11 kg", "14 kg", "60W", "392/812/928 pcs", "Compact trunk, beverage storage and short-distance travel"),
+      modelDetail("k20", "K20", "20L", "DC12/24V AC110～240V", "Portable cooling", "TBD", "597 x 320 x 333 mm", "625 x 370 x 395 mm", "12 kg", "15 kg", "60W", "336/696/696 pcs", "Compact trunk, beverage storage and short-distance travel"),
     ],
     gallery: galleryFromImage("/assets/products/k.jpg", "Compact exterior for short-distance portable use."),
+    featureDetailsHeading: "Built for everyday demand.",
     featureDetails: [
-      feature("Cooling system", "Portable cooling for compact trunk and beverage storage."),
-      feature("Power route", "DC 12/24V vehicle-ready power."),
-      feature("Channel direction", "Online retail and compact portable channels."),
-      feature("OEM / ODM", "Color, logo, packaging and documentation support."),
+      feature("Accessible model", "A practical entry point for price-sensitive markets."),
+      feature("Vehicle-ready power", "DC12/24V AC110～240V support for vehicle and indoor use."),
+      feature("Compact footprint", "Easy to place, display and ship across retail channels."),
+      feature("OEM / ODM support", "Colour, logo, packaging and documentation options available."),
     ],
     materials: standardTbdMaterials(),
+    useCasesHeading: "Ready for practical markets.",
     useCases: [
-      useCase("Compact trunk", "Cooling for limited vehicle storage space."),
-      useCase("Beverage storage", "Small-capacity storage for drinks and daily items."),
-      useCase("Short-distance travel", "Portable cooling for short road trips."),
-      useCase("Online channels", "Compact model for clear retail positioning."),
+      useCase("Compact trunk", "Fits smaller vehicles and limited storage space."),
+      useCase("Drinks and daily items", "Sized for beverages, snacks and everyday essentials."),
+      useCase("Short-distance travel", "A practical option for commutes, errands and short trips."),
+      useCase("Online channels", "Clear positioning for entry-level retail demand."),
     ],
     certifications: ["TBD"],
     inquiryFocus: inquiry("K Series", "Send target model, quantity, market and customization needs for K15 or K20."),
@@ -967,9 +974,9 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("tf35", "TF35", "24L", "DC 12/24V", "Compressor cooling", "TBD", "626 x 369 x 363 mm", "685 x 413 x 423 mm", "15 kg", "17 kg", "60W", "220/460/552 pcs", "Classic car fridge channels and fleet use"),
-      modelDetail("tf45", "TF45", "34L", "DC 12/24V", "Compressor cooling", "TBD", "626 x 369 x 433 mm", "685 x 413 x 493 mm", "15.4 kg", "18 kg", "60W", "176/368/460 pcs", "Classic car fridge channels and fleet use"),
-      modelDetail("tf55", "TF55", "41.2L", "DC 12/24V", "Compressor cooling", "TBD", "626 x 369 x 503 mm", "685 x 413 x 563 mm", "16.2 kg", "18.8 kg", "60W", "176/368/368 pcs", "Classic car fridge channels and fleet use"),
+      modelDetail("tf35", "TF35", "24L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "626 x 369 x 363 mm", "685 x 413 x 423 mm", "15 kg", "17 kg", "60W", "220/460/552 pcs", "Classic car fridge channels and fleet use"),
+      modelDetail("tf45", "TF45", "34L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "626 x 369 x 433 mm", "685 x 413 x 493 mm", "15.4 kg", "18 kg", "60W", "176/368/460 pcs", "Classic car fridge channels and fleet use"),
+      modelDetail("tf55", "TF55", "41.2L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "626 x 369 x 503 mm", "685 x 413 x 563 mm", "16.2 kg", "18.8 kg", "60W", "176/368/368 pcs", "Classic car fridge channels and fleet use"),
     ],
     gallery: galleryFromImage("/assets/products/tf.jpg", "Classic upright shell for familiar refrigerator programs."),
     featureDetails: [
@@ -987,11 +994,12 @@ const productDetailEnhancements = {
       material("Handle", "PE"),
       material("Optional Part", "TBD"),
     ],
+    useCasesHeading: "Made for familiar dual-zone demand.",
     useCases: [
-      useCase("Classic car fridge channels", "Familiar form and specifications for established channels."),
-      useCase("Fleet use", "Stable cooling platform for vehicle-based programs."),
-      useCase("Repeat orders", "Product family for stable replenishment programs."),
-      useCase("Private label projects", "Platform for color, label and packaging customization."),
+      useCase("Everyday dual-zone use", "Separate space for different storage needs."),
+      useCase("Established channels", "A familiar format for buyers who prefer proven designs."),
+      useCase("Family and road trips", "Practical capacity for drinks, food and short-to-mid distance travel."),
+      useCase("Distributor programs", "A straightforward option for stable range planning."),
     ],
     certifications: ["TBD"],
     inquiryFocus: inquiry("TF Series", "Send target model, quantity, market and fleet or channel requirements for TF35, TF45 or TF55."),
@@ -1029,9 +1037,9 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("m35", "M35", "35L", "DC 12/24V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 390 mm", "810 x 535 x 465 mm", "16 kg", "19.1 kg", "60W", "20GP/40HQ: 140/290", "Premium outdoor, mobile camp and long-haul self-driving"),
-      modelDetail("m45", "M45", "45L", "DC 12/24V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 450 mm", "810 x 535 x 525 mm", "16.4 kg", "19.7 kg", "60W", "20GP/40HQ: 112/290", "Premium outdoor, mobile camp and long-haul self-driving"),
-      modelDetail("m55", "M55", "55L", "DC 12/24V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 510 mm", "810 x 535 x 585 mm", "17 kg", "20.5 kg", "60W", "20GP/40HQ: 112/232", "Premium outdoor, mobile camp and long-haul self-driving"),
+      modelDetail("m35", "M35", "35L", "DC12/24V AC110～240V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 390 mm", "810 x 535 x 465 mm", "16 kg", "19.1 kg", "60W", "20GP/40HQ: 140/290", "Premium outdoor, mobile camp and long-haul self-driving"),
+      modelDetail("m45", "M45", "45L", "DC12/24V AC110～240V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 450 mm", "810 x 535 x 525 mm", "16.4 kg", "19.7 kg", "60W", "20GP/40HQ: 112/290", "Premium outdoor, mobile camp and long-haul self-driving"),
+      modelDetail("m55", "M55", "55L", "DC12/24V AC110～240V", "Dual-zone compressor platform", "Down to -20C / -4F", "763 x 462 x 510 mm", "810 x 535 x 585 mm", "17 kg", "20.5 kg", "60W", "20GP/40HQ: 112/232", "Premium outdoor, mobile camp and long-haul self-driving"),
     ],
     gallery: [
       {
@@ -1071,11 +1079,12 @@ const productDetailEnhancements = {
       material("Inner Base", "TBD"),
       material("Optional Part", "TBD"),
     ],
+    useCasesHeading: "Built for higher-spec outdoor programs.",
     useCases: [
-      useCase("Premium outdoor", "Mobile cooling for higher-end outdoor product lines."),
-      useCase("Mobile camp", "Wheeled cold storage for camp setups."),
-      useCase("Long-haul self-driving", "Larger portable cooling for extended driving routes."),
-      useCase("Flagship channel projects", "Product platform for brands needing a stronger flagship presence."),
+      useCase("Campsite supply", "Pull-cart mobility for moving drinks, food and gear around outdoor setups."),
+      useCase("Dual-zone storage", "Separated compartments for different storage needs on longer trips."),
+      useCase("Rugged handling", "A blow-moulded body built for loading, movement and repeated use."),
+      useCase("Customization programs", "A full-feature platform for buyers who need broader technical and accessory options."),
     ],
     certifications: ["TBD"],
     inquiryFocus: inquiry("M Series", "Send target model, quantity, market and mobility or dual-zone requirements for M35, M45 or M55."),
@@ -1100,9 +1109,9 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("ex30", "EX30", "30L", "DC 12/24V", "Compressor cooling", "TBD", "619 x 385 x 409 mm", "692 x 462 x 452 mm", "12.3 kg", "15.6 kg", "60W", "20GP/40HQ: 185/380", "Mainstream car refrigerator distribution and volume programs"),
-      modelDetail("ex40", "EX40", "40L", "DC 12/24V", "Compressor cooling", "TBD", "619 x 385 x 489 mm", "692 x 462 x 532 mm", "13.3 kg", "16.8 kg", "60W", "20GP/40HQ: 148/304", "Mainstream car refrigerator distribution and volume programs"),
-      modelDetail("ex50", "EX50", "50L", "DC 12/24V", "Compressor cooling", "TBD", "619 x 385 x 569 mm", "692 x 462 x 612 mm", "14.3 kg", "18.3 kg", "60W", "20GP/40HQ: 111/228", "Mainstream car refrigerator distribution and volume programs"),
+      modelDetail("ex30", "EX30", "30L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "619 x 385 x 409 mm", "692 x 462 x 452 mm", "12.3 kg", "15.6 kg", "60W", "20GP/40HQ: 185/380", "Mainstream car refrigerator distribution and volume programs"),
+      modelDetail("ex40", "EX40", "40L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "619 x 385 x 489 mm", "692 x 462 x 532 mm", "13.3 kg", "16.8 kg", "60W", "20GP/40HQ: 148/304", "Mainstream car refrigerator distribution and volume programs"),
+      modelDetail("ex50", "EX50", "50L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "619 x 385 x 569 mm", "692 x 462 x 612 mm", "14.3 kg", "18.3 kg", "60W", "20GP/40HQ: 111/228", "Mainstream car refrigerator distribution and volume programs"),
     ],
     gallery: galleryFromImage("/assets/products/ex.png", "Mass-production friendly structure for volume programs."),
     featureDetails: [
@@ -1112,11 +1121,12 @@ const productDetailEnhancements = {
       feature("Brand panel", "Flexible brand panel customization for channel programs."),
     ],
     materials: standardTbdMaterials(),
+    useCasesHeading: "Built for open storage and range planning.",
     useCases: [
-      useCase("Mainstream distribution", "Portable fridge family for established car refrigerator channels."),
-      useCase("Volume programs", "Platform for repeatable production and range planning."),
-      useCase("Vehicle travel", "Compressor cooling for road trips and vehicle use."),
-      useCase("Brand panel customization", "Flexible front-panel customization for channel brands."),
+      useCase("Mainstream distribution", "A single-zone family for established vehicle-fridge channels."),
+      useCase("Volume programs", "30L, 40L and 50L models for repeatable orders and lineup planning."),
+      useCase("Vehicle travel", "Open storage for road trips, vehicle use and flexible loading."),
+      useCase("Brand panel customization", "Front-panel, color, packaging and accessory options for channel brands."),
     ],
     certifications: ["TBD"],
     documents: {
@@ -1149,7 +1159,7 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("s35", "S35", "35L", "DC 12/24V; tool-battery compatible route", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Portable second fridge for home, workshop and weekend use"),
+      modelDetail("s35", "S35", "35L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Portable second fridge for home, workshop and weekend use"),
     ],
     gallery: galleryFromImage("/assets/products/S35.png", "Compact body form for second-fridge and workshop use."),
     featureDetails: [
@@ -1184,6 +1194,9 @@ const productDetailEnhancements = {
       { name: "All Black", value: "all-black", swatch: "#08090a", swatches: ["#08090a"] },
     ],
     modelOptions: ["S18", "S35"],
+    modelLabels: {
+      S35: "S35 / S-Upgraded",
+    },
     productImages: {
       S18: {
         "orange-black": "/assets/products/s18-orange.png",
@@ -1194,11 +1207,13 @@ const productDetailEnhancements = {
       },
     },
     seo: {
-      title: "S18 Portable Second Fridge | Travel Science",
+      title: "S Series Portable Second Fridge | Travel Science",
       description:
-        "S18 compact compressor fridge for home, car, workshop and weekend second-fridge use.",
+        "S Series compact compressor fridges for home, car, workshop and weekend second-fridge use, including S18 and S35 / S-Upgraded.",
       keywords: [
+        "S Series portable fridge",
         "S18 portable fridge",
+        "S35 portable fridge",
         "portable second fridge",
         "compact compressor fridge",
         "workshop fridge",
@@ -1206,7 +1221,8 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("s18", "S18", "18L", "DC 12/24V", "Compressor cooling", "Down to -20C / -4F", "485 x 320 x 288 mm", "547 x 382 x 352 mm", "9.5 kg", "11.5 kg", "60W", "20GP/40HQ: 384/896", "Compact second-fridge use for home, car, workshop and weekend scenarios"),
+      modelDetail("s18", "S18", "18L", "DC12/24V AC110～240V", "Compressor cooling", "Down to -20C / -4F", "485 x 320 x 288 mm", "547 x 382 x 352 mm", "9.5 kg", "11.5 kg", "60W", "20GP/40HQ: 384/896", "Compact second-fridge use for home, car, workshop and weekend scenarios"),
+      modelDetail("s35", "S35 / S-Upgraded", "35L", "DC12/24V AC110～240V", "Compressor cooling", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "Portable second fridge for home, workshop and weekend use"),
     ],
     gallery: galleryFromImage("/assets/products/s18-orange.png", "Compact body form for second-fridge and workshop use."),
     featureDetails: [
@@ -1224,16 +1240,19 @@ const productDetailEnhancements = {
       material("Battery Accessory", "TBD"),
       material("Optional Part", "TBD"),
     ],
+    useCasesHeading: "More from the batteries you already own.",
     useCases: [
-      useCase("Home second fridge", "Additional cold storage for drinks and food."),
-      useCase("Workshop", "Compact cooling platform for workshop use."),
-      useCase("Weekend use", "Portable cooling for short trips and outdoor days."),
-      useCase("Vehicle use", "Compact compressor fridge for car and mobile use."),
+      useCase("Tool-battery owners", "Turn your existing battery system into everyday convenience."),
+      useCase("Garage and workshop", "Keep it close where tools, projects and breaks happen."),
+      useCase("Jobsite breaks", "Ready for temporary spaces and long workdays."),
+      useCase("Weekend setups", "Carry the same power system into outdoor plans."),
     ],
     certifications: ["TBD"],
-    inquiryFocus: inquiry("S18", "Send target model, quantity, market and customization needs for S18."),
+    inquiryFocus: inquiry("S Series", "Send target model, quantity, market and customization needs for S18 or S35 / S-Upgraded."),
   },
   d: {
+    showFeatureSummary: false,
+    showEngineeringDetails: false,
     defaultModel: "D9",
     defaultColor: "black-gray",
     colorOptions: dSeriesColors,
@@ -1252,7 +1271,7 @@ const productDetailEnhancements = {
       ],
     },
     modelDetails: [
-      modelDetail("d9", "D9", "9L", "DC 12/24V", "Compressor cooling", "20C to -20C", "474 x 320 x 266 mm", "517 x 400 x 336 mm", "6.9 kg", "8.5 kg", "60W", "427/889/1016 pcs", "Compact cooling for small-space use and lightweight storage needs"),
+      modelDetail("d9", "D9", "9L", "DC12/24V AC110～240V", "Compressor cooling", "20C to -20C", "474 x 320 x 266 mm", "517 x 400 x 336 mm", "6.9 kg", "8.5 kg", "60W", "427/889/1016 pcs", "Compact cooling for small-space use and lightweight storage needs"),
     ],
     gallery: galleryFromImage("/assets/products/d.jpg", "Compact body form for small-space cooling."),
     featureDetails: [
@@ -1261,16 +1280,21 @@ const productDetailEnhancements = {
       feature("Storage direction", "9L compact capacity."),
       feature("OEM / ODM", "Color, logo, packaging and documentation support."),
     ],
-    materials: [
-      material("Housing", "TBD"),
-      material("Frame", "TBD"),
-      material("Door", "TBD"),
-      material("Inner Liner", "One-piece molded inner liner"),
-      material("Inner Base", "TBD"),
-      material("Handle", "Built-in handle"),
-      material("Optional Part", "TBD"),
-    ],
+    materials: {
+      appearanceParts: [
+        { partZh: "箱体", partEn: "Housing", materialKey: "pe" },
+        { partZh: "箱框", partEn: "Frame", materialKey: "abs" },
+        { partZh: "门体", partEn: "Door", materialKey: "pe" },
+        { partZh: "机仓罩", partEn: "Compressor Cabin Cover", materialKey: "pe" },
+        { partZh: "把手", partEn: "Handle", materialKey: "pe" },
+      ],
+      internalParts: [
+        { partZh: "内胆", partEn: "Inner Liner", materialKey: "hips" },
+        { partZh: "底盘", partEn: "Inner Base", materialKey: "hips" },
+      ],
+    },
     useCases: [
+      useCase("First-time buyers", "Perfect for first-time buyers."),
       useCase("Small vehicle use", "Compact cooling for limited vehicle space."),
       useCase("Short-distance travel", "Lightweight storage for short trips."),
       useCase("Personal cooling", "Small-capacity cooling for drinks and daily-use items."),
@@ -1383,55 +1407,82 @@ export const productPositioning = {
       "The AX Series is a practical portable fridge platform for distributors and product teams needing compact model options, clean product form and export-ready configuration support.",
   },
   b: {
-    headline: "Compact cooling for modern travel.",
+    headline: "A modern classic for city life and weekend travel.",
     text:
-      "The B Series combines premium aesthetics, quiet compressor performance and everyday portability in a compact platform designed for life on the move.",
+      "Compact, well-balanced and easy to live with — made for daily drives, short escapes and everything in between.",
   },
   exm: {
-    headline: "Export-ready cooling, configured for retail.",
+    headline: "Single-zone storage with suitcase-style mobility.",
     text:
-      "The EXM Series is optimized for export channel variation, front labels, accessories and practical retail configurations.",
+      "Built on the EX / EXM platform, EXM offers 30L, 40L and 50L open-storage models for distributors who need a wheeled option in the same family.",
   },
   k: {
-    headline: "Compact cooling for lighter scenarios.",
+    headline: "Simple, practical and ready for the market.",
     text:
-      "The K Series is a compact product line for lighter scenarios where size, price and portability matter.",
+      "Designed for everyday users who value portability, accessible pricing and straightforward use.",
   },
   tf: {
-    headline: "Classic car-fridge configuration.",
+    headline: "A familiar dual-zone format for everyday markets.",
     text:
-      "The TF Series uses a classic upright shell language for stable, familiar refrigerator programs.",
+      "Built around a classic car-fridge structure, TF Series offers separated storage in a practical, easy-to-understand platform.",
   },
   m: {
-    headline: "Premium mobile cooling with more capability.",
+    headline: "The full-feature mobile platform.",
     text:
-      "The M Series is a premium mobile platform with wheel, pull handle, battery-ready architecture and dual-zone layout options.",
+      "Built on the GL / M dual-zone system, M Series adds pull-cart mobility, rugged blow-moulded construction and broad customization options for higher-spec outdoor programs.",
   },
   ex: {
-    headline: "Mainstream cooling for volume programs.",
+    headline: "Single-zone space for flexible loading.",
     text:
-      "The EX Series is a proven family for volume programs, balancing cost control, production stability and solid industrial styling.",
+      "Built on the EX / EXM system, EX Series offers 30L, 40L and 50L open-storage models for distributors who need both fixed and wheeled options.",
   },
   s35: {
     headline: "The second fridge. Powered differently.",
     text: "Runs on Makita batteries and other power tool batteries. A portable second fridge for home, workshop and weekend use.",
   },
   s: {
-    headline: "The second fridge. Powered differently.",
-    text: "The S Series now includes an upgraded tool-battery compatible route, extending portable cooling from outdoor use to home, workshop and weekend life.",
+    headline: "A second fridge powered by tool batteries.",
+    text: "Made for garages, jobsites, weekend setups and the everyday spaces where a full-size fridge doesn’t belong.",
   },
   gl: {
-    headline: "Expedition cooling for longer routes.",
-    text: "The GL Series is built for outdoor trips, vehicle travel and larger cold-storage needs, with rugged proportions and a strong equipment presence.",
+    headline: "The core dual-zone platform.",
+    text: "Built around a blow-moulded body, separated storage and a highly customizable structure, GL Series carries the full feature set of the Travel Science range.",
   },
   d: {
-    headline: "Small cooling for tight spaces.",
-    text: "The D Series is a very small car refrigerator for drinks, medicine and everyday carry inside compact vehicle spaces.",
+    headline: "Your first portable fridge.",
+    text: "9L.\n\nOnly 6.8kg.\n\nEasy to bring.\n\nEasy to enjoy.",
   },
 };
 
+export const productSlugs = {
+  gl: "gl-series",
+  ax: "ax-series",
+  exm: "exm-series",
+  b: "b-series",
+  k: "k-series",
+  tf: "tf-series",
+  m: "m-series",
+  ex: "ex-series",
+  s: "s-series",
+  d: "d-series",
+};
+
+const productIdsBySlug = Object.fromEntries(
+  Object.entries(productSlugs).map(([id, slug]) => [slug, id]),
+);
+
+export function productSlug(productOrId) {
+  const id = typeof productOrId === "string" ? productOrId : productOrId?.id;
+  return productSlugs[id] || id;
+}
+
+export function productPath(productOrId) {
+  return `/products/${productSlug(productOrId)}`;
+}
+
 export function productById(id) {
-  return products.find((product) => product.id === id);
+  const normalizedId = productIdsBySlug[id] || (id === "s35" ? "s" : id);
+  return products.find((product) => product.id === normalizedId);
 }
 
 export function productIntro(product) {

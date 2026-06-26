@@ -11,7 +11,7 @@ const productFolders = {
   gl: "gl",
   ax: "ax",
   b: "b",
-  d: "d",
+  d: "D",
   ex: "ex",
   exm: "exm",
   k: "k",

@@ -1,5 +1,5 @@
 import { productFamilyById } from "../data/productFamilies.js";
-import { productById } from "../data/products.js";
+import { productById, productPath } from "../data/products.js";
 
 const emptyValue = "—";
 
@@ -62,7 +62,7 @@ function compareSection(family, products) {
               <th scope="col">Specification</th>
               ${products.map((product) => `
                 <th scope="col">
-                  <a class="family-product-heading" href="#/products/${product.id}" data-go="/products/${product.id}">
+                  <a class="family-product-heading" href="#${productPath(product)}" data-go="${productPath(product)}">
                     <img src="${product.cardImage || product.image}" alt="${product.name}">
                     <span>${product.name}</span>
                     <small>${value(product.capacity)}</small>
@@ -80,7 +80,7 @@ function compareSection(family, products) {
             `).join("")}
             <tr>
               <th scope="row">View details</th>
-              ${products.map((product) => `<td><a class="table-link" href="#/products/${product.id}" data-go="/products/${product.id}">View details →</a></td>`).join("")}
+              ${products.map((product) => `<td><a class="table-link" href="#${productPath(product)}" data-go="${productPath(product)}">View details →</a></td>`).join("")}
             </tr>
           </tbody>
         </table>
@@ -117,7 +117,7 @@ function compareCard(product) {
           ${definition("Temperature", detail?.temperatureRange)}
           ${definition("Best for", product.application || detail?.application)}
         </dl>
-        <a class="text-button" href="#/products/${product.id}" data-go="/products/${product.id}">View details <span class="arrow-accent">→</span></a>
+        <a class="text-button" href="#${productPath(product)}" data-go="${productPath(product)}">View details <span class="arrow-accent">→</span></a>
       </div>
     </article>
   `;

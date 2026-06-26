@@ -1,34 +1,4 @@
-const philosophyCards = [
-  ["1-Year Whole Unit", "Basic product coverage for confirmed manufacturing issues."],
-  ["3-Year Cooling System", "Extended support for compressor cooling system concerns."],
-  ["Wholesale Spare Parts", "Parts planning for distributors, fleets and service partners."],
-  ["Technical Support", "Model guidance, troubleshooting and service communication."],
-];
-
-const sparePartsItems = [
-  ["Recommended packages", "Wholesale orders can include recommended spare parts packages based on order quantity."],
-  ["Model-based planning", "Parts support is planned around product series, market and after-sales needs."],
-  ["Distributor coordination", "We help partners prepare practical spare parts lists for service teams."],
-];
-
-const questions = [
-  [
-    "What is covered by the warranty?",
-    "Warranty support focuses on confirmed product or cooling-system issues within the stated coverage period.",
-  ],
-  [
-    "How do wholesale spare parts work?",
-    "Spare parts can be planned with wholesale orders based on model mix, quantity and service requirements.",
-  ],
-  [
-    "What information should I provide for support?",
-    "Please share product series, model, order context, photos or video, and a clear issue description.",
-  ],
-  [
-    "Can you help with troubleshooting remotely?",
-    "Yes. We can review basic operating details and guide next steps before parts or service coordination.",
-  ],
-];
+import { localizedPath } from "../i18n/index.js";
 
 const documentSeries = [
   { name: "AX", size: "TBD", type: "PDF", url: "" },
@@ -46,42 +16,47 @@ const downloads = {
   specSheets: documentSeries,
 };
 
-export function SupportPage() {
+function routeAttrs(locale, target) {
+  const path = localizedPath(locale, target);
+  return `href="#${path}" data-go="${path}"`;
+}
+
+export function SupportPage({ locale = "en", t }) {
   return `
     <main class="page b2b-page">
       <section class="page-hero">
-        <p class="kicker">Support Center</p>
-        <h1>Everything you need after delivery.</h1>
-        <p>Manuals, warranty guidance, spare parts support and technical help for Travel Science cooling products.</p>
+        <p class="kicker">${t("support.hero.kicker")}</p>
+        <h1>${t("support.hero.title")}</h1>
+        <p>${t("support.hero.copy")}</p>
       </section>
 
       <section class="product-section" id="warranty">
         <div class="section-heading">
-          <p class="kicker">Service philosophy</p>
-          <h2>Built to last. Supported to stay.</h2>
+          <p class="kicker">${t("support.promise.kicker")}</p>
+          <h2>${t("support.promise.title")}</h2>
         </div>
         <div class="feature-detail-grid">
-          ${philosophyCards.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
+          ${t("support.promise.cards").map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
         </div>
       </section>
 
       <section class="product-section" id="spare-parts">
         <div class="section-heading">
-          <p class="kicker">Spare Parts Program</p>
-          <h2>Parts support for wholesale partners.</h2>
+          <p class="kicker">${t("support.spareParts.kicker")}</p>
+          <h2>${t("support.spareParts.title")}</h2>
         </div>
         <div class="feature-detail-grid">
-          ${sparePartsItems.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
+          ${t("support.spareParts.items").map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
         </div>
       </section>
 
       <section class="product-section">
         <div class="section-heading">
-          <p class="kicker">Support Q&A</p>
-          <h2>Common service questions.</h2>
+          <p class="kicker">${t("support.qa.kicker")}</p>
+          <h2>${t("support.qa.title")}</h2>
         </div>
         <div class="qa-list">
-          ${questions.map(([question, answer]) => `
+          ${t("support.qa.questions").map(([question, answer]) => `
             <article>
               <h3>${question}</h3>
               <p>${answer}</p>
@@ -92,28 +67,28 @@ export function SupportPage() {
 
       <section class="downloads" id="downloads">
         <div>
-          <p class="kicker">Downloads</p>
-          <h2>Product documents.</h2>
+          <p class="kicker">${t("support.downloads.kicker")}</p>
+          <h2>${t("support.downloads.title")}</h2>
         </div>
         <div class="support-downloads">
-          ${downloadAccordion("User manuals", "Select a series", downloads.userManuals)}
-          ${downloadDisabledRow("Product brochures", "Coming soon")}
-          ${downloadAccordion("Spec sheets", "Select a series", downloads.specSheets)}
-          ${downloadDisabledRow("Warranty overview", "Coming soon")}
+          ${downloadAccordion(t("support.downloads.userManuals"), t("support.downloads.selectSeries"), downloads.userManuals, t)}
+          ${downloadAccordion(t("support.downloads.specSheets"), t("support.downloads.selectSeries"), downloads.specSheets, t)}
+          ${downloadDisabledRow(t("support.downloads.productBrochures"), t("support.downloads.comingSoon"))}
+          ${downloadDisabledRow(t("support.downloads.warrantyOverview"), t("support.downloads.comingSoon"))}
         </div>
       </section>
 
       <section class="product-inquiry">
-        <p class="kicker">Support request</p>
-        <h2>Still need help?</h2>
-        <p>Send the product series, model and support topic so we can route your request.</p>
-        <a class="hero-cta" href="#/contact" data-go="/contact">Contact Support</a>
+        <p class="kicker">${t("support.cta.kicker")}</p>
+        <h2>${t("support.cta.title")}</h2>
+        <p>${t("support.cta.copy")}</p>
+        <a class="hero-cta" ${routeAttrs(locale, "/contact")}>${t("actions.contactSupport")}</a>
       </section>
     </main>
   `;
 }
 
-function downloadAccordion(label, helper, documents) {
+function downloadAccordion(label, helper, documents, t) {
   return `
     <details class="support-download-row">
       <summary>
@@ -125,7 +100,7 @@ function downloadAccordion(label, helper, documents) {
       </summary>
       <div class="support-download-panel">
         <div class="support-download-panel-inner">
-          ${documents.map(documentItem).join("")}
+          ${documents.map((item) => documentItem(item, t)).join("")}
         </div>
       </div>
     </details>
@@ -145,10 +120,10 @@ function downloadDisabledRow(label, status) {
   `;
 }
 
-function documentItem(item) {
+function documentItem(item, t) {
   const action = item.url
-    ? `<a class="support-document-action" href="${item.url}" download aria-label="Download ${item.name} ${item.type}">${downloadIcon()}</a>`
-    : `<button class="support-document-action" type="button" disabled aria-label="${item.name} ${item.type} coming soon">${downloadIcon()}</button>`;
+    ? `<a class="support-document-action" href="${item.url}" download aria-label="${t("support.downloads.downloadAriaPrefix")} ${item.name} ${item.type}">${downloadIcon()}</a>`
+    : `<button class="support-document-action" type="button" disabled tabindex="-1" aria-label="${item.name} ${item.type} ${t("support.downloads.comingSoonAria")}">${downloadIcon()}</button>`;
 
   return `
     <article class="support-document-item">

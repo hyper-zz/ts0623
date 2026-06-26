@@ -1,12 +1,16 @@
 import { ProductDetailTemplate } from "../components/ProductDetailTemplate.js";
-import { productById, products } from "../data/products.js";
+import { productById } from "../data/products.js";
 
-export function ProductDetailPage({ productId }) {
+export function ProductDetailPage({ productId, t }) {
   const product = productById(productId);
   if (!product) return notFound();
 
-  const related = products.filter((item) => item.id !== product.id).slice(0, 3);
-  return ProductDetailTemplate({ product, related });
+  const related = [
+    { product: productById("s"), description: "Tool battery powered." },
+    { product: productById("gl"), description: "Dual-zone storage." },
+    { product: productById("exm"), description: "Wheeled mobility." },
+  ].filter((item) => item.product);
+  return ProductDetailTemplate({ product, related, t });
 }
 
 function notFound() {

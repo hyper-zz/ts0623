@@ -1,46 +1,36 @@
-import { projectSteps } from "../data/homepage.js";
+import { localizedPath } from "../i18n/index.js";
 
-const customOptions = [
-  ["Capacity & model direction", "Choose from existing product platforms or develop around a new capacity target."],
-  ["Color, finish and branding", "Apply brand colors, logo placement, exterior finish and packaging direction."],
-  ["Power route", "Configure DC, AC or battery-powered routes depending on product use."],
-  ["Structure and accessories", "Adjust handles, wheels, baskets, lids and storage details around the use case."],
-];
+function routeAttrs(locale, target) {
+  const path = localizedPath(locale, target);
+  return `href="#${path}" data-go="${path}"`;
+}
 
-const suitableFor = [
-  "Outdoor brands",
-  "Vehicle accessory distributors",
-  "Camping equipment channels",
-  "Private-label product teams",
-  "Regional distributors",
-];
-
-export function CustomProjectsPage() {
+export function CustomProjectsPage({ locale = "en", t }) {
   return `
     <main class="page b2b-page">
       <section class="page-hero">
-        <p class="kicker">Custom Projects</p>
-        <h1>Custom cooling projects for brands and product teams.</h1>
-        <p>Develop portable cooling products around capacity, power, structure, color, packaging and market requirements.</p>
+        <p class="kicker">${t("customProjects.hero.kicker")}</p>
+        <h1>${t("customProjects.hero.title")}</h1>
+        <p>${t("customProjects.hero.copy")}</p>
       </section>
 
       <section class="product-section">
         <div class="section-heading">
-          <p class="kicker">What can be customized</p>
-          <h2>Start from the product direction.</h2>
+          <p class="kicker">${t("customProjects.options.kicker")}</p>
+          <h2>${t("customProjects.options.title")}</h2>
         </div>
         <div class="feature-detail-grid">
-          ${customOptions.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
+          ${t("customProjects.options.items").map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
         </div>
       </section>
 
       <section class="product-section">
         <div class="section-heading">
-          <p class="kicker">Project process</p>
-          <h2>From brief to repeatable supply.</h2>
+          <p class="kicker">${t("customProjects.process.kicker")}</p>
+          <h2>${t("customProjects.process.title")}</h2>
         </div>
         <div class="process-grid">
-          ${projectSteps.map(([title, text], index) => `
+          ${t("customProjects.process.steps").map(([title, text], index) => `
             <article>
               <span>${String(index + 1).padStart(2, "0")}</span>
               <h3>${title}</h3>
@@ -52,19 +42,19 @@ export function CustomProjectsPage() {
 
       <section class="certifications">
         <div>
-          <p class="kicker">Suitable for</p>
-          <h2>Built around commercial use.</h2>
+          <p class="kicker">${t("customProjects.suitableFor.kicker")}</p>
+          <h2>${t("customProjects.suitableFor.title")}</h2>
         </div>
         <div>
-          ${suitableFor.map((item) => `<span>${item}</span>`).join("")}
+          ${t("customProjects.suitableFor.items").map((item) => `<span>${item}</span>`).join("")}
         </div>
       </section>
 
       <section class="product-inquiry">
-        <p class="kicker">Start a project</p>
-        <h2>Share your target product and market.</h2>
-        <p>Send the series, capacity, quantity, customization direction and timeline you want to discuss.</p>
-        <a class="hero-cta" href="#/contact" data-go="/contact">Start a custom project</a>
+        <p class="kicker">${t("customProjects.cta.kicker")}</p>
+        <h2>${t("customProjects.cta.title")}</h2>
+        <p>${t("customProjects.cta.copy")}</p>
+        <a class="hero-cta" ${routeAttrs(locale, "/contact")}>${t("actions.startCustomProject")}</a>
       </section>
     </main>
   `;

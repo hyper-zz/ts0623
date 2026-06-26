@@ -51,7 +51,14 @@ function platformIcon(icon) {
   return `<span class="crew-platform-icon crew-platform-icon--${icon}">${platformIcons[icon] || icon}</span>`;
 }
 
-function crewCard(member) {
+function crewLinkLabel(link, t) {
+  if (link.icon === "instagram") return t("community.crew.instagram");
+  if (link.icon === "facebook") return t("community.crew.facebook");
+  if (link.icon === "x") return t("community.crew.x");
+  return link.label;
+}
+
+function crewCard(member, t) {
   const style = ` style="--crew-accent: ${member.accentColor};"`;
 
   return `
@@ -62,8 +69,8 @@ function crewCard(member) {
       <h3>${member.platforms.join(" & ")}</h3>
       <div class="crew-card-actions">
         ${member.links.map((link) => `
-          <a class="crew-social-button crew-social-button--${link.icon}" href="${link.href}" aria-label="${link.label}"${link.href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>
-            <span>${link.label}</span>
+          <a class="crew-social-button crew-social-button--${link.icon}" href="${link.href}" aria-label="${crewLinkLabel(link, t)}"${link.href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>
+            <span>${crewLinkLabel(link, t)}</span>
             <span aria-hidden="true">→</span>
           </a>
         `).join("")}
@@ -76,24 +83,24 @@ function crewCard(member) {
   `;
 }
 
-export function CommunityPage() {
+export function CommunityPage({ t }) {
   return `
     <main class="community-page">
       <section class="community-landing reveal">
         <div class="community-hero-card">
           <div class="community-copy-panel">
-            <p class="community-breadcrumb">HOME <span>/</span> COMMUNITY</p>
-            <p class="community-label">LET'S BE FRIENDS</p>
-            <h1>Different people.<br>One adventure.</h1>
-            <p class="community-note">Pick a platform.<br>We'll see you there.<span class="community-paper-plane" aria-hidden="true"><svg viewBox="0 0 86 28" focusable="false"><path class="community-paper-plane-trail" d="M2 18c10-7 19-9 31-5 7 2 12 2 17-1"/><path class="community-paper-plane-mark" d="M54 5 82 14 54 24l5-9-5-10Z"/><path class="community-paper-plane-fold" d="M59 15h23M59 15l-5 9"/></svg></span></p>
+            <p class="community-breadcrumb">${t("community.breadcrumbHome")} <span>/</span> ${t("community.breadcrumbCurrent")}</p>
+            <p class="community-label">${t("community.label")}</p>
+            <h1>${t("community.headline")}</h1>
+            <p class="community-note">${t("community.note")}<span class="community-paper-plane" aria-hidden="true"><svg viewBox="0 0 86 28" focusable="false"><path class="community-paper-plane-trail" d="M2 18c10-7 19-9 31-5 7 2 12 2 17-1"/><path class="community-paper-plane-mark" d="M54 5 82 14 54 24l5-9-5-10Z"/><path class="community-paper-plane-fold" d="M59 15h23M59 15l-5 9"/></svg></span></p>
           </div>
           <div class="community-image-panel">
-            <img src="${communityHeroImage}" alt="Travel Science crew at a summer campsite">
+            <img src="${communityHeroImage}" alt="${t("community.heroAlt")}">
           </div>
           <div class="crew-grid">
-            ${socialCrew.map(crewCard).join("")}
+            ${socialCrew.map((member) => crewCard(member, t)).join("")}
           </div>
-          <p class="community-mobile-ending">See you out there.</p>
+          <p class="community-mobile-ending">${t("community.ending")}</p>
         </div>
       </section>
     </main>
