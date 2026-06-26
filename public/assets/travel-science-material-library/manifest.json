@@ -1,0 +1,37 @@
+{
+  "source": "Generated composite cropped into separate material assets",
+  "materials": [
+    {
+      "file": "01_PP_Plastic.png",
+      "label": "PP Plastic"
+    },
+    {
+      "file": "02_ABS_Plastic.png",
+      "label": "ABS Plastic"
+    },
+    {
+      "file": "03_Pre-coated_Steel.png",
+      "label": "Pre-coated Steel"
+    },
+    {
+      "file": "04_Embossed_Aluminum.png",
+      "label": "Embossed Aluminum"
+    },
+    {
+      "file": "05_HIPS.png",
+      "label": "HIPS"
+    },
+    {
+      "file": "06_PE_Plastic.png",
+      "label": "PE Plastic"
+    },
+    {
+      "file": "07_Metal_Aluminum_Alloy.png",
+      "label": "Metal / Aluminum Alloy"
+    },
+    {
+      "file": "08_Rubber.png",
+      "label": "Rubber"
+    }
+  ]
+}
