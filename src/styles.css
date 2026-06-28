@@ -1,4 +1,4 @@
-/* Base */
+/* 01 Theme Tokens And Base Elements */
 :root {
   color-scheme: light;
   --bg: #F5F5F7;
@@ -194,7 +194,7 @@ p {
   text-transform: uppercase;
 }
 
-/* Layout */
+/* 02 Layout Containers */
 .section,
 .story,
 .partnership,
@@ -220,7 +220,7 @@ footer {
   margin-inline: auto;
 }
 
-/* Header */
+/* 03 Header And Navigation */
 .site-header {
   position: fixed;
   top: 0;
@@ -1471,7 +1471,7 @@ html[data-theme="dark"] .hero-bg {
   color: var(--orange);
 }
 
-/* Product Family */
+/* 04 Home And Product Family Sections */
 .product-family-section {
   position: relative;
   z-index: 1;
@@ -1617,7 +1617,7 @@ html[data-theme="dark"] .product-hero-media {
   font-weight: 900;
 }
 
-/* EXM feature effects */
+/* 05 EXM Feature Effects And Dark Product Story */
 .exm-feature-effects {
   width: 100vw;
   max-width: 100%;
@@ -3609,7 +3609,7 @@ html[data-theme="dark"] .product-hero-media {
   }
 }
 
-/* Product Family Manifest */
+/* 06 Product Family Manifest Pages */
 .family-page {
   width: 100%;
   margin: 0;
@@ -3838,7 +3838,7 @@ html[data-theme="dark"] .product-hero-media {
   max-width: 700px;
 }
 
-/* Sections */
+/* 07 General Content Sections */
 .trust-line {
   padding: 24px 0 8px;
   border-bottom: 1px solid var(--line);
@@ -4248,7 +4248,7 @@ html[data-theme="dark"] .product-page {
   font-size: clamp(32px, 4vw, 56px);
 }
 
-/* Product Cards */
+/* 08 Product Cards And Listing */
 .product-grid,
 .related-grid {
   display: grid;
@@ -4317,7 +4317,7 @@ html[data-theme="dark"] .product-page {
   margin-top: 18px;
 }
 
-/* Product Detail */
+/* 09 Product Detail Core */
 .breadcrumb {
   display: flex;
   gap: 10px;
@@ -5481,6 +5481,7 @@ html[data-theme="dark"] .gallery-grid p {
   color: rgba(16, 17, 18, 0.62);
 }
 
+/* 10 Product Gallery And Horizontal Media */
 /* Product Gallery uses light-card islands even inside dark sections */
 .product-gallery .gallery-grid article,
 .product-gallery-card,
@@ -5589,6 +5590,7 @@ html[data-theme="dark"] .gl-product-gallery-card p {
   background: var(--panel-solid);
 }
 
+/* 11 Usage Scenarios, Support, Accessories, And Community */
 .usage-open {
   padding: clamp(96px, 8vw, 120px) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -6695,7 +6697,7 @@ dd {
   line-height: 1.45;
 }
 
-/* Footer */
+/* 12 Footer */
 .site-footer {
   display: grid;
   gap: 22px;
@@ -6914,7 +6916,7 @@ body.is-screenshot-mode .home-content-layer * {
   visibility: visible !important;
 }
 
-/* Responsive */
+/* 13 Responsive Overrides */
 @media (min-width: 1600px) {
   :root {
     --model-card-width: 400px;

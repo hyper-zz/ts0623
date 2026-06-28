@@ -1,6 +1,6 @@
 import { readdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { join } from "node:path";
+import { extname, parse, join } from "node:path";
 import { products } from "../src/data/products.js";
 
 const productRoot = join(process.cwd(), "public", "assets", "products");
@@ -21,6 +21,30 @@ function sortByName(a, b) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
 }
 
+function galleryBaseName(fileName) {
+  return parse(fileName).name.replace(/-(mobile|desktop)$/i, "");
+}
+
+function preferredGalleryFile(fileNames) {
+  const byLowerName = new Map(fileNames.map((name) => [name.toLowerCase(), name]));
+  const baseName = galleryBaseName(fileNames[0]).toLowerCase();
+  const preferredNames = [
+    `${baseName}-desktop.webp`,
+    `${baseName}.webp`,
+    `${baseName}-mobile.webp`,
+    `${baseName}.png`,
+    `${baseName}.jpg`,
+    `${baseName}.jpeg`,
+  ];
+
+  for (const name of preferredNames) {
+    const matched = byLowerName.get(name);
+    if (matched) return matched;
+  }
+
+  return fileNames.sort(sortByName)[0];
+}
+
 function productIdForFolder(folderName) {
   if (folderAliases.has(folderName)) return folderAliases.get(folderName);
   if (productIds.includes(folderName)) return folderName;
@@ -36,14 +60,21 @@ async function readGalleryImages(folderName) {
   if (!existsSync(galleryDir)) return [];
 
   const entries = await readdir(galleryDir, { withFileTypes: true });
-  return entries
+  const groupedFiles = entries
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
-    .filter((name) => {
-      const extension = name.slice(name.lastIndexOf(".")).toLowerCase();
-      return imageExtensions.has(extension);
-    })
-    .sort(sortByName)
+    .filter((name) => !name.startsWith("."))
+    .filter((name) => imageExtensions.has(extname(name).toLowerCase()))
+    .reduce((groups, name) => {
+      const baseName = galleryBaseName(name);
+      if (!groups.has(baseName)) groups.set(baseName, []);
+      groups.get(baseName).push(name);
+      return groups;
+    }, new Map());
+
+  return [...groupedFiles.entries()]
+    .sort(([a], [b]) => sortByName(a, b))
+    .map(([, names]) => preferredGalleryFile(names))
     .map((name) => ({ image: imagePathFor(folderName, name) }));
 }
 

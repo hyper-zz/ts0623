@@ -19,19 +19,19 @@ export const productGallery = {
   ],
   "exm": [
     {
-      "image": "/assets/products/exm/gallery/1.png"
+      "image": "/assets/products/exm/gallery/1-desktop.webp"
     },
     {
-      "image": "/assets/products/exm/gallery/6.png"
+      "image": "/assets/products/exm/gallery/6-desktop.webp"
     },
     {
-      "image": "/assets/products/exm/gallery/623 拷贝.png"
+      "image": "/assets/products/exm/gallery/623 拷贝-desktop.webp"
     },
     {
-      "image": "/assets/products/exm/gallery/xj.2.png"
+      "image": "/assets/products/exm/gallery/xj.2-desktop.webp"
     },
     {
-      "image": "/assets/products/exm/gallery/开瓶器更新2.png"
+      "image": "/assets/products/exm/gallery/开瓶器更新2-desktop.webp"
     }
   ],
   "b": [

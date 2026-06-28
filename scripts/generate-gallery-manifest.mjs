@@ -19,7 +19,7 @@ const productFolders = {
   s: "S18",
   tf: "tf",
 };
-const extensionPreference = [".png", ".jpg", ".jpeg", ".webp", ".svg"];
+const extensionPreference = [".webp", ".png", ".jpg", ".jpeg", ".svg"];
 const responsiveDerivativePattern = /-(mobile|desktop)\.webp$/i;
 const colorSlugAliases = {
   "all-black": ["black"],
@@ -50,6 +50,7 @@ function slugify(value) {
 
 function titleFromFileName(fileName) {
   const baseName = parse(fileName).name
+    .replace(/-(mobile|desktop)$/i, "")
     .replace(/^\d+[-_\s]*/, "")
     .replace(/[-_]+/g, " ")
     .trim();
@@ -58,18 +59,52 @@ function titleFromFileName(fileName) {
   return baseName.charAt(0).toUpperCase() + baseName.slice(1);
 }
 
+function galleryBaseName(fileName) {
+  return parse(fileName).name.replace(/-(mobile|desktop)$/i, "");
+}
+
+function preferredGalleryFile(fileNames) {
+  const byLowerName = new Map(fileNames.map((name) => [name.toLowerCase(), name]));
+  const baseName = galleryBaseName(fileNames[0]);
+  const lowerBaseName = baseName.toLowerCase();
+  const preferredNames = [
+    `${lowerBaseName}-desktop.webp`,
+    `${lowerBaseName}.webp`,
+    `${lowerBaseName}-mobile.webp`,
+    `${lowerBaseName}.png`,
+    `${lowerBaseName}.jpg`,
+    `${lowerBaseName}.jpeg`,
+    `${lowerBaseName}.svg`,
+  ];
+
+  for (const name of preferredNames) {
+    const matched = byLowerName.get(name);
+    if (matched) return matched;
+  }
+
+  return fileNames.sort(sortByName)[0];
+}
+
 async function galleryItemsFor(folderName) {
   const galleryDir = join(productRoot, folderName, "gallery");
   if (!existsSync(galleryDir)) return [];
 
   const entries = await readdir(galleryDir, { withFileTypes: true });
-  return entries
+  const groupedFiles = entries
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
     .filter((name) => !name.startsWith("."))
     .filter((name) => imageExtensions.has(extname(name).toLowerCase()))
-    .filter((name) => !responsiveDerivativePattern.test(name))
-    .sort(sortByName)
+    .reduce((groups, name) => {
+      const baseName = galleryBaseName(name);
+      if (!groups.has(baseName)) groups.set(baseName, []);
+      groups.get(baseName).push(name);
+      return groups;
+    }, new Map());
+
+  return [...groupedFiles.entries()]
+    .sort(([a], [b]) => sortByName(a, b))
+    .map(([, names]) => preferredGalleryFile(names))
     .map((name) => ({
       image: `/assets/products/${folderName}/gallery/${name}`,
       title: titleFromFileName(name),

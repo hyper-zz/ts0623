@@ -4,28 +4,28 @@ import { CoolingTimerFeature } from "./CoolingTimerFeature.js";
 const featureAssets = {
   sequence: [
     {
-      fallback: "/assets/products/exm/features/sequence-01.png",
+      fallback: "/assets/products/exm/features/sequence-01-desktop.webp",
       mobile: "/assets/products/exm/features/sequence-01-mobile.webp",
       desktop: "/assets/products/exm/features/sequence-01-desktop.webp",
       width: 3373,
       height: 1525,
     },
     {
-      fallback: "/assets/products/exm/features/sequence-02.png",
+      fallback: "/assets/products/exm/features/sequence-02-desktop.webp",
       mobile: "/assets/products/exm/features/sequence-02-mobile.webp",
       desktop: "/assets/products/exm/features/sequence-02-desktop.webp",
       width: 3373,
       height: 1525,
     },
     {
-      fallback: "/assets/products/exm/features/sequence-03.png",
+      fallback: "/assets/products/exm/features/sequence-03-desktop.webp",
       mobile: "/assets/products/exm/features/sequence-03-mobile.webp",
       desktop: "/assets/products/exm/features/sequence-03-desktop.webp",
       width: 3373,
       height: 1525,
     },
     {
-      fallback: "/assets/products/exm/features/sequence-04.png",
+      fallback: "/assets/products/exm/features/sequence-04-desktop.webp",
       mobile: "/assets/products/exm/features/sequence-04-mobile.webp",
       desktop: "/assets/products/exm/features/sequence-04-desktop.webp",
       width: 3373,
@@ -33,7 +33,7 @@ const featureAssets = {
     },
   ],
   sound: {
-    fallback: "/assets/products/exm/features/sound-level-camping.jpg",
+    fallback: "/assets/products/exm/features/sound-level-camping-desktop.webp",
     mobile: "/assets/products/exm/features/sound-level-camping-mobile.webp",
     desktop: "/assets/products/exm/features/sound-level-camping-desktop.webp",
     width: 925,

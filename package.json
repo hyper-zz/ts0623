@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:syntax": "node --check src/main.js && node --check src/router.js && node --check src/components/ExmFeatureEffects.js && node --check src/components/CoolingTimerFeature.js && node --check src/components/AntiShakingSection.js && node --check src/components/ProductDetailTemplate.js && node --check scripts/generate-gallery-manifest.mjs && node --check scripts/generate-product-gallery.mjs",
+    "check:manifests": "node scripts/generate-gallery-manifest.mjs && node scripts/generate-product-gallery.mjs",
+    "check": "npm run check:syntax && npm run check:manifests",
     "generate:gallery": "node scripts/generate-product-gallery.mjs",
     "dev": "node scripts/generate-gallery-manifest.mjs && node server.mjs",
     "preview": "node scripts/generate-gallery-manifest.mjs && node server.mjs"

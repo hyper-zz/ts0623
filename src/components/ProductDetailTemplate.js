@@ -357,7 +357,8 @@ function galleryImage({ product, image, imageClass, alt }) {
 function responsiveAssetPath(src, size) {
   const dotIndex = src.lastIndexOf(".");
   if (dotIndex < 0) return src;
-  return `${src.slice(0, dotIndex)}-${size}.webp`.replaceAll(" ", "%20");
+  const basePath = src.slice(0, dotIndex).replace(/-(mobile|desktop)$/i, "");
+  return `${basePath}-${size}.webp`.replaceAll(" ", "%20");
 }
 
 function useCasesSection(product) {
