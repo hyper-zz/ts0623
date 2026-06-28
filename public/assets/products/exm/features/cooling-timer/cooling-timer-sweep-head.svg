@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <defs>
+    <linearGradient id="sweepTrailGradient" x1="150" y1="330" x2="565" y2="124" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#42caff" stop-opacity="0"/>
+      <stop offset="34%" stop-color="#6edfff" stop-opacity="0.72"/>
+      <stop offset="72%" stop-color="#8fefff" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#e9fbff" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="trailBlur0" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="20"/></filter><filter id="trailBlur1" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="4"/></filter><filter id="trailBlur2" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="3"/></filter><filter id="trailBlur3" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="headGlow" x="-120%" y="-120%" width="340%" height="340%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.58  0 0 0 0 0.86  0 0 0 0 1  0 0 0 1 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M 126.91 473.91 A 374.00 374.00 0 0 1 577.76 134.17" stroke="url(#sweepTrailGradient)" stroke-width="58" stroke-linecap="round" opacity="0.92" filter="url(#trailBlur1)"/>
+  <path d="M 134.17 422.24 A 374.00 374.00 0 0 1 577.76 134.17" stroke="#8fefff" stroke-width="18" stroke-linecap="round" opacity="0.78"/>
+  <path d="M 110.15 459.02 A 392.00 392.00 0 0 1 527.34 108.95" stroke="#79e8ff" stroke-width="9" stroke-linecap="round" opacity="0.36" filter="url(#trailBlur2)"/>
+  <path d="M 159.60 427.65 A 348.00 348.00 0 0 1 536.38 153.91" stroke="#dffbff" stroke-width="8" stroke-linecap="round" opacity="0.42" filter="url(#trailBlur2)"/>
+  <circle cx="577.76" cy="134.17" r="18" fill="#dffbff" filter="url(#headGlow)"/>
+  <circle cx="577.76" cy="134.17" r="8" fill="#ffffff"/>
+</svg>

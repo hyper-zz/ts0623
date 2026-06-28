@@ -17,8 +17,40 @@ export const productGallery = {
       "image": "/assets/products/ax/gallery/ax50-side.png"
     }
   ],
-  "exm": [],
-  "b": [],
+  "exm": [
+    {
+      "image": "/assets/products/exm/gallery/1.png"
+    },
+    {
+      "image": "/assets/products/exm/gallery/6.png"
+    },
+    {
+      "image": "/assets/products/exm/gallery/623 拷贝.png"
+    },
+    {
+      "image": "/assets/products/exm/gallery/xj.2.png"
+    },
+    {
+      "image": "/assets/products/exm/gallery/开瓶器更新2.png"
+    }
+  ],
+  "b": [
+    {
+      "image": "/assets/products/b/gallery/1.png"
+    },
+    {
+      "image": "/assets/products/b/gallery/2.png"
+    },
+    {
+      "image": "/assets/products/b/gallery/4.png"
+    },
+    {
+      "image": "/assets/products/b/gallery/b20.png"
+    },
+    {
+      "image": "/assets/products/b/gallery/主图2.jpg"
+    }
+  ],
   "k": [],
   "tf": [],
   "m": [
@@ -35,8 +67,59 @@ export const productGallery = {
       "image": "/assets/products/m/gallery/m45-side.png"
     }
   ],
-  "ex": [],
+  "ex": [
+    {
+      "image": "/assets/products/ex/gallery/2.png"
+    },
+    {
+      "image": "/assets/products/ex/gallery/623 拷贝.png"
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝.png"
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝2.png"
+    },
+    {
+      "image": "/assets/products/ex/gallery/细节图 拷贝3.png"
+    }
+  ],
   "s35": [],
-  "s": [],
-  "d": []
+  "s": [
+    {
+      "image": "/assets/products/S18/gallery/4.png"
+    },
+    {
+      "image": "/assets/products/S18/gallery/5.png"
+    },
+    {
+      "image": "/assets/products/S18/gallery/7.png"
+    },
+    {
+      "image": "/assets/products/S18/gallery/0915 拷贝.png"
+    },
+    {
+      "image": "/assets/products/S18/gallery/S18.20.png"
+    }
+  ],
+  "d": [
+    {
+      "image": "/assets/products/D/gallery/1.png"
+    },
+    {
+      "image": "/assets/products/D/gallery/2.png"
+    },
+    {
+      "image": "/assets/products/D/gallery/D9-in car.png"
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.1 拷贝.png"
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.2 拷贝.png"
+    },
+    {
+      "image": "/assets/products/D/gallery/D9.8.png"
+    }
+  ]
 };

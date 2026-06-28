@@ -96,7 +96,7 @@ export function ProductsPage({ t }) {
       <section class="product-grid reveal">
         ${publicProducts.map(ProductCollectionCard).join("")}
       </section>
-      ${ContactSection({ t })}
+      ${ContactSection({ t, variant: "products" })}
     </main>
   `;
 }

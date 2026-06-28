@@ -41,16 +41,16 @@ export const productImageManifest = {
   "ex": {},
   "exm": {
     "EXM30": {
-      "all-black": "/assets/products/exm/models/exm30-black.jpg",
-      "blue-gray-light-gray": "/assets/products/exm/models/exm30-bluegray&lightgray.png"
+      "all-black": "/assets/products/exm/models/exm30-black-desktop.webp",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm30-bluegray&lightgray-desktop.webp"
     },
     "EXM40": {
-      "all-black": "/assets/products/exm/models/exm40-black.jpg",
-      "blue-gray-light-gray": "/assets/products/exm/models/exm40-bluegray&lightgray.png"
+      "all-black": "/assets/products/exm/models/exm40-black-desktop.webp",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm40-bluegray&lightgray-desktop.webp"
     },
     "EXM50": {
-      "all-black": "/assets/products/exm/models/exm50-black.jpg",
-      "blue-gray-light-gray": "/assets/products/exm/models/exm50-bluegray&lightgray.png"
+      "all-black": "/assets/products/exm/models/exm50-black-desktop.webp",
+      "blue-gray-light-gray": "/assets/products/exm/models/exm50-bluegray&lightgray-desktop.webp"
     }
   },
   "k": {},

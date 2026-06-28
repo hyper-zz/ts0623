@@ -1,41 +1,76 @@
-# Travel Science Website Code Review Brief
+# Travel Science Site Code Review Brief
 
-Use this file as the handoff prompt/context for a full-site GPT code review.
+Use this file as a handoff prompt for ChatGPT or another reviewer. The goal is to find and fix bugs in the current local codebase, not to redesign the site.
 
 ## Review Goal
 
-Review the current Kelvcoop / Travel Science static website code for launch readiness, regression risk, broken navigation, missing assets, inconsistent content architecture, theme bugs, and mobile/Safari issues.
+Review the full Travel Science / Kelvcoop vanilla JavaScript site for regressions, broken routes, mobile/Safari scroll bugs, missing assets, layout overflow, product-detail bugs, theme issues, and interaction bugs.
 
-Do not assume previous implementation intent is correct. Prioritize bugs and launch blockers over style opinions.
+Prioritize real defects and risky edge cases. Avoid broad visual redesign unless it directly fixes a bug.
 
 ## Project Snapshot
 
-- App type: vanilla JavaScript single-page site with hash routing.
+- App type: vanilla JavaScript single-page app using hash routing.
 - Entry point: `src/main.js`
 - Router: `src/router.js`
-- Styles: `src/styles.css`
-- Static server: `server.mjs`
-- Dev command: `npm run dev`
-- Manifest generation: `scripts/generate-gallery-manifest.mjs`
+- Main stylesheet: `src/styles.css`
+- Dev server: `server.mjs`
 - Public assets: `public/assets/`
-- i18n framework exists, but not all product data/copy has been migrated.
+- Dev command: `npm run dev`
+- Gallery generation: `npm run generate:gallery`
+- Product gallery manifest generator used by dev server: `scripts/generate-gallery-manifest.mjs`
 
-## Important Current Git State
+## Current Verification
 
-There are many modified and untracked files. Review should not assume a clean tree.
+Ran:
 
-Notable status items:
+```bash
+for f in $(rg --files src scripts server.mjs | rg '\.(js|mjs)$'); do node --check "$f" || exit 1; done
+npm run generate:gallery
+```
 
-- Modified: `src/components/Header.js`, `src/components/Footer.js`, `src/components/ProductDetailTemplate.js`, `src/pages/*`, `src/data/products.js`, `src/data/galleryManifest.js`, `src/styles.css`, `src/router.js`, `src/utils/navigation.js`
-- Untracked: `src/i18n/`, `src/components/ProductMaterials.js`, `src/data/materials.js`, `content-map.md`
-- Untracked asset folders: `public/assets/products/D/`, `public/assets/products/S18/`, `public/assets/products/b/gallery/`, `public/assets/products/b/models/`, `public/assets/products/ex/`, `public/assets/travel-science-material-library/`
-- Deleted asset: `public/assets/products/b/b25.png`
+Results:
 
-Potential review concern: deleted `b25.png` may still be referenced somewhere. Confirm before launch.
+- JavaScript syntax check passed.
+- `npm run generate:gallery` completed.
+- Generated gallery counts printed:
+  - `gl: 0`
+  - `ax: 4`
+  - `exm: 5`
+  - `b: 5`
+  - `k: 0`
+  - `tf: 0`
+  - `m: 4`
+  - `ex: 5`
+  - `s35: 0`
+  - `s: 5`
+  - `d: 6`
 
-## Public Routes To Verify
+## Current Git State
 
-Hash routes:
+The worktree is dirty. Do not assume all changes are intentional or complete.
+
+Modified:
+
+- `src/components/ContactSection.js`
+- `src/components/Header.js`
+- `src/components/ProductDetailTemplate.js`
+- `src/components/ProductFamily.js`
+- `src/i18n/en.js`
+- `src/main.js`
+- `src/pages/ProductsPage.js`
+- `src/styles.css`
+
+Untracked:
+
+- `src/components/ExmFeatureEffects.js`
+- `public/assets/products/exm/features/`
+
+Important: do not revert unrelated user work. If fixing bugs, scope patches carefully.
+
+## Key Routes To Test
+
+Primary routes:
 
 - `#/`
 - `#/products`
@@ -45,7 +80,7 @@ Hash routes:
 - `#/support`
 - `#/contact`
 
-Product detail routes expected to work:
+Product detail routes:
 
 - `#/products/gl-series`
 - `#/products/m-series`
@@ -57,465 +92,311 @@ Product detail routes expected to work:
 - `#/products/k-series`
 - `#/products/d-series`
 
-Family/category routes expected to work:
+Product family/category routes:
 
 - `#/products/compact-cooling`
 - `#/products/large-capacity`
 - `#/products/dual-zone-storage`
 - `#/products/wheeled-mobility`
 
-Chinese placeholder routes should normalize without breaking English:
+Localized route smoke tests:
 
 - `#/zh`
 - `#/zh/products`
 - `#/zh/support`
 - `#/zh/contact`
-- `#/zh/products/gl-series`
+- `#/zh/products/exm-series`
 
-## Core Architecture
+## Architecture Summary
 
-### Routing
+### `src/main.js`
 
-File: `src/router.js`
+Responsible for:
 
-- `routeWithLocale()` reads `window.location.hash`.
-- `routeLocale()` derives locale with `localeFromPath`.
-- `route()` normalizes localized paths to English route shape.
-- `go(path)` updates `window.location.hash` and treats same localized route as no-op.
-- Product routes are matched with `current.startsWith("/products/")`.
-- If slug matches `productFamilyById`, route renders `ProductFamilyPage`.
-- Otherwise route renders `ProductDetailPage`.
+- Rendering Header, route content, Footer.
+- Applying SEO and text highlighting.
+- Binding navigation after each render.
+- Running `revealSections(app)`.
+- Running `initExmFeatureEffects(app)`.
+- Running protected `heroScrollGate`.
+- Managing mobile nav state, product dropdown state, theme, and current hero slide.
 
-Review risks:
+Risk areas:
 
-- Same-route behavior in `go()` scrolls top even for same anchor/localized path. Check anchor navigation to `#/support#downloads`, `#/support#warranty`, `#/support#spare-parts`.
-- `routeSeo()` returns the global SEO object for most non-product pages. Check if page-specific SEO is required before launch.
+- `render()` rebuilds the whole app with `app.innerHTML`. Any event listener or observer must be cleaned up by its module before rerender.
+- `initExmFeatureEffects(app)` depends on `cleanupExmFeatureEffects` inside `src/components/ExmFeatureEffects.js`; check for leaked scroll listeners after route changes.
+- `window.addEventListener("wheel", heroScrollGate.handleWheel, { passive: false })` is global. It is protected hero logic, but it can still affect scroll behavior if measurement is wrong.
+- `forceScrollPageToTop()` runs on route changes and may fight anchor navigation if route/anchor state is misdetected.
 
-### Header
+### `src/router.js`
 
-File: `src/components/Header.js`
+Responsible for:
 
-Includes:
+- Hash-based routing.
+- Locale normalization.
+- Product family vs product detail routing.
+- Same-route anchor behavior.
 
-- Products hover dropdown on desktop.
-- Products nested panel on mobile.
-- Support hover dropdown on desktop.
-- Support subitems in mobile nav.
-- EN / 中文 language switch.
+Risk areas:
+
+- `go(path)` treats same localized route as no-op and manually scrolls. Recheck same-route anchor links like support downloads/warranty/spare-parts.
+- `routeSeo()` only has special product/family handling; most non-product pages get global SEO.
+
+### `src/utils/navigation.js`
+
+Responsible for:
+
+- Delegated `[data-go]` route clicks.
+- Mobile menu and product submenu toggles.
 - Theme toggle.
+- Desktop product dropdown hover/focus behavior.
+- Product hero model/color image switching.
+- Product image availability validation via `fetch(..., { method: "HEAD" })` fallback to GET.
+- Horizontal scroller controls.
+- Product materials preview interactions.
 
-Review risks:
+Risk areas:
 
-- Mobile product menu currently lists only `EX`, `GL`, `AX`, `TF`, `EXM`, `M`. It omits `B`, `S`, `K`, `D`. Verify whether this is intentional.
-- Desktop Products dropdown duplicates some products across category groups. Verify UX and click targets.
-- Header references product ids and family ids manually. Any future product id rename can break dropdown links.
-- Check keyboard focus behavior for hover dropdowns and mobile menu close behavior.
+- Every render calls `bindNavigation(...)` on the new root. This is okay for DOM listeners on replaced nodes, but global listeners must be removed. Horizontal resize handler is stored on `state.horizontalScrollResizeHandler`; verify it is always removed and replaced.
+- `validateProductImageAvailability()` can issue many HEAD/GET requests on each product detail render. On slow servers this could cause delayed UI changes or console/network noise.
+- Product image availability mutates the parsed image map in `dataset.productImages`; verify this cannot desync model/color controls after repeated route changes.
+- Mobile menu toggle uses a 280ms lock stored in state. Verify rapid tapping cannot leave menu state out of sync with rendered classes.
 
-### Footer
+### `src/components/Header.js`
 
-File: `src/components/Footer.js`
+Responsible for:
 
-Current columns:
+- Desktop product dropdown.
+- Mobile nav/product accordion.
+- Support dropdown.
+- Language switch.
+- Theme toggle.
+- Contact CTA.
 
-- Products
-- Projects
-- Support
-- Follow
-- Company
+Risk areas:
 
-Current Follow links are built from `src/data/socialLinks.js` and filtered to configured URLs only.
+- Product menu groups are manual data inside Header. Product ids or slugs can drift from `src/data/products.js`.
+- Header has both desktop and mobile controls inside the same nav. Check tab order and screen reader behavior.
+- Mobile menu and header fixed positioning have several media query overrides in `src/styles.css`; test at 390px, 768px, 1024px, and 1440px.
 
-Review risks:
+### `src/components/ProductDetailTemplate.js`
 
-- Footer Follow intentionally excludes X even though `socialLinks.js` has X. Confirm product/content requirement.
-- LinkedIn and TikTok do not appear because no real URLs are configured.
-- Privacy Policy and Terms of Use route to `/contact`; this avoids dead links but is not a legal-page substitute.
+Responsible for product detail pages:
 
-### i18n
+- Product hero/model/color selector.
+- Model specifications.
+- EXM-only feature effects.
+- Product Gallery.
+- Materials.
+- Use cases.
+- Certifications.
+- Downloads.
+- Related products.
+- Product Inquiry CTA.
 
-Files:
+Current EXM insertion:
 
-- `src/i18n/index.js`
-- `src/i18n/en.js`
-- `src/i18n/zh.js`
+```js
+${modelSpecifications(product)}
+${product.id === "exm" ? ExmFeatureEffects() : ""}
+${gallerySection(product)}
+```
 
-Current state:
+Risk areas:
 
-- Header, Footer, Home, Support, Contact, Accessories, Community, Custom Projects, and common CTAs have keys.
-- Product data and product specs remain mostly in `src/data/products.js`.
-- Chinese content is partially placeholder/reused English.
+- EXM feature effects should appear only on `product.id === "exm"`.
+- Many labels are hardcoded English even when locale is Chinese.
+- The Product Inquiry copy was recently changed. Reconfirm current copy is:
+  - `PRODUCT INQUIRY`
+  - `Not sure which model fits?`
+  - `Tell us your capacity range, application, or market. We’ll help you find the right series.`
+  - `info@kelvcoop.com`
+- `productHeroState()` embeds JSON into an HTML attribute. Product image paths containing single quotes would break the attribute. Current paths appear safe, but this is fragile.
 
-Review risks:
+## EXM Feature Effects Special Review
 
-- Some components still contain hardcoded English: Product detail template labels, breadcrumb labels, ProductFamilyPage copy, download/request email body, gallery headings, etc.
-- Check whether current Chinese route should show translated page chrome only or whether partial English is acceptable.
+File:
 
-## Product Data And Product Detail
+- `src/components/ExmFeatureEffects.js`
 
-Main file: `src/data/products.js`
+CSS:
 
-Public product ids observed:
+- `src/styles.css`, EXM block around `.exm-feature-effects`, `.exm-sequence-*`, `.exm-cooling-*`, `.exm-sound-*`.
 
-- `gl`
-- `ax`
-- `exm`
-- `b`
-- `k`
-- `tf`
-- `m`
-- `ex`
-- `s35`
-- `s`
-- `d`
+Assets:
 
-Route slug mapping appears near the bottom of `src/data/products.js`:
+- `public/assets/products/exm/features/sequence-01.png`
+- `public/assets/products/exm/features/sequence-02.png`
+- `public/assets/products/exm/features/sequence-03.png`
+- `public/assets/products/exm/features/sequence-04.png`
+- `public/assets/products/exm/features/cooling-effect.jpg`
+- `public/assets/products/exm/features/sound-level-camping.jpg`
 
-- `gl` -> `gl-series`
-- `m` -> `m-series`
-- `ex` -> `ex-series`
-- `exm` -> `exm-series`
-- `b` -> `b-series`
-- `s` -> `s-series`
-- `tf` -> `tf-series`
-- `k` -> `k-series`
-- `d` -> `d-series`
+Current intended behavior:
 
-Review risks:
+- EXM feature appears between Model Specifications and Product Gallery.
+- Sequence reveal is sticky-scroll, scroll progress drives four image opacities.
+- Cooling effect uses IntersectionObserver fade-in.
+- Sound level camping is sticky-scroll, scroll progress drives SVG curve/path, nodes, labels, and mobile copy.
+- Mobile has a dedicated vertical SVG:
+  - `.exm-sound-level__svg--desktop`
+  - `.exm-sound-level__svg--mobile`
+- Mobile must not be a static fallback unless `prefers-reduced-motion: reduce`.
 
-- `s35` exists as product data/model-like entry. Confirm it is not exposed publicly as its own series if the rule is that S Series is public and S35 is model-level only.
-- Confirm KE Series does not appear publicly. Search for `KE`, `ke-series`, and `ke` carefully; do not confuse valid `K Series`.
-- Voltage value was requested to be `DC12/24V AC110～240V`. Search for remaining `DC 12/24V` and verify only Voltage fields were changed, not unrelated Power route copy.
-- Product detail template is not fully i18n-aware.
+Important current implementation notes:
 
-### Product Detail Template
+- `ExmFeatureEffects.js` now uses one passive scroll listener plus `requestAnimationFrame`.
+- EXM feature code should not use `touchmove preventDefault`.
+- EXM feature code should not use fixed lock / lockScrollY / release scroll / scrollTo unlock.
+- Reduced motion shows final state directly.
 
-File: `src/components/ProductDetailTemplate.js`
+Potential bug to check:
 
-Current sections:
+- `renderSound(progress)` stores one global `lastRenderedSoundProgress` for both desktop and mobile paths. This is fine for one mounted EXM section, but if viewport changes across mobile/desktop while the same section remains mounted, state can make flash timing odd. It should not break rendering because path offset still updates when progress changes.
+- In reduced motion, sequence sets only the last image opacity to `1` and earlier images to `0`. This is intentional final state, but confirm the visual is acceptable.
+- In normal mode, sound points are hidden again when progress drops below trigger. Verify CSS transitions do not leave glow animation artifacts after reverse scroll.
+- The sound section height is `220vh` desktop and `220svh` mobile. If the animation feels too fast on mobile, increase height/min-height rather than adding scroll locks.
+- `svh` support is good on modern Safari, but older browsers may need fallback. There is currently no explicit `vh` fallback immediately before every `svh` mobile height.
 
-- Hero / intro
-- Optional statement
-- Model specifications
-- Product gallery
-- Product Materials
-- Usage scenarios
-- Certifications
-- Downloads
-- Related products
-- Product Inquiry CTA
+## CSS Review Hotspots
 
-Recently removed:
+File:
 
-- Core Features / Engineering Details module should no longer render anywhere.
+- `src/styles.css`
 
-Review risks:
+Risk areas:
 
-- Breadcrumb labels are hardcoded English.
-- Related section is hardcoded to `Discover More` and `More Travel Science Systems`.
-- Inquiry CTA is hardcoded in template rather than using `t("productDetail.contact.*")`, even though keys exist in `src/i18n/en.js`.
-- Downloads fallback mailto uses hardcoded English body and `info@kelvcoop.com`.
-- Document links with real files use `download`; external or future hosted docs may need different behavior.
+- Large single CSS file with many overlapping media queries. Later rules can override earlier component-specific rules.
+- Header has fixed positioning and multiple responsive overrides. Confirm it overlays hero without creating top whitespace.
+- Product Family section has been changed from side-by-side to top header + card grid. Confirm mobile scroller/card widths do not conflict with later global media rules.
+- EXM feature uses full-bleed `width: 100vw` and `margin-left: calc(50% - 50vw)`. It also sets `max-width: 100%` and `overflow-x: hidden`; still verify no body horizontal scroll on iPhone widths.
+- Search for `100vw`, `min-width`, large `translate`, and wide absolute images when debugging horizontal overflow.
+- `@media (prefers-reduced-motion: reduce)` sets many EXM elements to visible and transition none. Confirm this does not leak into non-EXM components.
 
-### Materials Module
+## Server Review
 
-Files:
+File:
 
-- `src/components/ProductMaterials.js`
-- `src/data/materials.js`
-- `public/assets/travel-science-material-library/`
+- `server.mjs`
 
-Known requirement:
+Behavior:
 
-- Appearance Parts and Internal Parts should default collapsed on desktop, tablet, and mobile.
-- No viewport-based auto-open logic should remain.
-- User click alone should control expanded state.
+- Serves `/assets/*` from `public/assets`.
+- Serves app routes by falling back to `index.html`.
+- Basic content-type map.
 
-Review risks:
+Risk areas:
 
-- Confirm no resize/model/color change handler reopens material accordions.
-- Verify keyboard accessibility of `<details>`/`summary` rows.
-- Verify mobile accordion content has no horizontal overflow.
+- `safePath` uses `normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, "")`; review path traversal hardening if exposing this server outside local dev.
+- No cache headers. Fine for local/dev, not production.
+- No compression. Fine for local/dev.
 
-## Gallery And Asset Manifests
+## Asset/Data Review
 
-Generator:
-
-- `scripts/generate-gallery-manifest.mjs`
-
-Generated files:
+Important generated files:
 
 - `src/data/galleryManifest.js`
 - `src/data/productImageManifest.js`
 
-Current folder mapping includes:
+Risk areas:
+
+- `src/data/galleryManifest.js` may be regenerated by `scripts/generate-gallery-manifest.mjs` during `npm run dev`, while `npm run generate:gallery` runs a different generator: `scripts/generate-product-gallery.mjs`. Confirm which output is expected to be committed.
+- Some product ids have zero generated galleries (`gl`, `k`, `tf`, `s35`). Verify this is expected or fallback galleries exist in `src/data/products.js`.
+- File names include spaces, Chinese characters, and `&`. The local server handles encoded paths if the browser encodes them, but manually constructed URLs should be checked.
+
+## High-Priority Bug Checklist
+
+1. Mobile Safari / iPhone:
+   - No horizontal body scroll on all main routes.
+   - Header menu opens/closes reliably.
+   - Product Gallery horizontal scrollers still work.
+   - EXM sequence and sound sticky-scroll do not trap scrolling.
+   - Hero scroll gate does not interfere after leaving homepage.
+
+2. EXM product detail:
+   - Feature effects appear only on EXM.
+   - Sequence reveal scrolls naturally and completes.
+   - Cooling fade-in triggers once and text remains readable.
+   - Sound-level path/nodes/copy are scroll-driven, reversible, and not automatic.
+   - Gallery below EXM feature remains reachable.
+
+3. Product configurator:
+   - Model tabs change image.
+   - Color options disable unavailable combinations.
+   - Missing image fallback does not leave all colors unavailable.
+
+4. Routing:
+   - Same-route nav clicks scroll or anchor correctly.
+   - Locale switch preserves product/family page intent.
+   - Unknown product slugs fail gracefully.
+
+5. Theme:
+   - Light/dark mode does not break product detail cards, gallery, header dropdowns, mobile nav, or EXM dark feature block.
+
+## Suggested Manual Test Matrix
+
+Viewports:
+
+- 390 x 844 mobile
+- 430 x 932 mobile
+- 768 x 1024 tablet
+- 1024 x 768 tablet/desktop boundary
+- 1440 x 900 desktop
+
+Pages:
+
+- `#/`
+- `#/products`
+- `#/products/exm-series`
+- `#/products/gl-series`
+- `#/support`
+- `#/contact`
+
+Actions:
+
+- Toggle theme.
+- Switch language EN/中文.
+- Open/close mobile menu.
+- Open mobile Products panel.
+- Use desktop product hover dropdown.
+- Scroll homepage hero to content.
+- Scroll EXM through Specs -> Feature Effects -> Gallery.
+- Scroll EXM sound down and then back up to confirm reversible animation.
+- Use product model/color selector.
+- Use gallery horizontal arrows and swipe/trackpad scroll.
+
+## Commands For Reviewer
+
+```bash
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:4173/#/
+http://localhost:4173/#/products/exm-series
+```
+
+Syntax and generator checks:
+
+```bash
+for f in $(rg --files src scripts server.mjs | rg '\.(js|mjs)$'); do node --check "$f" || exit 1; done
+npm run generate:gallery
+```
+
+Useful searches:
+
+```bash
+rg -n "preventDefault|touchmove|scrollTo|is-locked|position: fixed" src/components/ExmFeatureEffects.js src/styles.css
+rg -n "100vw|min-width|overflow-x|translate\\(" src/styles.css
+rg -n "TODO|FIXME|console\\.log|debugger" src
+rg -n "DC ?12/24|AC ?110|240" src/data src/components
+```
+
+## Known Non-Blocking Context
+
+- `heroScrollGate` is marked protected. Do not modify unless the bug specifically involves homepage hero scroll gating.
+- User has repeatedly requested not to alter Header, hero, Gallery, Specs, or other product pages while fixing EXM feature bugs.
+- EXM feature assets are currently untracked. If deploying, make sure the whole `public/assets/products/exm/features/` directory is included.
 
-- `d: "D"`
-- `s: "S18"`
-
-D9 gallery check:
-
-- Folder: `public/assets/products/D/gallery/`
-- Current files include names with spaces and Chinese characters:
-  - `D9-in car.png`
-  - `D9.1 拷贝.png`
-  - `D9.2 拷贝.png`
-- `src/data/galleryManifest.js` currently includes D gallery entries with those paths.
-
-Review risks:
-
-- Filenames with spaces and non-ASCII characters are currently emitted directly into URLs. Browser support is usually okay, but verify server URL decoding and deployment/CDN behavior.
-- `.DS_Store` files exist in asset folders and should be excluded from deployment if possible.
-- `productImageManifest.js` may be empty for products without `/models` assets. Verify hero image fallback works for every product.
-- Check all image paths referenced in `src/data/products.js`, `src/i18n/en.js`, `src/data/heroSlides.js`, and service cards.
-
-## Social Links
-
-Data file: `src/data/socialLinks.js`
-
-Real configured URLs:
-
-- Facebook
-- Instagram
-- X
-
-Missing real URLs:
-
-- LinkedIn
-- TikTok
-
-Current Contact page behavior:
-
-- File: `src/pages/ContactPage.js`
-- Renders visual cards for LinkedIn, Facebook, Instagram, TikTok, X.
-- Facebook, Instagram, X are links.
-- LinkedIn and TikTok are disabled visual cards with no `href`.
-
-Review risks:
-
-- Confirm disabled social cards are acceptable; earlier requirements often said not to show empty/fake links.
-- Footer Follow filters missing social URLs out, so Contact and Footer are intentionally inconsistent.
-- Social icons are local inline SVG, not `react-icons`.
-
-## Page-Specific Review Notes
-
-### Home
-
-Files:
-
-- `src/pages/HomePage.js`
-- `src/data/heroSlides.js`
-- `src/components/HeroCarousel.js`
-- `src/utils/heroScrollGate.js`
-- `src/i18n/en.js`
-
-Known protected behavior:
-
-- Do not break normal hero scroll gate behavior.
-- Screenshot mode CSS exists for full-page captures.
-
-Review risks:
-
-- Home hero uses scroll-gated/sticky behavior. Check iPhone Safari scroll lock, fullPage screenshot mode, and reduced motion.
-- `HERO_SLIDE_INTERVAL` appears set to `null`; verify intended non-autoplay behavior.
-- Check service card images fill their containers without gray inner padding.
-
-### Products Page
-
-Files:
-
-- `src/pages/ProductsPage.js`
-- `src/components/ProductCard.js`
-- `src/data/products.js`
-
-Expected display order:
-
-1. GL Series
-2. M Series
-3. EX Series
-4. EXM Series
-5. B Series
-6. S Series
-7. TF Series
-8. K Series
-9. D Series
-
-Review risks:
-
-- Ensure Products page does not expose AX or S35 as public collection cards if not intended.
-- Ensure KE Series is absent.
-- Confirm capacity/model-count text matches product data.
-
-### Accessories
-
-Files:
-
-- `src/pages/AccessoriesPage.js`
-- `public/assets/services/gallery/`
-
-Current top section should be a horizontal gallery-style scroller with no right-side text block.
-
-Review risks:
-
-- Some asset filenames are Chinese (`烟线.png`, `电池.jpg`, `适配器.png`). Confirm deployment compatibility.
-- Verify gallery cards/swipe behavior on mobile.
-
-### Community
-
-Files:
-
-- `src/pages/CommunityPage.js`
-- `src/data/socialCrew.js`
-- `src/styles.css`
-
-Current structure:
-
-- Hero image full background with subtle overlay.
-- CTA text and paper plane.
-- Platform cards for TikTok, Instagram, LinkedIn, Facebook & X.
-
-Review risks:
-
-- `socialCrew.js` has empty link arrays for TikTok and LinkedIn. Confirm buttons are hidden/disabled correctly and no `href="#"` remains.
-- Verify uploaded official icons render without circular wrappers.
-- Confirm mobile horizontal card layout has no overflow.
-
-### Custom Projects
-
-Files:
-
-- `src/pages/CustomProjectsPage.js`
-- `src/i18n/en.js`
-
-Current content positions the page as product development/private-mould capability.
-
-Review risks:
-
-- The page intentionally uses British spelling: `customisation`, `private-mould`.
-- Verify CTA route attributes honor `/zh` prefixes.
-
-### Support
-
-Files:
-
-- `src/pages/SupportPage.js`
-- `src/i18n/en.js`
-
-Current sections:
-
-- Hero
-- Service Philosophy
-- Spare Parts Program
-- Support Q&A
-- Downloads accordion
-- Support Request CTA
-
-Required anchors:
-
-- `id="warranty"`
-- `id="spare-parts"`
-- `id="downloads"`
-
-Review risks:
-
-- Verify Support dropdown anchors scroll correctly after route render.
-- Downloads accordion uses disabled buttons if URLs are missing. Confirm accessibility and no fake `href`.
-- Downloads list should use real series list: AX, B, GL / M, EX / EXM, D, K, S, TF.
-
-### Contact
-
-Files:
-
-- `src/pages/ContactPage.js`
-- `src/data/socialLinks.js`
-- `src/styles.css`
-
-Current structure:
-
-- Main contact hero with email.
-- Follow Travel Science social section.
-
-Review risks:
-
-- The Contact social area shows disabled LinkedIn/TikTok visual cards because no real URL exists.
-- If launch requires clickable LinkedIn/TikTok, add real URLs to `src/data/socialLinks.js`.
-
-## Theme And CSS Review Areas
-
-File: `src/styles.css`
-
-Important areas:
-
-- Header around `/* Header */`
-- Product detail theme variables near `.product-page`
-- Product materials styles
-- Community platform cards
-- Contact social cards
-- Footer around `/* Footer */`
-- Mobile media queries near bottom
-
-Review risks:
-
-- `color-mix()` is used in CSS. Check target browser support, especially older Safari.
-- Product detail light theme was recently adjusted. Verify all product pages in light and dark modes.
-- Check mobile overflow caused by horizontal galleries, product materials, contact social cards, footer accordions, and product specs.
-- Check reveal animation classes with screenshot mode and reduced motion.
-
-## Accessibility Review Checklist
-
-Check:
-
-- Header dropdowns are keyboard reachable.
-- Mobile menu buttons have correct `aria-expanded`.
-- Theme toggle has correct `aria-pressed`.
-- Social disabled cards are not focusable and do not masquerade as links.
-- Product model/color buttons expose selected state with `aria-pressed`.
-- Material accordions use semantic `details/summary` or equivalent keyboard-friendly controls.
-- Download accordion rows are buttons or keyboard-operable controls.
-- Images have useful `alt`; decorative images use empty alt where appropriate.
-- Mailto CTAs have clear accessible names.
-
-## Launch Readiness Checklist
-
-Critical before launch:
-
-- Verify all public routes render and back/forward works.
-- Verify all product detail routes render and Product page cards navigate correctly.
-- Verify no public KE Series references remain.
-- Verify K Series remains public.
-- Verify no missing critical assets, especially deleted `public/assets/products/b/b25.png`.
-- Confirm social link policy: either add real LinkedIn/TikTok URLs or accept disabled Contact cards and hidden Footer items.
-- Verify footer legal links routing to Contact is acceptable.
-- Verify product voltage values are consistently displayed as `DC12/24V AC110～240V` where required.
-
-Should fix before launch:
-
-- Add page-specific SEO for main pages beyond products.
-- Reduce hardcoded English in product detail template if Chinese route is meant to be user-facing.
-- Remove `.DS_Store` from asset folders and prevent future commits.
-- Verify Safari/iPhone behavior for scroll gate and horizontal scrollers.
-- Confirm all image filenames with spaces/non-ASCII survive production hosting.
-
-Nice to fix later:
-
-- Consolidate inline social SVGs into a shared icon helper.
-- Move more product detail labels into i18n.
-- Add a real legal page for Privacy Policy and Terms of Use.
-- Add automated smoke test for public routes and product routes.
-
-## Suggested GPT Review Prompt
-
-Please review this Travel Science website codebase for launch readiness. Start with findings, ordered by severity. Focus on bugs, broken navigation, missing assets, accessibility issues, mobile/Safari risks, theme inconsistencies, SEO gaps, and data/content inconsistencies. Do not recommend broad rewrites unless necessary. Pay special attention to:
-
-- hash routing and `/zh` route normalization
-- Header Products and Support dropdowns
-- Product detail route slug mapping
-- KE Series absence and K Series presence
-- S Series vs S18/S35 naming logic
-- gallery manifest consistency with `public/assets`
-- social links and disabled social cards
-- Product Detail light/dark theme consistency
-- Hero scroll gate and screenshot mode
-- mobile overflow and accordion behavior
-- current dirty git state and untracked assets
-
-When reporting issues, include file paths and the smallest recommended fix.

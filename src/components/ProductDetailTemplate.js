@@ -1,4 +1,5 @@
 import { ProductMaterials } from "./ProductMaterials.js";
+import { ExmFeatureEffects } from "./ExmFeatureEffects.js";
 import { galleryManifest } from "../data/galleryManifest.js";
 import { productImageManifest } from "../data/productImageManifest.js";
 import { productHeadline, productIntro, productPath } from "../data/products.js";
@@ -24,7 +25,7 @@ export function ProductDetailTemplate({ product, related = [], t }) {
           ${colorSelector(product)}
         </div>
         <div class="product-hero-media product-config-visual">
-          <img class="${product.id === "gl" ? "gl-product-hero-image" : ""}" data-product-hero-image src="${productHeroImage(product)}" alt="${product.alt || product.name}">
+          ${productHeroMedia(product)}
         </div>
       </section>
 
@@ -35,6 +36,7 @@ export function ProductDetailTemplate({ product, related = [], t }) {
       ` : ""}
 
       ${modelSpecifications(product)}
+      ${product.id === "exm" ? ExmFeatureEffects() : ""}
       ${gallerySection(product)}
       ${ProductMaterials({ product })}
       ${useCasesSection(product)}
@@ -73,6 +75,13 @@ function productHeroImage(product) {
   const imageMap = productImageMap(product);
   const { model, color } = resolveProductSelection(product);
   return productImageForVariant(imageMap, model, color) || product.image;
+}
+
+function productHeroMedia(product) {
+  const className = product.id === "gl" ? "gl-product-hero-image" : "";
+  const image = productHeroImage(product);
+  const loadingAttributes = product.id === "exm" ? ` loading="eager" decoding="async"` : "";
+  return `<img class="${className}" data-product-hero-image src="${image}" alt="${product.alt || product.name}"${loadingAttributes}>`;
 }
 
 function productImageMap(product) {
@@ -292,17 +301,25 @@ function gallerySection(product) {
   `;
   const cards = gallery
     .map(
-      (item) => `
+      (item) => {
+        const image = item.src || item.image;
+        return `
         <article${cardClass}>
           <div class="gl-product-gallery-image-frame">
-            <img${imageClass} src="${item.src || item.image}" alt="${item.alt || item.title || product.name}" draggable="false" onerror="this.closest('article')?.remove()">
+            ${galleryImage({
+              product,
+              image,
+              imageClass,
+              alt: item.alt || item.title || product.name,
+            })}
           </div>
           <div class="gl-product-gallery-body">
             ${item.title ? `<h3>${item.title}</h3>` : ""}
             ${item.text ? `<p>${item.text}</p>` : ""}
           </div>
         </article>
-      `,
+      `;
+      },
     )
     .join("");
 
@@ -323,17 +340,43 @@ function gallerySection(product) {
   `;
 }
 
+function galleryImage({ product, image, imageClass, alt }) {
+  if (product.id !== "exm") {
+    return `<img${imageClass} src="${image}" alt="${alt}" draggable="false" onerror="this.closest('article')?.remove()">`;
+  }
+
+  return `
+    <picture style="display: contents">
+      <source media="(max-width: 767px)" srcset="${responsiveAssetPath(image, "mobile")}" type="image/webp">
+      <source media="(min-width: 768px)" srcset="${responsiveAssetPath(image, "desktop")}" type="image/webp">
+      <img${imageClass} src="${image}" alt="${alt}" draggable="false" loading="lazy" decoding="async" width="4500" height="2811" onerror="this.closest('article')?.remove()">
+    </picture>
+  `;
+}
+
+function responsiveAssetPath(src, size) {
+  const dotIndex = src.lastIndexOf(".");
+  if (dotIndex < 0) return src;
+  return `${src.slice(0, dotIndex)}-${size}.webp`.replaceAll(" ", "%20");
+}
+
 function useCasesSection(product) {
   if (!product.useCases?.length) return "";
 
   return `
-    <section class="product-section reveal">
-      <div class="section-heading">
+    <section class="product-section product-usage-scenarios usage-open reveal">
+      <div class="section-heading usage-open-heading">
         <p class="kicker">Usage scenarios</p>
-        <h2>${product.useCasesHeading || "Made for longer routes."}</h2>
+        <h2>${withAccentPeriod(product.useCasesHeading || "Made for longer routes.")}</h2>
       </div>
-      <div class="use-case-grid">
-        ${product.useCases.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p></article>`).join("")}
+      <div class="use-case-grid usage-open-grid">
+        ${product.useCases.map((item, index) => `
+          <article class="usage-open-item">
+            <div class="usage-open-index">${String(index + 1).padStart(2, "0")}</div>
+            <h3>${item.title}</h3>
+            <p>${withAccentPeriod(item.text)}</p>
+          </article>
+        `).join("")}
       </div>
     </section>
   `;

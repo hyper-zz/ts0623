@@ -1,5 +1,6 @@
 import { Footer } from "./components/Footer.js";
 import { Header } from "./components/Header.js";
+import { initExmFeatureEffects } from "./components/ExmFeatureEffects.js";
 import { heroSlides } from "./data/heroSlides.js";
 import { renderRoute, route, routeAnchor, routeLocale, routeSeo } from "./router.js";
 import { applySeo, highlightPeriods, revealSections } from "./utils/dom.js";
@@ -144,6 +145,7 @@ function render() {
   });
 
   revealSections(app);
+  initExmFeatureEffects(app);
   updateHeaderMode();
   heroScrollGate.setup();
   heroScrollGate.requestUpdate();

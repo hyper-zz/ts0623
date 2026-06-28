@@ -20,6 +20,7 @@ const productFolders = {
   tf: "tf",
 };
 const extensionPreference = [".png", ".jpg", ".jpeg", ".webp", ".svg"];
+const responsiveDerivativePattern = /-(mobile|desktop)\.webp$/i;
 const colorSlugAliases = {
   "all-black": ["black"],
   "black-gray": ["blackgrey"],
@@ -67,6 +68,7 @@ async function galleryItemsFor(folderName) {
     .map((entry) => entry.name)
     .filter((name) => !name.startsWith("."))
     .filter((name) => imageExtensions.has(extname(name).toLowerCase()))
+    .filter((name) => !responsiveDerivativePattern.test(name))
     .sort(sortByName)
     .map((name) => ({
       image: `/assets/products/${folderName}/gallery/${name}`,
@@ -101,6 +103,14 @@ function modelImageFor(fileLookup, folderName, model, color) {
   const modelSlug = slugify(model);
 
   for (const colorSlug of colorSlugCandidates(color)) {
+    if (folderName === "exm") {
+      const responsiveFileName = `${modelSlug}-${colorSlug}-desktop.webp`;
+      const matchedResponsiveFileName = fileLookup.get(responsiveFileName);
+      if (matchedResponsiveFileName) {
+        return `/assets/products/${folderName}/models/${matchedResponsiveFileName}`;
+      }
+    }
+
     for (const extension of extensionPreference) {
       const fileName = `${modelSlug}-${colorSlug}${extension}`;
       const matchedFileName = fileLookup.get(fileName);

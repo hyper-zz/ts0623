@@ -124,67 +124,69 @@ function languageSwitch(locale) {
 export function Header({ theme, locale = "en", menuOpen, mobileProductsOpen = false, productsOpen = false, headerMode = "hero" }) {
   return `
     <header class="site-header ${headerMode === "hero" ? "is-over-hero" : "is-over-content"} ${menuOpen ? "is-menu-open" : ""} ${productsOpen ? "is-products-open" : ""}">
-      <a class="brand" ${navAttrs(locale, "/")} aria-label="${translate(locale, "nav.homeAria")}">
-        <span class="brand-mark"><img src="/assets/brand/k-icon.svg" alt=""></span>
-        <span class="brand-text">
-          <strong>TRAVEL <span>S</span>CIENCE</strong>
-          <small>Outdoor Technology <em>by Kelvcoop</em></small>
-        </span>
-      </a>
-      <nav class="nav mobile-nav-panel ${menuOpen ? "is-open" : ""}" aria-label="${translate(locale, "nav.primaryNavigation")}">
-        <div class="mobile-nav-scroll">
-          <div class="nav-product nav-item nav-item-products" data-products-menu-zone>
-            <a class="nav-link nav-product-trigger desktop-products-link" ${navAttrs(locale, "/products")} data-products-trigger aria-haspopup="true" aria-expanded="${productsOpen ? "true" : "false"}">${translate(locale, "nav.products")}</a>
-            <button class="nav-link mobile-products-toggle" type="button" data-mobile-products-toggle aria-expanded="${mobileProductsOpen ? "true" : "false"}">${translate(locale, "nav.products")}</button>
-            <div class="products-hover-bridge" data-products-bridge aria-hidden="true"></div>
-            <div class="product-dropdown products-dropdown ${productsOpen ? "is-open" : ""}" data-products-dropdown aria-label="${translate(locale, "nav.productSeries")}">
-              <div class="product-dropdown-inner products-dropdown-inner">
-                <div class="products-menu">
-                  <div class="products-menu-heading">
-                    <strong>${translate(locale, "nav.products")}</strong>
-                    <span>${translate(locale, "nav.productsIntro")}</span>
-                  </div>
-                  <div class="products-menu-grid">
-                    ${productMenuGroups.map((group) => `
-                      <section class="products-menu-group">
-                        ${productMenuGroupHeading(group, locale)}
-                        <p>${translate(locale, group.descriptionKey)}</p>
-                        <div class="products-menu-items">
-                          ${group.items.map((item) => productMenuItem(item, locale)).join("")}
-                        </div>
-                      </section>
-                    `).join("")}
+      <div class="site-header__shell">
+        <a class="header-brand brand" ${navAttrs(locale, "/")} aria-label="${translate(locale, "nav.homeAria")}">
+          <span class="brand-mark"><img src="/assets/brand/k-icon.svg" alt=""></span>
+          <span class="brand-text">
+            <strong>TRAVEL <span>S</span>CIENCE</strong>
+            <small>Outdoor Technology <em>by Kelvcoop</em></small>
+          </span>
+        </a>
+        <nav class="header-nav nav mobile-nav-panel ${menuOpen ? "is-open" : ""}" aria-label="${translate(locale, "nav.primaryNavigation")}">
+          <div class="mobile-nav-scroll">
+            <div class="nav-product nav-item nav-item-products" data-products-menu-zone>
+              <a class="nav-link nav-product-trigger desktop-products-link" ${navAttrs(locale, "/products")} data-products-trigger aria-haspopup="true" aria-expanded="${productsOpen ? "true" : "false"}">${translate(locale, "nav.products")}</a>
+              <button class="nav-link mobile-products-toggle" type="button" data-mobile-products-toggle aria-expanded="${mobileProductsOpen ? "true" : "false"}">${translate(locale, "nav.products")}</button>
+              <div class="products-hover-bridge" data-products-bridge aria-hidden="true"></div>
+              <div class="product-dropdown products-dropdown ${productsOpen ? "is-open" : ""}" data-products-dropdown aria-label="${translate(locale, "nav.productSeries")}">
+                <div class="product-dropdown-inner products-dropdown-inner">
+                  <div class="products-menu">
+                    <div class="products-menu-heading">
+                      <strong>${translate(locale, "nav.products")}</strong>
+                      <span>${translate(locale, "nav.productsIntro")}</span>
+                    </div>
+                    <div class="products-menu-grid">
+                      ${productMenuGroups.map((group) => `
+                        <section class="products-menu-group">
+                          ${productMenuGroupHeading(group, locale)}
+                          <p>${translate(locale, group.descriptionKey)}</p>
+                          <div class="products-menu-items">
+                            ${group.items.map((item) => productMenuItem(item, locale)).join("")}
+                          </div>
+                        </section>
+                      `).join("")}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="mobile-products-panel ${mobileProductsOpen ? "is-open" : ""}" aria-label="${translate(locale, "nav.mobileProductSeries")}">
-              <a class="mobile-products-view-all" ${navAttrs(locale, "/products")}>${translate(locale, "nav.viewAllProducts")} <span aria-hidden="true">&rarr;</span></a>
-              <div class="mobile-products-list">
-                ${mobileProductMenuItems.map((item) => mobileProductMenuItem(item, locale)).join("")}
+              <div class="mobile-products-panel ${mobileProductsOpen ? "is-open" : ""}" aria-label="${translate(locale, "nav.mobileProductSeries")}">
+                <a class="mobile-products-view-all" ${navAttrs(locale, "/products")}>${translate(locale, "nav.viewAllProducts")} <span aria-hidden="true">&rarr;</span></a>
+                <div class="mobile-products-list">
+                  ${mobileProductMenuItems.map((item) => mobileProductMenuItem(item, locale)).join("")}
+                </div>
               </div>
             </div>
-          </div>
-          <a ${navAttrs(locale, "/custom-projects")}>${translate(locale, "nav.customProjects")}</a>
-          <div class="nav-support nav-item">
-            <a class="nav-link nav-support-trigger" ${navAttrs(locale, "/support")} aria-haspopup="true">${translate(locale, "nav.support")}</a>
-            <div class="support-dropdown" aria-label="${translate(locale, "nav.supportMenu")}">
-              ${supportMenuItems.map((item) => supportMenuItem(item, locale)).join("")}
+            <a ${navAttrs(locale, "/custom-projects")}>${translate(locale, "nav.customProjects")}</a>
+            <div class="nav-support nav-item">
+              <a class="nav-link nav-support-trigger" ${navAttrs(locale, "/support")} aria-haspopup="true">${translate(locale, "nav.support")}</a>
+              <div class="support-dropdown" aria-label="${translate(locale, "nav.supportMenu")}">
+                ${supportMenuItems.map((item) => supportMenuItem(item, locale)).join("")}
+              </div>
+              <div class="mobile-support-panel" aria-label="${translate(locale, "nav.mobileSupportLinks")}">
+                ${supportMenuItems.map((item) => supportMenuItem(item, locale)).join("")}
+              </div>
             </div>
-            <div class="mobile-support-panel" aria-label="${translate(locale, "nav.mobileSupportLinks")}">
-              ${supportMenuItems.map((item) => supportMenuItem(item, locale)).join("")}
+            <div class="mobile-language-switch">
+              ${languageSwitch(locale)}
             </div>
           </div>
-          <div class="mobile-language-switch">
-            ${languageSwitch(locale)}
-          </div>
+        </nav>
+        <div class="header-actions nav-actions">
+          ${languageSwitch(locale)}
+          <button class="theme-button" data-theme-toggle aria-label="${translate(locale, "theme.toggle")}" aria-pressed="${theme === "dark"}">${theme === "light" ? translate(locale, "theme.dark") : translate(locale, "theme.light")}</button>
+          <a class="nav-cta" ${navAttrs(locale, "/contact")}>${translate(locale, "nav.contact")}</a>
+          <button class="menu-button mobile-menu-toggle ${menuOpen ? "is-open" : ""}" type="button" data-menu-toggle aria-label="${menuOpen ? translate(locale, "nav.closeMenu") : translate(locale, "nav.openMenu")}" aria-expanded="${menuOpen ? "true" : "false"}"><span></span><span></span></button>
         </div>
-      </nav>
-      <div class="nav-actions">
-        ${languageSwitch(locale)}
-        <button class="theme-button" data-theme-toggle aria-label="${translate(locale, "theme.toggle")}" aria-pressed="${theme === "dark"}">${theme === "light" ? translate(locale, "theme.dark") : translate(locale, "theme.light")}</button>
-        <a class="nav-cta" ${navAttrs(locale, "/contact")}>${translate(locale, "nav.contact")}</a>
-        <button class="menu-button mobile-menu-toggle ${menuOpen ? "is-open" : ""}" type="button" data-menu-toggle aria-label="${menuOpen ? translate(locale, "nav.closeMenu") : translate(locale, "nav.openMenu")}" aria-expanded="${menuOpen ? "true" : "false"}"><span></span><span></span></button>
       </div>
     </header>
   `;

@@ -88,7 +88,7 @@ export const en = {
     families: {
       aria: "Product families",
       kicker: "Product families",
-      title: "Choose the right solution for your needs.",
+      title: "What are you looking for?",
       openPrefix: "Open",
       cards: [
         {
@@ -161,6 +161,13 @@ export const en = {
       kicker: "GET IN TOUCH",
       title: "Let's talk.",
       copy: "Whether you're sourcing, customizing, or expanding your product line,\nwe're ready when you are.",
+    },
+  },
+  products: {
+    contact: {
+      kicker: "PRODUCT INQUIRY",
+      title: "Not sure which model fits?",
+      copy: "Tell us your capacity range, application, or market. We’ll help you find the right series.",
     },
   },
   support: {
